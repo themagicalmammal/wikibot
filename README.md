@@ -16,9 +16,8 @@ Permissions before copying, modifying or deploying are required.
 
 ## License
 
-### This is under GNUGPL v3.0.
-[![License: MIT](https://github.com/DevilDipan/Wiki-Bot/blob/master/LICENSE)
-
+### This is under MIT License.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/DevilDipan/Wiki-Bot/blob/master/LICENSE)
 ## Installation
 
 1.	Python latest – python 3.7.3
