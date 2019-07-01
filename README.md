@@ -6,13 +6,34 @@ This is a Wikipedia bot made using web scrapping.
 3. Then copy the token api to program and run it.
 4. Enjoy!!!
 
+The source code is reserved don't use this code without forking it.
+
+# Info
+
+<p float="centre">
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-131459.jpg" width="350" />
+<p>
+  
 ## Deploy to Heroku
 
-You can deploy this app yourself to Heroku to play with.
+You can deploy this app yourself to Heroku to play with and lookup the info easy right!
 
+## Commands
+  /start <br>
+  /defination <br>
+  /url <br>
+  /howtouse <br>
+  /Methods <br> 
+  /Typetheword <br>
+  /title <br>
+  /helptitle <br> <br>
+ Note - Using this commands you can navigate the bot but if you dont want this you can directly use it the bot will instruct you 
+ wisely. <br>
+ 
 ## Permissions
 
 Permissions before copying, modifying or deploying are required.
+**Title Engine modification should not be done it will break the code.**
 
 ## License
 
