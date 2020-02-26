@@ -19,44 +19,34 @@ The source code is reserved don't use this code without forking it.
 You can deploy this app yourself to Heroku to play with and lookup the info easy right!
 
 ## Commands
-  /start <br>
-  /defination <br>
-  /url <br>
-  /howtouse <br>
-  /Methods <br> 
-  /Typetheword <br>
-  /title <br>
-  /helptitle <br> <br>
+```python
+  /start
+  /defination
+  /url
+  /howtouse
+  /Methods
+  /Typetheword
+  /title
+  /helptitle
+ ```
  Note - Using this commands you can navigate the bot but if you dont want this you can directly use it the bot will instruct you 
  wisely. <br>
  
 ## Permissions
-
-Permissions before copying, modifying or deploying are required.
-**Title Engine modification should not be done it will break the code.**
+To use this **please fork it** to respect the developer. <br>
+**Title Engine modification would definitely break the code.**
 
 ## License
-
 ### This is under MIT License.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/DevilDipan/Wiki-Bot/blob/master/LICENSE)
 ## Installation
 
-1.	Python latest – python 3.7.3
-2.	Jetbrains Pycharm(IDE) – v2019.1
-
-## Trick to install Django in proxy based systems
-
-pip install --proxy http://user:password@proxyserver:port Django
-
-## Trick to use runserver in a different port
-
-python manage.py runserver ip:port
+1.	Python latest – python 3.8.1
+2.	Jetbrains Pycharm(IDE) – v2019.3.3
 
 ## Python Dependencies
 
-Install the [Requirements.txt](https://github.com/DevilDipan/Wiki-Bot/blob/master/Requirments.txt)
-
-**pip install requirements.txt**
+**pip install [requirements.txt](https://github.com/DevilDipan/Wiki-Bot/blob/master/Requirments.txt)**
 
 ## Screenshots
 
