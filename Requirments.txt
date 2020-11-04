@@ -8,7 +8,7 @@ pylint
 flaky
 yapf
 pre-commit
-pytest==4.2.0
+pytest==6.1.2
 pytest-timeout
 wheel
 python-telegram-bot
