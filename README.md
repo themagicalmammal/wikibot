@@ -37,8 +37,9 @@ A simple Telegram Bot which uses web scrapping to search words and index's.
 Python & Pycharm
 
 ## Python Dependencies
+Gets the requirements file [here](https://github.com/DevilDipan/Wiki-Bot/blob/master/Requirments.txt).
 ```python
-pip install [requirements.txt](https://github.com/DevilDipan/Wiki-Bot/blob/master/Requirments.txt)
+pip install requirements.txt
  ```
 
 ## Screenshots
