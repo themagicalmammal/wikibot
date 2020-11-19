@@ -37,21 +37,21 @@ A simple Telegram Bot which uses web scrapping to search words and index's.
 Python & Pycharm
 
 ## Python Dependencies
-Gets the requirements file [here](https://github.com/DevilDipan/Wiki-Bot/blob/master/Requirments.txt).
+Get the Requirements file [here](https://github.com/DevilDipan/Wiki-Bot/blob/master/Requirments.txt).
 ```python
 pip install requirements.txt
  ```
 
 ## Screenshots
 <p float="left">
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115702.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115710.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115718.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115724.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115729.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115734.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115757.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115819.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115834.jpg" width="285" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115844.jpg" width="285" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115702.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115710.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115718.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115724.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115729.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115734.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115757.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115819.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115834.jpg" width="260" />
+  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115844.jpg" width="260" />
 </p>
