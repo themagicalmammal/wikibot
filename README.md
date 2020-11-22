@@ -3,10 +3,13 @@ A simple Telegram Bot which uses web scrapping to search words and index's.
 
 ## Steps
 1. Install the [Requirments.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/Requirments.txt).
+```python
+pip install requirements.txt
+ ```
 2. Create a new bot in telegram.
-3. Paste it's token API.
-3. Run it.
-**Note:- Title Engine modification would definitely break the code.**
+3. Paste the token API
+3. Run it <br />
+**Note -** Title Engine modification would definitely break the code.
 
 ##  Info
 <p float="centre">
@@ -33,15 +36,6 @@ A simple Telegram Bot which uses web scrapping to search words and index's.
 ## License
 ### This is under MIT License.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/wiki_telebot/blob/master/LICENSE)
-
-## What I used?
-Python & Pycharm
-
-## Python Dependencies
-Get the Requirements file [here](https://github.com/themagicalmammal/wiki_telebot/blob/master/Requirments.txt).
-```python
-pip install requirements.txt
- ```
 
 ## Screenshots
 <p float="left">
