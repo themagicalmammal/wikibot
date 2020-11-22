@@ -2,8 +2,7 @@ import time
 import telebot
 import wikipedia
 
-bot_token = '839689662:AAE9qqHqENfAZs8SvFYOXQPa6YvERXKk7HU'#use your own token its free
-
+bot_token = ''#Paste the Token API
 bot = telebot.TeleBot(token=bot_token)
 
 @bot.message_handler(commands=['start'])

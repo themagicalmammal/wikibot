@@ -2,14 +2,15 @@
 A simple Telegram Bot which uses web scrapping to search words and index's.
 
 ## Steps
-1. Install the Requirements.txt.
-2. After create a new bot in telegram and copy the token API.
-3. Then copy the token api to program and run it.
+1. Install the [Requirments.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/Requirments.txt).
+2. Create a new bot in telegram.
+3. Paste it's token API.
+3. Run it.
 **Note:- Title Engine modification would definitely break the code.**
 
 ##  Info
 <p float="centre">
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-131459.jpg" width="350" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-131459.jpg" width="350" />
 <p>
 
 ## Commands
@@ -31,27 +32,27 @@ A simple Telegram Bot which uses web scrapping to search words and index's.
 
 ## License
 ### This is under MIT License.
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/DevilDipan/Wiki-Bot/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/wiki_telebot/blob/master/LICENSE)
 
 ## What I used?
 Python & Pycharm
 
 ## Python Dependencies
-Get the Requirements file [here](https://github.com/DevilDipan/Wiki-Bot/blob/master/Requirments.txt).
+Get the Requirements file [here](https://github.com/themagicalmammal/wiki_telebot/blob/master/Requirments.txt).
 ```python
 pip install requirements.txt
  ```
 
 ## Screenshots
 <p float="left">
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115702.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115710.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115718.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115724.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115729.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115734.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115757.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115819.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115834.jpg" width="260" />
-  <img src="https://github.com/DevilDipan/Wiki-Bot/blob/master/images/Screenshot_20190701-115844.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115702.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115710.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115718.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115724.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115729.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115734.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115757.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115819.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115834.jpg" width="260" />
+  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115844.jpg" width="260" />
 </p>
