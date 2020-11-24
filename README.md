@@ -5,11 +5,14 @@
 A simple Telegram Bot which uses web scrapping based wikipedia library to search definations, title's and url's.
 
 ## Contents
+
 ### 1. [Information](https://github.com/themagicalmammal/wiki_telebot#info)
 
 ### 2. [Deploy](https://github.com/themagicalmammal/wiki_telebot#deployment)
 
-### 3. [Commands](https://github.com/themagicalmammal/wiki_telebot#bot-commands)
+### 3. [GUI](https://github.com/themagicalmammal/wiki_telebot#gui)
+
+### 4. [Commands](https://github.com/themagicalmammal/wiki_telebot#bot-commands)
 - **[Help](https://github.com/themagicalmammal/wiki_telebot#1-help)**
 - **[How2Use](https://github.com/themagicalmammal/wiki_telebot#2-how-to-use)**
 - **[Definition](https://github.com/themagicalmammal/wiki_telebot#3-definition)**
@@ -27,7 +30,10 @@ Make a bot on telegram with [BotFather](https://telegram.me/BotFather), import t
 **2.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE) <br />
 You can deploy it in Heroku or run it on your local pc. <br /> <br />
 
-**Note**:- The GUI.py version generates a GUI but this might have bugs, you can make a exe or a appimage for this. <br />
+## GUI
+I have already created a GUI but since you might be in a different platform than me. That's why you can build it according to your platform. <br />
+The GUI looks like this, <br />
+![GUI](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/GUI.PNG)
 
 ## Bot Commands
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/themagicalmammal/wiki_telebot/search?l=python)
