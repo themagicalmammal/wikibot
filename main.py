@@ -2,7 +2,7 @@ import time
 import telebot
 import wikipedia
 
-bot_token = ''#Paste the Token API
+bot_token = '' # Paste the Token API
 bot = telebot.TeleBot(token=bot_token)
 
 @bot.message_handler(commands=['start'])

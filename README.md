@@ -2,7 +2,7 @@
 A simple Telegram Bot which uses web scrapping to search words and index's.
 
 ## Steps
-1. Install the [Requirments.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/Requirments.txt).
+1. Install the [requirements.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/requirements.txt).
 ```python
 pip install requirements.txt
  ```
