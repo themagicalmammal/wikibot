@@ -6,23 +6,25 @@ A simple Telegram Bot which uses web scrapping based wikipedia library to search
 
 ## Contents
 ### 1. [Information](https://github.com/themagicalmammal/wiki_telebot#info)
+
 ### 2. [Deploy](https://github.com/themagicalmammal/wiki_telebot#deployment)
+
 ### 3. [Commands](https://github.com/themagicalmammal/wiki_telebot#bot-commands)
-	- **[Help](https://github.com/themagicalmammal/wiki_telebot#1-help)**
-	- **[How2Use](https://github.com/themagicalmammal/wiki_telebot#2-how-to-use)**
-	- **[Definition](https://github.com/themagicalmammal/wiki_telebot#3-definition)**
-	- **[Title](https://github.com/themagicalmammal/wiki_telebot#4-title)**
-	- **[URL](https://github.com/themagicalmammal/wiki_telebot#5-url)**
-	- **[Purpose](https://github.com/themagicalmammal/wiki_telebot#6-purpose)**
+	* **[Help](https://github.com/themagicalmammal/wiki_telebot#1-help)**
+	* **[How2Use](https://github.com/themagicalmammal/wiki_telebot#2-how-to-use)**
+	* **[Definition](https://github.com/themagicalmammal/wiki_telebot#3-definition)**
+	* **[Title](https://github.com/themagicalmammal/wiki_telebot#4-title)**
+	* **[URL](https://github.com/themagicalmammal/wiki_telebot#5-url)**
+	* **[Purpose](https://github.com/themagicalmammal/wiki_telebot#6-purpose)**
 
 ## Info
-**Status: OFFLINE** <br /> <br />
+### Status: OFFLINE
 <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/info.PNG" /> <br />
 
 ## Deployment
-1. **Create an API token.** <br />
+**1. **Create an API token.** <br />
 Make a bot with python, then take it's api token and paste it onto the code <br /> <br />
-2. [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE)
+**2.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE)
 
 ## Bot Commands
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/themagicalmammal/wiki_telebot/search?l=python)
