@@ -1,4 +1,4 @@
-<img src="https://github.com/themagicalmammal/wikipedia_tele_bot/blob/master/logo.png" width="320" height="133" /> <br><br>
+<img src="https://github.com/themagicalmammal/wikipedia_tele_bot/blob/master/logo.png" width="320" height="133" /> <br /><br />
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/wiki_telebot/blob/master/LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/themagicalmammal/wiki_telebot/pulse) 
 [![Python](https://camo.githubusercontent.com/1e61764d58b07bfcb596ec4ee836301e8a769bf0703fe79b23fd7964a4b6a61b/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707974686f6e2d74656c656772616d2d626f742e737667)](https://www.python.org/)<br />
@@ -21,39 +21,46 @@ A simple command that gives you the commands & dev info.
 ```python
 /help
 ```
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/help.PNG /> <br />
+
+![Help](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/help.PNG)
 
 #### 2. How to Use
 Lists out useful commands that can be used via the Bot.
 ```python
 /how2use
 ```
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/how2use.PNG /> <br />
+
+![How2Use](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/how2use.PNG)
 
 #### 3. Definition
 Searches & Outputs the defination of the word you typed.
 ```python
 /definition
 ```
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/definition.PNG /> <br />
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/definition2.PNG /> <br />
+
+![Def](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/definition.PNG)
+![Def2](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/definition2.PNG)
+
 #### 4. Title
 Shows a list of possible titles that you can search for a word.
 ```python
 /title
 ```
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/title.PNG /> <br />
+
+![Title](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/title.PNG)
 
 #### 4. URL
 Gives the URL of the wiki page of the word.
 ```python
 /url
 ```
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/url.PNG /> <br />
+
+![URL](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/url.PNG)
 
 #### 5. Purpose
 Outputs the purpose why I made this bot.
 ```python
 /purpose
 ```
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/purpose.PNG /> <br />
+
+![Purpose](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/purpose.PNG)
