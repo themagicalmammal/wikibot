@@ -1,4 +1,7 @@
 <img src="https://github.com/themagicalmammal/wikipedia_tele_bot/blob/master/logo.png" width="320" height="133" /> <br><br>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/wiki_telebot/blob/master/LICENSE)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/themagicalmammal/wiki_telebot/pulse)
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 A simple Telegram Bot which uses web scrapping to search words and index's.
 
 ## Steps
@@ -29,13 +32,6 @@ pip install requirements.txt
  ```
  Note - Using this commands you can navigate the bot but if you dont want this you can directly use it the bot will instruct you 
  wisely. <br>
- 
-## Permissions
-**Please fork it** to respect the developer. <br>
-
-## License
-### This is under MIT License.
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/wiki_telebot/blob/master/LICENSE)
 
 ## Screenshots
 <p float="left">
