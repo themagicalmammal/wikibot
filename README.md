@@ -4,18 +4,29 @@
 [![Python](https://camo.githubusercontent.com/1e61764d58b07bfcb596ec4ee836301e8a769bf0703fe79b23fd7964a4b6a61b/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707974686f6e2d74656c656772616d2d626f742e737667)](https://www.python.org/)<br />
 A simple Telegram Bot which uses web scrapping based wikipedia library to search definations, title's and url's.
 
-## Info
-**Status: OFFLINE** <br /> <br />
+## Contents
+1. **[Info](https://github.com/themagicalmammal/wiki_telebot#info)**
+2. **[Deployment](https://github.com/themagicalmammal/wiki_telebot#deployment)**
+3. **[Bot Commands](https://github.com/themagicalmammal/wiki_telebot#bot-commands)**
+ - **[Help](https://github.com/themagicalmammal/wiki_telebot#1-help)**
+ - **[How2Use](https://github.com/themagicalmammal/wiki_telebot#2-how-to-use)**
+ - **[Definition](https://github.com/themagicalmammal/wiki_telebot#3-definition)**
+ - **[Title](https://github.com/themagicalmammal/wiki_telebot#4-title)**
+ - **[URL](https://github.com/themagicalmammal/wiki_telebot#5-url)**
+ - **[Purpose](https://github.com/themagicalmammal/wiki_telebot#6-purpose)**
+
+### Info
+**Status: OFFLINE** <br /https://github.com/themagicalmammal/wiki_telebot#2-how-to-use> <br />
 <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/info.PNG" /> <br />
 
-## Deployment
-1. Install the [requirements.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/requirements.txt).
-2. Create a new bot in telegram.
-3. Paste the token API.
-4. Run it on some IDE. <br />
+### Deployment
+1. **Create an API token.**
+Make a bot with python, then take it's api token and paste it onto the code
+2. ![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)
 
-## Bot Commands
+### Bot Commands
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/themagicalmammal/wiki_telebot/search?l=python)
+
 #### 1. Help
 A simple command that gives you the commands & dev info.
 ```python
@@ -49,7 +60,7 @@ Shows a list of possible titles that you can search for a word.
 
 ![Title](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/title.PNG)
 
-#### 4. URL
+#### 5. URL
 Gives the URL of the wiki page of the word.
 ```python
 /url
@@ -57,7 +68,7 @@ Gives the URL of the wiki page of the word.
 
 ![URL](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/url.PNG)
 
-#### 5. Purpose
+#### 6. Purpose
 Outputs the purpose why I made this bot.
 ```python
 /purpose
