@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/wiki_telebot/blob/master/LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/themagicalmammal/wiki_telebot/pulse) 
 [![Python](https://camo.githubusercontent.com/1e61764d58b07bfcb596ec4ee836301e8a769bf0703fe79b23fd7964a4b6a61b/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707974686f6e2d74656c656772616d2d626f742e737667)](https://www.python.org/)<br />
-A simple Telegram Bot which uses web scrapping based wikipedia library to search definations, title's and url's.
+A simple Telegram Bot which uses web scrapping, wikipedia library to search definations, title's and url's.
 
 ## Contents
 
@@ -25,15 +25,18 @@ A simple Telegram Bot which uses web scrapping based wikipedia library to search
 ### Status: OFFLINE
 
 ## Deployment
-**1. Create an Telegram API token.** <br />
-Make a bot on telegram with [BotFather](https://telegram.me/BotFather), import the API to main.py. <br /> <br />
-**2.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE) <br />
+**1. Install the Requirements.** <br />
+The [requirements.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/requirements.txt) for running the bot.
+**2. Create an Telegram API token.** <br />
+Make a bot on telegram with [BotFather](https://telegram.me/BotFather), create a bot then import the API Key to main.py. <br /> <br />
+**3.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE) <br />
 You can deploy it in Heroku or run it on your local pc. <br /> <br />
 
 ## GUI
-I have already created a GUI but since you might be in a different platform than me. That's why you can build it according to your platform. <br />
+I have already created a GUI but since you might be in a different platform than me. That's why you can build it according to your platform. <br /> <br />
 The GUI looks like this, <br />
 ![GUI](https://github.com/themagicalmammal/wiki_telebot/blob/master/images/GUI.PNG)
+Get the [requirements.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/requirements_gui.txt) for building the GUI.
 
 ## Bot Commands
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/themagicalmammal/wiki_telebot/search?l=python)
