@@ -1,38 +1,53 @@
 <img src="https://github.com/themagicalmammal/wikipedia_tele_bot/blob/master/logo.png" width="320" height="133" /> <br><br>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/wiki_telebot/blob/master/LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/themagicalmammal/wiki_telebot/pulse) <br />
-A simple Telegram Bot which uses web scrapping to search words and index's.
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/themagicalmammal/wiki_telebot/pulse) 
+[![Python](https://camo.githubusercontent.com/1e61764d58b07bfcb596ec4ee836301e8a769bf0703fe79b23fd7964a4b6a61b/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707974686f6e2d74656c656772616d2d626f742e737667)](https://www.python.org/)<br />
+A simple Telegram Bot which uses web scrapping based wikipedia library to search definations, title's and url's.
 
-##  Info
-**Current Status: INACTIVE** <br /> <br />
+## Info
+**Status: OFFLINE** <br /> <br />
 <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/info.PNG" /> <br />
 
-## Deployment
+## Deployment & Testing
 1. Install the [requirements.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/requirements.txt).
-```python
-pip install requirements.txt
- ```
 2. Create a new bot in telegram.
-3. Paste the token API
-3. Use it!!! <br />
+3. Paste the token API.
+4. Run it on some IDE. <br />
 
-## Editing
-You can edit this according to how you want it to. But, remember that, Title Engine modification would definitely break the code.
-
-## Commands
+## Bot Commands
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/themagicalmammal/wiki_telebot/search?l=python)
+#### 1. Help
+A simple command that gives you the commands & dev info.
 ```python
-  /start
-  /defination
-  /url
-  /howtouse
-  /Methods
-  /Typetheword
-  /title
-  /helptitle
- ```
+/help
+```
+#### 2. How to Use
+Lists out useful commands that can be used via the Bot.
+```python
+/how2use
+```
+#### 3. Definition
+Searches & Outputs the defination of the word you typed.
+```python
+/definition
+```
+#### 4. Title
+Shows a list of possible titles that you can search for a word.
+```python
+/title
+```
+#### 4. URL
+Gives the URL of the wiki page of the word.
+```python
+/url
+```
+#### 5. Purpose
+Outputs the purpose why I made this bot.
+```python
+/purpose
+```
 
-## Screenshots
+## Examples
 <p float="left">
   <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115702.jpg" width="260" />
   <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115710.jpg" width="260" />

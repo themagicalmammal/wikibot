@@ -33,8 +33,8 @@ def aid(message):
 
 @bot.message_handler(commands=['how2use'])
 def utilize(message):
-    bot.reply_to(message, "/definition - to fetch definition of the word you typed.")
-    bot.reply_to(message, "/title - sends you the title by cross checking it on wiki's database.")
+    bot.reply_to(message, "/definition - fetches definition of the word you typed.")
+    bot.reply_to(message, "/title - fetches a bunch of possible titles for the word you send.")
     bot.reply_to(message, "/url - gives the url for the wiki page of the word you typed.")
 
 
