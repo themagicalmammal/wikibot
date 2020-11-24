@@ -8,7 +8,7 @@ A simple Telegram Bot which uses web scrapping based wikipedia library to search
 **Status: OFFLINE** <br /> <br />
 <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/info.PNG" /> <br />
 
-## Deployment & Testing
+## Deployment
 1. Install the [requirements.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/requirements.txt).
 2. Create a new bot in telegram.
 3. Paste the token API.
@@ -21,42 +21,35 @@ A simple command that gives you the commands & dev info.
 ```python
 /help
 ```
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/help.PNG"/>
 #### 2. How to Use
 Lists out useful commands that can be used via the Bot.
 ```python
 /how2use
 ```
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/how2use.PNG"/>
 #### 3. Definition
 Searches & Outputs the defination of the word you typed.
 ```python
 /definition
 ```
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/definition.PNG"/>
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/definition2.PNG"/>
 #### 4. Title
 Shows a list of possible titles that you can search for a word.
 ```python
 /title
 ```
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/title.PNG"/>
 #### 4. URL
 Gives the URL of the wiki page of the word.
 ```python
 /url
 ```
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/url.PNG"/>
 #### 5. Purpose
 Outputs the purpose why I made this bot.
 ```python
 /purpose
 ```
-
-## Examples
-<p float="left">
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115702.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115710.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115718.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115724.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115729.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115734.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115757.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115819.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115834.jpg" width="260" />
-  <img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/Screenshot_20190701-115844.jpg" width="260" />
-</p>
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/purpose.PNG"/>
