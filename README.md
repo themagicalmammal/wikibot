@@ -3,20 +3,24 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/themagicalmammal/wiki_telebot/pulse) <br />
 A simple Telegram Bot which uses web scrapping to search words and index's.
 
-## Steps
+##  Info
+**Current Status: INACTIVE** <br /> <br />
+<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/info.PNG" /> <br />
+
+## Deployment
 1. Install the [requirements.txt](https://github.com/themagicalmammal/wiki_telebot/blob/master/requirements.txt).
 ```python
 pip install requirements.txt
  ```
 2. Create a new bot in telegram.
 3. Paste the token API
-3. Run it <br />
-**Note -** Title Engine modification would definitely break the code.
+3. Use it!!! <br />
 
-##  Info
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/) <br />
-<img src="https://github.com/themagicalmammal/wiki_telebot/blob/master/images/info.PNG" />
+## Editing
+You can edit this according to how you want it to. But, remember that, Title Engine modification would definitely break the code.
+
 ## Commands
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/themagicalmammal/wiki_telebot/search?l=python)
 ```python
   /start
   /defination
@@ -27,8 +31,6 @@ pip install requirements.txt
   /title
   /helptitle
  ```
- Note - Using this commands you can navigate the bot but if you dont want this you can directly use it the bot will instruct you 
- wisely. <br>
 
 ## Screenshots
 <p float="left">
