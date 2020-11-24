@@ -47,9 +47,8 @@ def send_welcome(message):
 def process_title_step(message):
     try:
         namer = str(message.text)
-        nyr = wikipedia.page(namer)
-        fdr = str(nyr.title)
-        bot.reply_to(message, fdr)
+        nyr = wikipedia.search(namer)
+        bot.reply_to(message, nyr)
     except Exception as e:
         bot.reply_to(message, 'Oops, Sorry')
 
