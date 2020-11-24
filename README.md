@@ -23,9 +23,11 @@ A simple Telegram Bot which uses web scrapping based wikipedia library to search
 
 ## Deployment
 **1. Create an Telegram API token.** <br />
-Make a bot on telegram with [BotFather](https://telegram.me/BotFather), import it to your code. <br /> <br />
-**2.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE)
-You can deploy it in Heroku or run it on your local pc.
+Make a bot on telegram with [BotFather](https://telegram.me/BotFather), import the API to main.py. <br /> <br />
+**2.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE) <br />
+You can deploy it in Heroku or run it on your local pc. <br /> <br />
+
+**Note**:- The GUI.py version generates a GUI but this might have bugs, you can make a exe or a appimage for this. <br />
 
 ## Bot Commands
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/themagicalmammal/wiki_telebot/search?l=python)
