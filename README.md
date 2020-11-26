@@ -1,4 +1,4 @@
-<img src="https://github.com/themagicalmammal/wikipedia_tele_bot/blob/master/logo.png" width="407" height="183" /> <br /><br />
+<img src="https://github.com/themagicalmammal/wikipedia_tele_bot/blob/master/logo.gif" width="407" height="183" /> <br /><br />
 [![Python](https://camo.githubusercontent.com/1e61764d58b07bfcb596ec4ee836301e8a769bf0703fe79b23fd7964a4b6a61b/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707974686f6e2d74656c656772616d2d626f742e737667)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE)<br />
 A simple Telegram Bot which uses web scrapping, wikipedia library to search definations, title's and url's.
