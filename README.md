@@ -15,7 +15,6 @@ A simple Telegram Bot which uses web scrapping, wikipedia library to search defi
 - **[Definition](https://github.com/themagicalmammal/WikiBot#3-definition)**
 - **[Title](https://github.com/themagicalmammal/WikiBot#4-title)**
 - **[URL](https://github.com/themagicalmammal/WikiBot#5-url)**
-- **[Purpose](https://github.com/themagicalmammal/WikiBot#6-purpose)**
 
 ## Info
 <img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.PNG" /> <br />
@@ -24,11 +23,11 @@ A simple Telegram Bot which uses web scrapping, wikipedia library to search defi
 **1. Install the Requirements.** <br />
 Install the [requirements.txt](https://raw.githubusercontent.com/themagicalmammal/WikiBot/master/requirements.txt) for the bot. <br />
 **2. Create an Telegram API token.** <br />
-Make a bot on telegram with [BotFather](https://telegram.me/BotFather), create a bot then import the API Key to main.py. <br /> <br />
+Make a bot on telegram with [BotFather](https://telegram.me/BotFather), create a bot then import the API Key to main.py. <br />
 **3.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com/t/platform?c=7013A000000ib1xQAA&gclid=EAIaIQobChMI1e6tpZKb7QIVyTArCh0W3A0jEAAYASAAEgJ3pvD_BwE) <br />
 Deploy it on Heroku or use your PC. <br /> <br />
-**4.** GUI
-If you need a GUI for this bot you can go [here](https://github.com/themagicalmammal/WikiBot/tree/GUI).
+**4. User Interface** <br />
+This is not a required. Since, you can directly run this with python. But, if you need it you can go [here](https://github.com/themagicalmammal/WikiBot/tree/GUI).
 
 ## Bot Commands
 
@@ -73,13 +72,6 @@ Gives the URL of the wiki page of the word.
 
 ![URL](https://github.com/themagicalmammal/WikiBot/blob/master/References/url.PNG)
 
-### 6. Purpose
-Outputs the purpose why I made this bot.
-```python
-/purpose
-```
-
-![Purpose](https://github.com/themagicalmammal/WikiBot/blob/master/References/purpose.PNG)
-
 ## Credits
 #### [Goldsmith](https://github.com/goldsmith) - For his amazing [Wikipedia library](https://github.com/goldsmith/Wikipedia).
+
