@@ -1,6 +1,5 @@
 import time
-from telebot import TeleBot
-from telebot import types
+from telebot import TeleBot, types
 import wikipedia
 
 bot_token = ''  # Paste the Token API
@@ -43,6 +42,7 @@ def title(message):
 
 
 def process_title(message):
+    # noinspection PyBroadException
     try:
         title_message = str(message.text)
         title_result = wikipedia.search(title_message)
@@ -59,6 +59,7 @@ def url(message):
 
 
 def process_url(message):
+    # noinspection PyBroadException
     try:
         url_message = str(message.text)
         url_string = wikipedia.page(url_message)
@@ -75,6 +76,7 @@ def definition(message):
 
 
 def process_definition(message):
+    # noinspection PyBroadException
     try:
         def_message = str(message.text)
         def_string = str(wikipedia.summary(def_message, sentences=20))
