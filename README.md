@@ -51,7 +51,7 @@ Lists out useful commands that can be used via the Bot.
 ### 3. Definition
 Searches & Outputs the defination of the word you typed.
 ```python
-/definition
+/def
 ```
 
 ![Def](https://github.com/themagicalmammal/WikiBot/blob/master/References/definition.PNG)

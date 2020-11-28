@@ -2,7 +2,7 @@ import time
 from telebot import TeleBot
 import wikipedia
 
-bot_token = ''  # Paste the Token API
+bot_token = '1368302801:AAEdwLHz29i4CAprHl5WCPhwoXRzKt338vs'  # Paste the Token API
 bot = TeleBot(token=bot_token)
 
 
@@ -33,7 +33,7 @@ def aid(message):
 
 @bot.message_handler(commands=['how2use'])
 def utilize(message):
-    bot.reply_to(message, "/definition - fetches definition of the word you typed.")
+    bot.reply_to(message, "/def - fetches definition of the word you typed.")
     bot.reply_to(message, "/title - fetches a bunch of possible titles for the word you send.")
     bot.reply_to(message, "/url - gives the url for the wiki page of the word you typed.")
 
@@ -70,7 +70,7 @@ def process_url(message):
         bot.reply_to(message, 'Oops, Sorry')
 
 
-@bot.message_handler(commands=['definition'])
+@bot.message_handler(commands=['def'])
 def definition(message):
     def_msg = bot.reply_to(message, "Definition of the word....")
     bot.register_next_step_handler(def_msg, process_definition)
@@ -79,9 +79,8 @@ def definition(message):
 def process_definition(message):
     try:
         def_message = str(message.text)
-        def_string = wikipedia.page(def_message)
-        def_result = str(def_string.content)
-        bot.reply_to(message, def_result[0:2048])
+        def_string = str(wikipedia.summary(def_message, sentences=20))
+        bot.reply_to(message, def_string)
     except Exception as e:
         bot.reply_to(message, 'Oops, Sorry')
 
