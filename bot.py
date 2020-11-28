@@ -4,20 +4,19 @@ import wikipedia
 
 bot_token = ''  # Paste the Token API
 bot = TeleBot(token=bot_token)
+error = 'Sorry, Processing Failed'
+word = " for the word..."
 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.send_message(chat_id=message.chat.id,
-                     text='Greetings! Welcome, I am WikiBot.',
-                     reply_markup=main_keyboard())
+    bot.send_message(chat_id=message.chat.id, text='Greetings! Welcome, I am WikiBot.', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
-    bot.send_message(chat_id=message.chat.id,
-                     text='This is a very simple bot, made with the purpose of helping people learn more about bots.',
-                     reply_markup=main_keyboard())
+    text = 'This is a very simple bot, made with the purpose of helping people learn more about bots.'
+    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['dev'])
@@ -38,7 +37,7 @@ def aid(message):
 
 @bot.message_handler(commands=['title'])
 def title(message):
-    title_msg = bot.reply_to(message, "Title for the word...")
+    title_msg = bot.reply_to(message, "Title" + word)
     bot.register_next_step_handler(title_msg, process_title)
 
 
@@ -50,12 +49,12 @@ def process_title(message):
         for i in title_result:
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
     except Exception:
-        bot.send_message(chat_id=message.chat.id, text='Sorry, Processing Failed', reply_markup=main_keyboard())
+        bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['url'])
 def url(message):
-    url_msg = bot.reply_to(message, "URL for the word...")
+    url_msg = bot.reply_to(message, "URL" + word)
     bot.register_next_step_handler(url_msg, process_url)
 
 
@@ -67,7 +66,7 @@ def process_url(message):
         url_result = str(url_string.url)
         bot.send_message(chat_id=message.chat.id, text=url_result, reply_markup=main_keyboard())
     except Exception:
-        bot.send_message(chat_id=message.chat.id, text='Sorry, Processing Failed', reply_markup=main_keyboard())
+        bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['random'])
@@ -77,12 +76,12 @@ def random(message):
         random_title = str(wikipedia.random(pages=1))
         bot.send_message(chat_id=message.chat.id, text=random_title, reply_markup=main_keyboard())
     except Exception:
-        bot.send_message(chat_id=message.chat.id, text='Sorry, Processing Failed', reply_markup=main_keyboard())
+        bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['def'])
 def definition(message):
-    def_msg = bot.reply_to(message, "Definition for the word...")
+    def_msg = bot.reply_to(message, "Definition" + word)
     bot.register_next_step_handler(def_msg, process_definition)
 
 
