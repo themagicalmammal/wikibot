@@ -9,7 +9,7 @@ bot = TeleBot(token=bot_token)
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.send_message(chat_id=message.chat.id,
-                     text='Greetings! Welcome I am WikiBot.\nIf you want some help, type /help.',
+                     text='Greetings! Welcome, I am WikiBot.',
                      reply_markup=main_keyboard())
 
 
@@ -37,39 +37,41 @@ def aid(message):
 
 @bot.message_handler(commands=['title'])
 def title(message):
-    title_msg = bot.reply_to(message, "Title for the word....")
+    title_msg = bot.reply_to(message, "Title for the word...")
     bot.register_next_step_handler(title_msg, process_title)
 
 
 def process_title(message):
+    # noinspection PyBroadException
     try:
         title_message = str(message.text)
         title_result = wikipedia.search(title_message, results=4)
         for i in title_result:
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
-    except Exception as a:
-        bot.send_message(chat_id=message.chat.id, text='Oops, Sorry /n' + a, reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text='Sorry, Processing Failed', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['url'])
 def url(message):
-    url_msg = bot.reply_to(message, "URL for the word....")
+    url_msg = bot.reply_to(message, "URL for the word...")
     bot.register_next_step_handler(url_msg, process_url)
 
 
 def process_url(message):
+    # noinspection PyBroadException
     try:
         url_message = str(message.text)
         url_string = wikipedia.page(url_message)
         url_result = str(url_string.url)
         bot.send_message(chat_id=message.chat.id, text=url_result, reply_markup=main_keyboard())
-    except Exception as b:
-        bot.send_message(chat_id=message.chat.id, text='Oops, Sorry /n' + b, reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text='Sorry, Processing Failed', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['def'])
 def definition(message):
-    def_msg = bot.reply_to(message, "Definition of the word....")
+    def_msg = bot.reply_to(message, "Definition for the word...")
     bot.register_next_step_handler(def_msg, process_definition)
 
 
@@ -83,7 +85,7 @@ def process_definition(message):
 
 
 def main_keyboard():
-    time.wait(3)
+    time.sleep(3)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
     texts = ['/def', '/title', '/url', '/help', '/dev', '/purpose']
     buttons = []
