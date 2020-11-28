@@ -9,9 +9,6 @@ bot = TeleBot(token=bot_token)
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    # bot.reply_to(message, "Greetings! Welcome I am WikiBot.")
-    # time.sleep(5)
-    # bot.reply_to(message, "If you want some help, type /help.")
     bot.send_message(chat_id=message.chat.id,
                      text='Greetings! Welcome I am WikiBot.\nIf you want some help, type /help.',
                      reply_markup=main_keyboard())
@@ -19,8 +16,6 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
-    # bot.reply_to(message, "This is a very simple bot, made with the purpose of helping people learn more about bots ")
-    #                     #   "and a provide as a general idea about how a bot should look.")
     bot.send_message(chat_id=message.chat.id,
                      text='This is a very simple bot, made with the purpose of helping people learn more about bots.',
                      reply_markup=main_keyboard())
@@ -28,8 +23,6 @@ def purpose(message):
 
 @bot.message_handler(commands=['dev'])
 def dev(message):
-    # bot.reply_to(message, "This is made with ❤ by @themagicalmammal.")
-    # bot.reply_to(message, "If you require assistance or want me to update the bot, Please feel free to contact me.")
     text = 'This is made with ❤ by @themagicalmammal.\nIf you require assistance or want me to update the bot, ' \
            'Please feel free to contact me. '
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
@@ -37,9 +30,6 @@ def dev(message):
 
 @bot.message_handler(commands=['help'])
 def aid(message):
-    # bot.reply_to(message, "/def - fetches definition of the word you typed.")
-    # bot.reply_to(message, "/title - fetches a bunch of possible titles for the word you send.")
-    # bot.reply_to(message, "/url - gives the url for the wiki page of the word you typed.")
     text = '''/def - fetches definition of the word you typed.
     /title - fetches a bunch of possible titles for the word you send.
     /url - gives the url for the wiki page of the word you typed.'''
@@ -57,7 +47,6 @@ def process_title(message):
         title_message = str(message.text)
         title_result = wikipedia.search(title_message)
         for i in title_result:
-            # bot.reply_to(message, i)
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
@@ -74,7 +63,6 @@ def process_url(message):
         url_message = str(message.text)
         url_string = wikipedia.page(url_message)
         url_result = str(url_string.url)
-        # bot.reply_to(message, url_result)
         bot.send_message(chat_id=message.chat.id, text=url_result, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
@@ -90,7 +78,6 @@ def process_definition(message):
     try:
         def_message = str(message.text)
         def_string = str(wikipedia.summary(def_message, sentences=20))
-        # bot.reply_to(message, def_string)
         bot.send_message(chat_id=message.chat.id, text=def_string, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
