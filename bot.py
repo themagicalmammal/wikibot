@@ -76,13 +76,14 @@ def definition(message):
 def process_definition(message):
     try:
         def_message = str(message.text)
-        def_string = str(wikipedia.summary(def_message, sentences=20))
+        def_string = str(wikipedia.summary(def_message, sentences=20, auto_suggest=True, redirect=True))
         bot.send_message(chat_id=message.chat.id, text=def_string, reply_markup=main_keyboard())
     except Exception as c:
-        bot.send_message(chat_id=message.chat.id, text=c, reply_markup=main_keyboard())
+        bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
 
 
 def main_keyboard():
+    time.wait(3)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
     texts = ['/def', '/title', '/url', '/help', '/dev', '/purpose']
     buttons = []
