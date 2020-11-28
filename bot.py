@@ -2,7 +2,7 @@ import time
 from telebot import TeleBot, types
 import wikipedia
 
-bot_token = ''  # Paste the Token API
+bot_token = ''  # Paste your token API
 bot = TeleBot(token=bot_token)
 error = 'Sorry, Processing Failed'
 word = " for the word..."
@@ -45,6 +45,7 @@ def aid(message):
            '/title - fetches a bunch of possible titles for the word you send, \n' \
            '/url - gives the url for the wiki page of the word you typed, \n' \
            '/lang - set the language you want it in (languages - /hlang) , \n' \
+           '/coordinate - find the coordinate of the location, \n' \
            '/random - fetches a random title from the wiki page, \n' \
            '/suggest - returns a suggestion or none if not found.'
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
@@ -109,6 +110,28 @@ def process_definition(message):
         bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
 
 
+@bot.message_handler(commands=['coordinate'])
+def coordinate(message):
+    co_msg = bot.reply_to(message, "Coordinates of the location are...")
+    bot.register_next_step_handler(co_msg, process_co)
+
+
+def process_co(message):
+    # noinspection PyBroadException
+    try:
+        co_msg = str(message.text)
+        st = ""
+        j = 0
+        for i in wikipedia.WikipediaPage(co_msg).coordinates:
+            st += str(round(i, 4))
+            while j == 0:
+                j = 1
+                st += ", "
+        bot.send_message(chat_id=message.chat.id, text=st, reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
+
+
 @bot.message_handler(commands=['suggest'])
 def suggest(message):
     suggest_msg = bot.reply_to(message, "You want suggestion for...")
@@ -146,7 +169,7 @@ def process_ln(message):
 def main_keyboard():
     time.sleep(2)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/lang', '/random', '/suggest', '/help', '/extra']
+    texts = ['/def', '/title', '/url', '/lang', '/coordinate', '/random', '/suggest', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
