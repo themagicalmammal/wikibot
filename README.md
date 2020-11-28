@@ -1,6 +1,7 @@
 <img src="https://github.com/themagicalmammal/WikiBot/blob/master/logo.gif" /> <br /><br />
-[![Python](https://camo.githubusercontent.com/1e61764d58b07bfcb596ec4ee836301e8a769bf0703fe79b23fd7964a4b6a61b/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707974686f6e2d74656c656772616d2d626f742e737667)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE)<br />
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE)
+[![Python](https://camo.githubusercontent.com/829ae006dcf8b49c63061f119aa3ee4ce50db7eaace948ca34799c7fc7eddad4/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707954656c656772616d426f744150492e737667)](https://github.com/themagicalmammal/WikiBot/search?l=python)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/themagicalmammal/WikiBot/pulls)<br />
 A simple Telegram Bot which uses web scrapping, wikipedia library to search definations, title's and url's.
 
 ## Index
