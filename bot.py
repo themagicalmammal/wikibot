@@ -38,7 +38,8 @@ def aid(message):
     text = '/def - fetches definition of the word you typed, \n' \
            '/title - fetches a bunch of possible titles for the word you send, \n' \
            '/url - gives the url for the wiki page of the word you typed, \n' \
-           '/random - fetches a random title from the wiki page.'
+           '/random - fetches a random title from the wiki page, \n' \
+           '/suggest - returns a suggestion or none if not found.'
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
@@ -51,8 +52,8 @@ def title(message):
 def process_title(message):
     # noinspection PyBroadException
     try:
-        title_message = str(message.text)
-        title_result = wikipedia.search(title_message, results=4)
+        title_msg = str(message.text)
+        title_result = wikipedia.search(title_msg, results=4)
         for i in title_result:
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
     except Exception:
@@ -69,8 +70,8 @@ def process_url(message):
     # noinspection PyBroadException
     try:
         url_message = str(message.text)
-        url_string = wikipedia.page(url_message)
-        url_result = str(url_string.url)
+        url_str = wikipedia.page(url_message)
+        url_result = str(url_str.url)
         bot.send_message(chat_id=message.chat.id, text=url_result, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
@@ -94,9 +95,24 @@ def definition(message):
 
 def process_definition(message):
     try:
-        def_message = str(message.text)
-        def_string = str(wikipedia.summary(def_message, sentences=20, auto_suggest=True, redirect=True))
-        bot.send_message(chat_id=message.chat.id, text=def_string, reply_markup=main_keyboard())
+        def_msg = str(message.text)
+        def_str = str(wikipedia.summary(def_msg, sentences=20, auto_suggest=True, redirect=True))
+        bot.send_message(chat_id=message.chat.id, text=def_str, reply_markup=main_keyboard())
+    except Exception as c:
+        bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
+
+
+@bot.message_handler(commands=['suggest'])
+def suggest(message):
+    suggest_msg = bot.reply_to(message, "You want suggestion for...")
+    bot.register_next_step_handler(suggest_msg, process_suggest)
+
+
+def process_suggest(message):
+    try:
+        suggest_msg = str(message.text)
+        suggest_str = str(wikipedia.suggest(suggest_msg))
+        bot.send_message(chat_id=message.chat.id, text=suggest_str, reply_markup=main_keyboard())
     except Exception as c:
         bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
 
@@ -104,7 +120,7 @@ def process_definition(message):
 def main_keyboard():
     time.sleep(2)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/random', '/help', '/extra']
+    texts = ['/def', '/title', '/url', '/random', '/suggest', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
