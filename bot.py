@@ -59,8 +59,7 @@ def process_title(message):
         for i in title_result:
             # bot.reply_to(message, i)
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
-    except Exception as e:
-        # bot.reply_to(message, 'Oops, Sorry')
+    except Exception:
         bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
 
 
@@ -77,8 +76,7 @@ def process_url(message):
         url_result = str(url_string.url)
         # bot.reply_to(message, url_result)
         bot.send_message(chat_id=message.chat.id, text=url_result, reply_markup=main_keyboard())
-    except Exception as e:
-        # bot.reply_to(message, 'Oops, Sorry')
+    except Exception:
         bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
 
 
@@ -94,19 +92,18 @@ def process_definition(message):
         def_string = str(wikipedia.summary(def_message, sentences=20))
         # bot.reply_to(message, def_string)
         bot.send_message(chat_id=message.chat.id, text=def_string, reply_markup=main_keyboard())
-    except Exception as e:
-        # bot.reply_to(message, 'Oops, Sorry')
+    except Exception:
         bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
 
 
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
     texts = ['/def', '/title', '/url', '/help', '/dev', '/purpose']
-    itembtns = []
+    buttons = []
     for text in texts:
-        itembtn = types.KeyboardButton(text)
-        itembtns.append(itembtn)
-    markup.add(*itembtns)
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
     return markup
 
 
@@ -117,4 +114,4 @@ while True:
         bot.load_next_step_handlers()
         bot.polling()
     except Exception:
-        time.sleep(15)
+        time.sleep(5)
