@@ -37,36 +37,34 @@ def aid(message):
 
 @bot.message_handler(commands=['title'])
 def title(message):
-    title_msg = bot.reply_to(message, "The title should for the word....")
+    title_msg = bot.reply_to(message, "Title for the word....")
     bot.register_next_step_handler(title_msg, process_title)
 
 
 def process_title(message):
-    # noinspection PyBroadException
     try:
         title_message = str(message.text)
-        title_result = wikipedia.search(title_message)
+        title_result = wikipedia.search(title_message, results=4)
         for i in title_result:
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
-    except Exception:
-        bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
+    except Exception as a:
+        bot.send_message(chat_id=message.chat.id, text='Oops, Sorry /n' + a, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['url'])
 def url(message):
-    url_msg = bot.reply_to(message, "You want URL for ....")
+    url_msg = bot.reply_to(message, "URL for the word....")
     bot.register_next_step_handler(url_msg, process_url)
 
 
 def process_url(message):
-    # noinspection PyBroadException
     try:
         url_message = str(message.text)
         url_string = wikipedia.page(url_message)
         url_result = str(url_string.url)
         bot.send_message(chat_id=message.chat.id, text=url_result, reply_markup=main_keyboard())
-    except Exception:
-        bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
+    except Exception as b:
+        bot.send_message(chat_id=message.chat.id, text='Oops, Sorry /n' + b, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['def'])
@@ -76,13 +74,12 @@ def definition(message):
 
 
 def process_definition(message):
-    # noinspection PyBroadException
     try:
         def_message = str(message.text)
         def_string = str(wikipedia.summary(def_message, sentences=20))
         bot.send_message(chat_id=message.chat.id, text=def_string, reply_markup=main_keyboard())
-    except Exception:
-        bot.send_message(chat_id=message.chat.id, text='Oops, Sorry', reply_markup=main_keyboard())
+    except Exception as c:
+        bot.send_message(chat_id=message.chat.id, text=c, reply_markup=main_keyboard())
 
 
 def main_keyboard():
