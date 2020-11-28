@@ -26,9 +26,15 @@ def purpose(message):
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
+@bot.message_handler(commands=['hlang'])
+def hlang(message):
+    text = 'To find languages, go to https://meta.wikimedia.org/wiki/List_of_Wikipedias'
+    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
+
+
 @bot.message_handler(commands=['dev'])
 def dev(message):
-    text = 'This is made with ❤ by @themagicalmammal.\nIf you require assistance or want me to update the bot, ' \
+    text = 'This is made with ❤ by @themagicalmammal.\n If you require assistance or want me to update the bot, ' \
            'Please feel free to contact me. '
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
@@ -38,6 +44,7 @@ def aid(message):
     text = '/def - fetches definition of the word you typed, \n' \
            '/title - fetches a bunch of possible titles for the word you send, \n' \
            '/url - gives the url for the wiki page of the word you typed, \n' \
+           '/lang - set the language you want it in (languages - /hlang) , \n' \
            '/random - fetches a random title from the wiki page, \n' \
            '/suggest - returns a suggestion or none if not found.'
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
@@ -109,18 +116,37 @@ def suggest(message):
 
 
 def process_suggest(message):
+    # noinspection PyBroadException
     try:
         suggest_msg = str(message.text)
         suggest_str = str(wikipedia.suggest(suggest_msg))
         bot.send_message(chat_id=message.chat.id, text=suggest_str, reply_markup=main_keyboard())
-    except Exception as c:
-        bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text="No Suggestions", reply_markup=definition(message))
+
+
+@bot.message_handler(commands=['lang'])
+def ln(message):
+    ln_msg = bot.reply_to(message, "Type the prefix of you language...")
+    bot.register_next_step_handler(ln_msg, process_ln)
+
+
+def process_ln(message):
+    # noinspection PyBroadException
+    try:
+        ln_msg = str(message.text)
+        ln_str = str(wikipedia.set_lang(ln_msg))
+        if ln_str == "None":
+            ln_str = "Done"
+        bot.send_message(chat_id=message.chat.id, text=ln_str, reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text="Error, setting language", reply_markup=definition(message))
 
 
 def main_keyboard():
     time.sleep(2)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/random', '/suggest', '/help', '/extra']
+    texts = ['/def', '/title', '/url', '/lang', '/random', '/suggest', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
