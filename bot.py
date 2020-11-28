@@ -29,9 +29,10 @@ def dev(message):
 
 @bot.message_handler(commands=['help'])
 def aid(message):
-    text = '''/def - fetches definition of the word you typed.
-    /title - fetches a bunch of possible titles for the word you send.
-    /url - gives the url for the wiki page of the word you typed.'''
+    text = '/def - fetches definition of the word you typed, ' \
+           '/title - fetches a bunch of possible titles for the word you send, ' \
+           '/url - gives the url for the wiki page of the word you typed, ' \
+           '/random - fetches a random title from the wiki page.'
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
@@ -69,6 +70,16 @@ def process_url(message):
         bot.send_message(chat_id=message.chat.id, text='Sorry, Processing Failed', reply_markup=main_keyboard())
 
 
+@bot.message_handler(commands=['random'])
+def random(message):
+    # noinspection PyBroadException
+    try:
+        random_title = str(wikipedia.random(pages=1))
+        bot.send_message(chat_id=message.chat.id, text=random_title, reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text='Sorry, Processing Failed', reply_markup=main_keyboard())
+
+
 @bot.message_handler(commands=['def'])
 def definition(message):
     def_msg = bot.reply_to(message, "Definition for the word...")
@@ -87,7 +98,7 @@ def process_definition(message):
 def main_keyboard():
     time.sleep(3)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/help', '/dev', '/purpose']
+    texts = ['/def', '/title', '/url', '/random', '/help', '/dev', '/purpose']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
