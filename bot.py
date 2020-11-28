@@ -13,6 +13,13 @@ def send_welcome(message):
     bot.send_message(chat_id=message.chat.id, text='Greetings! Welcome, I am WikiBot.', reply_markup=main_keyboard())
 
 
+@bot.message_handler(commands=['extra'])
+def send_welcome(message):
+    text = '/purpose - shows the purpose Why I made this, \n' \
+           '/dev - provides information about me.'
+    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
+
+
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
     text = 'This is a very simple bot, made with the purpose of helping people learn more about bots.'
@@ -28,9 +35,9 @@ def dev(message):
 
 @bot.message_handler(commands=['help'])
 def aid(message):
-    text = '/def - fetches definition of the word you typed, ' \
-           '/title - fetches a bunch of possible titles for the word you send, ' \
-           '/url - gives the url for the wiki page of the word you typed, ' \
+    text = '/def - fetches definition of the word you typed, \n' \
+           '/title - fetches a bunch of possible titles for the word you send, \n' \
+           '/url - gives the url for the wiki page of the word you typed, \n' \
            '/random - fetches a random title from the wiki page.'
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
@@ -95,9 +102,9 @@ def process_definition(message):
 
 
 def main_keyboard():
-    time.sleep(3)
+    time.sleep(2)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/random', '/help', '/dev', '/purpose']
+    texts = ['/def', '/title', '/url', '/random', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
