@@ -15,42 +15,49 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['extra'])
 def send_welcome(message):
-    text = '<b>Extra Commands</b> \n'\
-           '/purpose - shows the purpose Why I made this, \n' \
-           '/dev - provides information about me.'
+    text = '<b>Extra Commands</b> \n' \
+           '/purpose - shows the purpose why I was made\n' \
+           '/dev - provides information about my creator\n' \
+           '/source - my source code'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
-    text = 'This is a very simple bot, made with the purpose of helping people learn more about bots.'
-    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
-
-
-@bot.message_handler(commands=['hlang'])
-def hlang(message):
-    text = 'To find languages, go to https://meta.wikimedia.org/wiki/List_of_Wikipedias'
+    text = 'I was made with the purpose of helping people learn more about bots and also provide a easier '
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['dev'])
 def dev(message):
-    text = 'This is made with ❤ by @themagicalmammal.\n If you require assistance or want me to update the bot, ' \
+    text = 'This is made with ❤ by <a href="https://github.com/themagicalmammal">@themagicalmammal</a>.\n If you ' \
+           'require assistance or want me to update the bot, ' \
            'Please feel free to contact me. '
-    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+
+
+@bot.message_handler(commands=['source'])
+def dev(message):
+    text = 'Source Code for <a href="https://github.com/themagicalmammal/WikiBot">Wiki Bot</a>.'
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['help'])
 def aid(message):
-    text = '<b>Primary</b> \n'\
-           '/def - fetches definition of the word you typed, \n' \
-           '/title - fetches a bunch of related titles for the word you send, \n' \
-           '/url - gives the url for the wiki page of the word you typed, \n' \
-           '/lang - set the language you want it in (languages - /hlang) , \n \n' \
+    text = 'You can control me by sending these commands: \n\n' \
+           '<b>Primary</b> \n' \
+           '/def - fetches definition of the word you want \n' \
+           '/title - fetches a bunch of related titles for a word \n' \
+           '/url - gives the URL for the wiki page of the word \n' \
+           '/lang - set the language you want (<a ' \
+           'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">languages</a>) \n \n' \
            '<b>Secondary</b> \n' \
-           '/map - find the coordinate of the location, \n' \
-           '/random - fetches a random title from the wiki page, \n' \
-           '/suggest - returns a suggestion or none if not found.'
+           '/map - location in map with wiki database \n' \
+           '/random - fetches a random title from the wiki page \n' \
+           '/suggest - returns a suggestion or none if not found \n\n' \
+           '<b>Others</b> \n' \
+           '/big - bigger version of  \n' \
+           '/extra - some extra set of commands'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
