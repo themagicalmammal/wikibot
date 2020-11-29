@@ -19,7 +19,7 @@ def send_welcome(message):
            '/purpose - shows the purpose why I was made\n' \
            '/dev - provides information about my creator\n' \
            '/source - my source code'
-    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
 
 
 @bot.message_handler(commands=['big'])
@@ -51,7 +51,7 @@ def dev(message):
 
 @bot.message_handler(commands=['help'])
 def aid(message):
-    text = 'You can control me by sending these commands: \n\n' \
+    text = 'You can use the following commands: \n\n' \
            '<b>Primary</b> \n' \
            '/definition - fetches definition of the word you want \n' \
            '/title - fetches a bunch of related titles for a word \n' \
@@ -63,7 +63,7 @@ def aid(message):
            '/random - fetches a random title from the wiki page \n' \
            '/suggest - returns a suggestion or none if not found \n\n' \
            '<b>Others</b> \n' \
-           '/big - bigger version of  \n' \
+           '/big - bigger version of definition & title \n' \
            '/extra - some extra set of commands'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
@@ -191,6 +191,11 @@ def process_suggest(message):
         bot.send_message(chat_id=message.chat.id, text="No Suggestions", reply_markup=definition(message))
 
 
+@bot.message_handler(commands=['back'])
+def back(message):
+    bot.send_message(chat_id=message.chat.id, text="Going Back...", reply_markup=main_keyboard())
+
+
 @bot.message_handler(commands=['lang'])
 def ln(message):
     ln_msg = bot.reply_to(message, "Type the prefix of you language...")
@@ -209,10 +214,20 @@ def process_ln(message):
         bot.send_message(chat_id=message.chat.id, text="Error, setting language", reply_markup=definition(message))
 
 
-def main_keyboard():
-    time.sleep(2)
+def main_extra():
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
-    texts = ['/definition', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/extra']
+    texts = ['/purpose', '/dev', '/source', '/back']
+    buttons = []
+    for text in texts:
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
+    return markup
+
+
+def main_keyboard():
+    markup = types.ReplyKeyboardMarkup(row_width=4, one_time_keyboard=True)
+    texts = ['/definition', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/big', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
