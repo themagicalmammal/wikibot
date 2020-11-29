@@ -22,6 +22,13 @@ def send_welcome(message):
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
+@bot.message_handler(commands=['big'])
+def send_welcome(message):
+    text = '/definitions - Complete wiki page of the word\n' \
+           '/titles - All related & suggested titles'
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+
+
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
     text = 'I was made with the purpose of helping people learn more about bots and also provide a easier '
@@ -46,7 +53,7 @@ def dev(message):
 def aid(message):
     text = 'You can control me by sending these commands: \n\n' \
            '<b>Primary</b> \n' \
-           '/def - fetches definition of the word you want \n' \
+           '/definition - fetches definition of the word you want \n' \
            '/title - fetches a bunch of related titles for a word \n' \
            '/url - gives the URL for the wiki page of the word \n' \
            '/lang - set the language you want (<a ' \
@@ -78,6 +85,23 @@ def process_title(message):
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
 
 
+@bot.message_handler(commands=['titles'])
+def titles(message):
+    titles_msg = bot.reply_to(message, "Title" + word)
+    bot.register_next_step_handler(titles_msg, process_titles)
+
+
+def process_titles(message):
+    # noinspection PyBroadException
+    try:
+        titles_msg = str(message.text)
+        titles_result = wikipedia.search(titles_msg, sentences=100, suggestion=True)
+        for i in titles_result:
+            bot.send_message(chat_id=message.chat.id, text=i, parse_mode='html', reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
+
+
 @bot.message_handler(commands=['url'])
 def url(message):
     url_msg = bot.reply_to(message, "URL" + word)
@@ -105,7 +129,7 @@ def random(message):
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
 
 
-@bot.message_handler(commands=['def'])
+@bot.message_handler(commands=['definition'])
 def definition(message):
     def_msg = bot.reply_to(message, "Definition" + word)
     bot.register_next_step_handler(def_msg, process_definition)
@@ -115,6 +139,21 @@ def process_definition(message):
     try:
         def_msg = str(message.text)
         def_str = str(wikipedia.summary(def_msg, sentences=20, auto_suggest=True, redirect=True))
+        bot.send_message(chat_id=message.chat.id, text=def_str, reply_markup=main_keyboard())
+    except Exception as c:
+        bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
+
+
+@bot.message_handler(commands=['definitions'])
+def definitions(message):
+    def_msgs = bot.reply_to(message, "Definition" + word)
+    bot.register_next_step_handler(def_msgs, process_definitions)
+
+
+def process_definitions(message):
+    try:
+        def_msgs = str(message.text)
+        def_str = str(wikipedia.summary(def_msgs, auto_suggest=True, redirect=True))
         bot.send_message(chat_id=message.chat.id, text=def_str, reply_markup=main_keyboard())
     except Exception as c:
         bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
@@ -173,7 +212,7 @@ def process_ln(message):
 def main_keyboard():
     time.sleep(2)
     markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/extra']
+    texts = ['/definition', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
