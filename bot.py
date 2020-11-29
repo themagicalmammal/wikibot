@@ -1,6 +1,6 @@
 import time
-from telebot import TeleBot, types
 import wikipedia
+from telebot import TeleBot, types
 
 bot_token = ''  # Paste your token API
 bot = TeleBot(token=bot_token)
@@ -15,9 +15,10 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['extra'])
 def send_welcome(message):
-    text = '/purpose - shows the purpose Why I made this, \n' \
+    text = '<b>Extra Commands</b> \n'\
+           '/purpose - shows the purpose Why I made this, \n' \
            '/dev - provides information about me.'
-    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['purpose'])
@@ -41,14 +42,16 @@ def dev(message):
 
 @bot.message_handler(commands=['help'])
 def aid(message):
-    text = '/def - fetches definition of the word you typed, \n' \
+    text = '<b>Primary</b> \n'\
+           '/def - fetches definition of the word you typed, \n' \
            '/title - fetches a bunch of related titles for the word you send, \n' \
            '/url - gives the url for the wiki page of the word you typed, \n' \
-           '/lang - set the language you want it in (languages - /hlang) , \n' \
+           '/lang - set the language you want it in (languages - /hlang) , \n \n' \
+           '<b>Secondary</b> \n' \
            '/map - find the coordinate of the location, \n' \
            '/random - fetches a random title from the wiki page, \n' \
            '/suggest - returns a suggestion or none if not found.'
-    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['title'])
