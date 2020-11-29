@@ -1,5 +1,4 @@
-import time
-import wikipedia
+import time, wikipedia
 from telebot import TeleBot, types
 
 bot_token = ''  # Paste your token API
@@ -15,7 +14,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['extra'])
 def send_welcome(message):
-    text = '<b>Extra Commands</b> \n' \
+    text = 'A bunch of <b>extra commands</b> I provide: \n\n' \
            '/dev - provides information about my creator\n' \
            '/source - my source code\n' \
            '/contributions - to contribute to this project\n' \
@@ -167,6 +166,23 @@ def process_co(message):
         bot.send_location(chat_id=message.chat.id, latitude=lat, longitude=lon, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
+
+
+@bot.message_handler(commands=['geosearch'])
+def geo(message):
+    geo_msg = bot.reply_to(message, "Send me the coordinates,")
+    bot.register_next_step_handler(geo_msg, process_geo)
+
+
+def process_geo(message):
+    # noinspection PyBroadException
+    try:
+        lat, lan = str(message.text).split(" ")
+        for i in wikipedia.geosearch(latitude=lat, longitude=lan, title=None, results=10, radius=1000):
+            bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
+
 
 
 @bot.message_handler(commands=['suggest'])
