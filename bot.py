@@ -18,34 +18,35 @@ def send_welcome(message):
     text = '<b>Extra Commands</b> \n' \
            '/purpose - shows the purpose why I was made\n' \
            '/dev - provides information about my creator\n' \
-           '/source - my source code'
+           '/source - my source code\n' \
+           '/issues - to submit problems'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
-
-
-@bot.message_handler(commands=['big'])
-def send_welcome(message):
-    text = '/definitions - Complete wiki page of the word\n' \
-           '/titles - All related & suggested titles'
-    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_big())
 
 
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
-    text = 'I was made with the purpose of helping people learn more about bots and also provide a easier '
+    text = 'I was made with the purpose to make wikipedia accessible with a bot.'
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['dev'])
 def dev(message):
-    text = 'This is made with ❤ by <a href="https://github.com/themagicalmammal">@themagicalmammal</a>.\n If you ' \
+    text = 'This is made with ❤ by @themagicalmammal.\nIf you ' \
            'require assistance or want me to update the bot, ' \
-           'Please feel free to contact me. '
+           'Please feel free to contact <a href="https://github.com/themagicalmammal">me</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['source'])
 def dev(message):
-    text = 'Source Code for <a href="https://github.com/themagicalmammal/WikiBot">Wiki Bot</a>.'
+    text = 'This is Open Source Project. To checkout go, <a href="https://github.com/themagicalmammal/WikiBot">here</a>.'
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+
+
+@bot.message_handler(commands=['issues'])
+def dev(message):
+    text = 'If you have problem and want to submit a issue, go <a ' \
+           'href="https://github.com/themagicalmammal/WikiBot/issues">here</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -55,6 +56,7 @@ def aid(message):
            '<b>Primary</b> \n' \
            '/definition - fetches definition of the word you want \n' \
            '/title - fetches a bunch of related titles for a word \n' \
+           '/titles - fetches all possible/suggested titles for a word \n' \
            '/url - gives the URL for the wiki page of the word \n' \
            '/lang - set the language you want (<a ' \
            'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">languages</a>) \n \n' \
@@ -63,7 +65,6 @@ def aid(message):
            '/random - fetches a random title from the wiki page \n' \
            '/suggest - returns a suggestion or none if not found \n\n' \
            '<b>Others</b> \n' \
-           '/big - bigger version of definition & title \n' \
            '/extra - some extra set of commands'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
@@ -95,7 +96,7 @@ def process_titles(message):
     # noinspection PyBroadException
     try:
         titles_msg = str(message.text)
-        titles_result = wikipedia.search(titles_msg, sentences=100, suggestion=True)
+        titles_result = wikipedia.search(titles_msg, suggestion=True)
         for i in titles_result:
             bot.send_message(chat_id=message.chat.id, text=i, parse_mode='html', reply_markup=main_keyboard())
     except Exception:
@@ -139,21 +140,6 @@ def process_definition(message):
     try:
         def_msg = str(message.text)
         def_str = str(wikipedia.summary(def_msg, sentences=20, auto_suggest=True, redirect=True))
-        bot.send_message(chat_id=message.chat.id, text=def_str, reply_markup=main_keyboard())
-    except Exception as c:
-        bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
-
-
-@bot.message_handler(commands=['definitions'])
-def definitions(message):
-    def_msgs = bot.reply_to(message, "Definition" + word)
-    bot.register_next_step_handler(def_msgs, process_definitions)
-
-
-def process_definitions(message):
-    try:
-        def_msgs = str(message.text)
-        def_str = str(wikipedia.summary(def_msgs, auto_suggest=True, redirect=True))
         bot.send_message(chat_id=message.chat.id, text=def_str, reply_markup=main_keyboard())
     except Exception as c:
         bot.send_message(chat_id=message.chat.id, text=c, reply_markup=definition(message))
@@ -215,19 +201,8 @@ def process_ln(message):
 
 
 def main_extra():
-    markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/purpose', '/dev', '/source', '/back']
-    buttons = []
-    for text in texts:
-        button = types.KeyboardButton(text)
-        buttons.append(button)
-    markup.add(*buttons)
-    return markup
-
-
-def main_big():
-    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/definitions', '/titles', '/back']
+    markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
+    texts = ['/purpose', '/dev', '/source', '/issue', '/back']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -238,7 +213,7 @@ def main_big():
 
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/definition', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/big', '/extra']
+    texts = ['/definition', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
