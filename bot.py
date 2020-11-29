@@ -16,10 +16,11 @@ def send_welcome(message):
 @bot.message_handler(commands=['extra'])
 def send_welcome(message):
     text = '<b>Extra Commands</b> \n' \
-           '/purpose - shows the purpose why I was made\n' \
            '/dev - provides information about my creator\n' \
            '/source - my source code\n' \
-           '/issues - to submit problems'
+           '/contributions - to contribute to this project\n' \
+           '/issues - to submit problems/issues\n' \
+           '/purpose - shows the purpose why I was made'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
 
 
@@ -39,7 +40,8 @@ def dev(message):
 
 @bot.message_handler(commands=['source'])
 def dev(message):
-    text = 'This is Open Source Project. To checkout go, <a href="https://github.com/themagicalmammal/WikiBot">here</a>.'
+    text = 'This is Open Source Project. To checkout go, ' \
+           '<a href="https://github.com/themagicalmammal/WikiBot">here</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -47,6 +49,12 @@ def dev(message):
 def dev(message):
     text = 'If you have problem and want to submit a issue, go <a ' \
            'href="https://github.com/themagicalmammal/WikiBot/issues">here</a>. '
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+
+
+@bot.message_handler(commands=['contributions'])
+def dev(message):
+    text = 'href="https://github.com/themagicalmammal/WikiBot/pulls">Contributions</a> are happily accepted.'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -201,8 +209,8 @@ def process_ln(message):
 
 
 def main_extra():
-    markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/purpose', '/dev', '/source', '/issue', '/back']
+    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
+    texts = ['/dev', '/source', '/contributions', '/issues', '/purpose', '/back']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
