@@ -4,7 +4,7 @@ import wikipedia
 
 bot_token = ''  # Paste your token API
 bot = TeleBot(token=bot_token)
-error = 'Sorry, Processing Failed'
+error = 'Wrong word, use /suggest'
 word = " for the word..."
 
 
@@ -42,7 +42,7 @@ def dev(message):
 @bot.message_handler(commands=['help'])
 def aid(message):
     text = '/def - fetches definition of the word you typed, \n' \
-           '/title - fetches a bunch of possible titles for the word you send, \n' \
+           '/title - fetches a bunch of related titles for the word you send, \n' \
            '/url - gives the url for the wiki page of the word you typed, \n' \
            '/lang - set the language you want it in (languages - /hlang) , \n' \
            '/coordinate - find the coordinate of the location, \n' \
