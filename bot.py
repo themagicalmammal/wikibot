@@ -26,7 +26,7 @@ def send_welcome(message):
 def send_welcome(message):
     text = '/definitions - Complete wiki page of the word\n' \
            '/titles - All related & suggested titles'
-    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_big())
 
 
 @bot.message_handler(commands=['purpose'])
@@ -215,7 +215,7 @@ def process_ln(message):
 
 
 def main_extra():
-    markup = types.ReplyKeyboardMarkup(row_width=2, one_time_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True, one_time_keyboard=True)
     texts = ['/purpose', '/dev', '/source', '/back']
     buttons = []
     for text in texts:
@@ -225,8 +225,19 @@ def main_extra():
     return markup
 
 
+def main_big():
+    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
+    texts = ['/definitions', '/titles', '/back']
+    buttons = []
+    for text in texts:
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
+    return markup
+
+
 def main_keyboard():
-    markup = types.ReplyKeyboardMarkup(row_width=4, one_time_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
     texts = ['/definition', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/big', '/extra']
     buttons = []
     for text in texts:
