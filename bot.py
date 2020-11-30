@@ -69,6 +69,7 @@ def aid(message):
            'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">languages</a>) \n \n' \
            '<b>Secondary</b> \n' \
            '/map - location in map with wiki database \n' \
+           '/nearby - locations near a coordinate \n' \
            '/random - fetches a random title from the wiki page \n' \
            '/suggest - returns a suggestion or none if not found \n\n' \
            '<b>Others</b> \n' \
@@ -168,21 +169,21 @@ def process_co(message):
         bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
 
 
-@bot.message_handler(commands=['geosearch'])
+@bot.message_handler(commands=['nearby'])
 def geo(message):
-    geo_msg = bot.reply_to(message, "Send me the coordinates,")
+    geo_msg = bot.reply_to(message, "Send me the coordinates...")
     bot.register_next_step_handler(geo_msg, process_geo)
 
 
 def process_geo(message):
     # noinspection PyBroadException
     try:
-        lat, lan = str(message.text).split(" ")
-        for i in wikipedia.geosearch(latitude=lat, longitude=lan, title=None, results=10, radius=1000):
+        lat, lan = (str(message.text).replace('E', '').replace('W', '').replace('N', '').replace('S', '').
+                    replace('° ', '').replace('°', '').replace(',', '').replace('  ', ' ').split(" "))
+        for i in wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=10000):
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
-
 
 
 @bot.message_handler(commands=['suggest'])
@@ -237,7 +238,7 @@ def main_extra():
 
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/definition', '/title', '/url', '/lang', '/map', '/random', '/suggest', '/help', '/extra']
+    texts = ['/definition', '/title', '/url', '/lang', '/map', '/nearby', '/random', '/suggest', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
