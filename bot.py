@@ -26,15 +26,13 @@ def send_welcome(message):
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
 
 
-@bot.message_handler(commands=['extra'])
+@bot.message_handler(commands=['special'])
 def send_welcome(message):
-    text = 'A bunch of <b>extra commands</b> I provide: \n\n' \
-           '/dev - provides information about my creator\n' \
-           '/source - my source code\n' \
-           '/contributions - to contribute to this project\n' \
-           '/issues - to submit problems/issues\n' \
-           '/purpose - shows the purpose why I was made'
-    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
+    text = 'Some <b>similar commands</b> I provide: \n\n' \
+           '/suggest - returns a suggested word or none if not found \n' \
+           '/titles - fetches all possible titles for a word\n' \
+           '/spot - fetches a random title from the wiki page'
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_special())
 
 
 @bot.message_handler(commands=['purpose'])
@@ -79,11 +77,10 @@ def aid(message):
            '<b>Secondary</b> \n' \
            '/map - location in map with wiki database \n' \
            '/nearby - locations near a coordinate \n' \
-           '/spot - fetches a random title from the wiki page \n' \
-           '/suggest - returns a suggested word or none if not found \n\n' \
+           '/random - pops a random article from wiki \n\n' \
            '<b>Others</b> \n' \
-           '/extra - some extra set of commands \n'\
-           '/titles - fetches all possible titles for a word \n\n' \
+           '/special - some different set of commands \n' \
+           '/extra - some extra set of commands \n\n'\
            '<b>UnSafe</b> \n' \
            '/lang - set the language you want, wrong prefix will break commands (<a ' \
            'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">list of languages</a>)'
@@ -273,9 +270,20 @@ def main_extra():
     return markup
 
 
+def main_special():
+    markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True, one_time_keyboard=True)
+    texts = ['/suggest', '/titles', '/spot', '/back']
+    buttons = []
+    for text in texts:
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
+    return markup
+
+
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/definition', '/title', '/url', '/map', '/nearby', '/spot', '/suggest', '/help', '/extra', '/lang']
+    texts = ['/definition', '/title', '/url', '/map', '/nearby', '/random', '/special', '/help', '/extra', '/lang']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
