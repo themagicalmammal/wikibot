@@ -33,22 +33,20 @@ def purpose(message):
 
 @bot.message_handler(commands=['dev'])
 def dev(message):
-    text = 'This is made with ❤ by @themagicalmammal.\nIf you ' \
-           'require assistance or want me to update the bot, ' \
-           'Please feel free to contact <a href="https://github.com/themagicalmammal">me</a>. '
-    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+    text = 'I was made with ❤ by @themagicalmammal.'
+    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['source'])
 def dev(message):
-    text = 'This is Open Source Project. To checkout go, ' \
+    text = 'This is an Open Source Project. My code is ' \
            '<a href="https://github.com/themagicalmammal/WikiBot">here</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['issues'])
 def dev(message):
-    text = 'If you have problem and want to submit a issue, go <a ' \
+    text = 'If you have problems or want to submit a issue, go <a ' \
            'href="https://github.com/themagicalmammal/WikiBot/issues">here</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
