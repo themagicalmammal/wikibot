@@ -12,7 +12,8 @@ word = " for the word..."
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.send_message(chat_id=message.chat.id, text='Greetings! Welcome, I am WikiBot.', reply_markup=main_keyboard())
+    welcome = 'Greetings! Welcome, I am WikiBot.\nTo know how to control me type /help.'
+    bot.send_message(chat_id=message.chat.id, text=welcome, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['extra'])
@@ -80,10 +81,11 @@ def aid(message):
            '/random - pops a random article from wiki \n\n' \
            '<b>Others</b> \n' \
            '/special - some different set of commands \n' \
-           '/extra - some extra set of commands \n\n'\
+           '/extra - some extra set of commands \n\n' \
            '<b>UnSafe</b> \n' \
            '/lang - set the language you want, wrong prefix will break commands (<a ' \
-           'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">list of languages</a>)'
+           'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">list of languages</a>) \n\n' \
+           "<b>Note:</b> If the commands don't show up type /commands\n"
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -140,7 +142,7 @@ def process_url(message):
         url_str = wikipedia.page(url_message)
         url_result = str(url_str.url)
         pre = "URL for the word <b>" + url_message + "</b> is \n\n"
-        bot.send_message(chat_id=message.chat.id, text=pre + url_result, parse_mode= 'html',
+        bot.send_message(chat_id=message.chat.id, text=pre + url_result, parse_mode='html',
                          reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
@@ -238,6 +240,12 @@ def process_suggest(message):
 @bot.message_handler(commands=['back'])
 def back(message):
     bot.send_message(chat_id=message.chat.id, text="Going <b>Back</b>...", parse_mode='html',
+                     reply_markup=main_keyboard())
+
+
+@bot.message_handler(commands=['commands'])
+def back(message):
+    bot.send_message(chat_id=message.chat.id, text="<b>Commands</b>", parse_mode='html',
                      reply_markup=main_keyboard())
 
 
