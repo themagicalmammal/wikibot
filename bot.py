@@ -1,4 +1,6 @@
-import time, wikipedia
+import time
+import wikipedia
+
 from telebot import TeleBot, types
 
 bot_token = ''  # Paste your token API
