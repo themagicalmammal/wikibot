@@ -26,6 +26,17 @@ def send_welcome(message):
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
 
 
+@bot.message_handler(commands=['extra'])
+def send_welcome(message):
+    text = 'A bunch of <b>extra commands</b> I provide: \n\n' \
+           '/dev - provides information about my creator\n' \
+           '/source - my source code\n' \
+           '/contributions - to contribute to this project\n' \
+           '/issues - to submit problems/issues\n' \
+           '/purpose - shows the purpose why I was made'
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
+
+
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
     text = 'I was made with the purpose to make wikipedia accessible with a bot.'
@@ -64,11 +75,11 @@ def aid(message):
            '<b>Primary</b> \n' \
            '/definition - fetches definition of the word you want \n' \
            '/title - fetches a bunch of related titles for a word \n' \
-           '/url - gives the URL for the wiki page of the word \n' \
+           '/url - gives the URL for the wiki page of the word \n\n' \
            '<b>Secondary</b> \n' \
            '/map - location in map with wiki database \n' \
            '/nearby - locations near a coordinate \n' \
-           '/random - fetches a random title from the wiki page \n' \
+           '/spot - fetches a random title from the wiki page \n' \
            '/suggest - returns a suggested word or none if not found \n\n' \
            '<b>Others</b> \n' \
            '/extra - some extra set of commands \n'\
@@ -143,7 +154,19 @@ def random(message):
     # noinspection PyBroadException
     try:
         random_title = str(wikipedia.random(pages=1))
-        bot.send_message(chat_id=message.chat.id, text=random_title, reply_markup=main_keyboard())
+        random_page = wikipedia.page(random_title)
+        random_result = str(random_page.url)
+        bot.send_message(chat_id=message.chat.id, text=random_result, reply_markup=main_keyboard())
+    except Exception:
+        bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
+
+
+@bot.message_handler(commands=['spot'])
+def spot(message):
+    # noinspection PyBroadException
+    try:
+        spot_title = str(wikipedia.random(pages=1))
+        bot.send_message(chat_id=message.chat.id, text=spot_title, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
 
@@ -252,7 +275,7 @@ def main_extra():
 
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/definition', '/title', '/url', '/map', '/nearby', '/random', '/suggest', '/help', '/lang', '/extra']
+    texts = ['/definition', '/title', '/url', '/map', '/nearby', '/spot', '/suggest', '/help', '/extra', '/lang']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
