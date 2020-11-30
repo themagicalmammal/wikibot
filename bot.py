@@ -63,7 +63,6 @@ def aid(message):
            '<b>Primary</b> \n' \
            '/definition - fetches definition of the word you want \n' \
            '/title - fetches a bunch of related titles for a word \n' \
-           '/titles - fetches all possible/suggested titles for a word \n' \
            '/url - gives the URL for the wiki page of the word \n' \
            '/lang - set the language you want (<a ' \
            'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">languages</a>) \n \n' \
@@ -73,7 +72,8 @@ def aid(message):
            '/random - fetches a random title from the wiki page \n' \
            '/suggest - returns a suggestion or none if not found \n\n' \
            '<b>Others</b> \n' \
-           '/extra - some extra set of commands'
+           '/extra - some extra set of commands'\
+           '/titles - fetches all possible/suggested titles for a word \n'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -180,7 +180,7 @@ def process_geo(message):
     try:
         lat, lan = (str(message.text).replace('E', '').replace('W', '').replace('N', '').replace('S', '').
                     replace('° ', '').replace('°', '').replace(',', '').replace('  ', ' ').split(" "))
-        for i in wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=10000):
+        for i in wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=1000):
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
