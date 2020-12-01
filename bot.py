@@ -3,8 +3,8 @@ import wikipedia
 
 from telebot import TeleBot, types
 
-bot_token = ''  # Paste your token API
-bot = TeleBot(token=bot_token)
+API_TOKEN = ''  # Paste your token API
+bot = TeleBot(token=API_TOKEN)
 error = 'Wrong word, use /title'
 error2 = 'Wrong word, use /suggest'
 word = " for the word..."
