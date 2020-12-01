@@ -1,5 +1,4 @@
 import wikipedia
-
 from telebot import TeleBot, types
 
 API_TOKEN = ''  # Paste your token API
@@ -7,6 +6,12 @@ bot = TeleBot(token=API_TOKEN)
 error = 'Wrong word, use /title'
 error2 = 'Wrong word, use /suggest'
 word = " for the word..."
+
+
+def find_command(msg):
+    for text in msg:
+        if '/' in text:
+            return text
 
 
 @bot.message_handler(commands=['start'])
@@ -350,7 +355,12 @@ def main_keyboard():
 
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
-    bot.reply_to(message, "Please, use /commands.")
+    check = find_command(message.text.split())
+
+    if check:
+        bot.reply_to(message, "Unrecognized command. Say whaaaat?")
+    else:
+        bot.reply_to(message, "You have to use /commands.")
 
 
 bot.polling()
