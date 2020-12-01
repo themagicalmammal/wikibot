@@ -1,4 +1,3 @@
-import time
 import wikipedia
 
 from telebot import TeleBot, types
@@ -103,7 +102,8 @@ def process_title(message):
             bot.send_message(chat_id=message.chat.id, text="Possible titles are...",
                              parse_mode='html')
             for i in title_result:
-                bot.send_message(chat_id=message.chat.id, text=i.replace(title_msg, "<b>" + title_msg + "</b>"),
+                bot.send_message(chat_id=message.chat.id, text=i.replace(title_msg, "<b>" + title_msg + "</b>")
+                                 .replace(title_msg.lower(), "<b>" + title_msg.lower() + "</b>"),
                                  parse_mode='html', reply_markup=main_keyboard())
         else:
             bot.send_message(chat_id=message.chat.id, text=error2, reply_markup=main_keyboard())
@@ -126,7 +126,8 @@ def process_titles(message):
                          parse_mode='html')
         if titles_result:
             for i in titles_result:
-                bot.send_message(chat_id=message.chat.id, text=i.replace(titles_msg, "<b>" + titles_msg + "</b>"),
+                bot.send_message(chat_id=message.chat.id, text=i.replace(titles_msg, "<b>" + titles_msg + "</b>")
+                                 .replace(titles_msg.lower(), "<b>" + titles_msg.lower() + "</b>"),
                                  parse_mode='html', reply_markup=main_keyboard())
         else:
             bot.send_message(chat_id=message.chat.id, text=error2, reply_markup=main_keyboard())
@@ -347,11 +348,9 @@ def main_keyboard():
     return markup
 
 
-while True:
-    # noinspection PyBroadException
-    try:
-        bot.enable_save_next_step_handlers(delay=2)
-        bot.load_next_step_handlers()
-        bot.polling()
-    except Exception:
-        time.sleep(5)
+@bot.message_handler(func=lambda message: True)
+def echo_message(message):
+    bot.reply_to(message, "Please, use /commands.")
+
+
+bot.polling()

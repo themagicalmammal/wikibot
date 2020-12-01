@@ -29,7 +29,7 @@ Make a bot on telegram with [BotFather](https://telegram.me/BotFather), create a
 Deploy it on Heroku or use your PC. <br /> <br />
 
 #### User Interface
-Since, you can directly run this with python it doesn't need a interface. But, to build one, you can use [these](https://github.com/themagicalmammal/WikiBot/tree/GUI).
+##### Since, you can directly run this with python it doesn't need a interface. But, to build one, you can use [these](https://github.com/themagicalmammal/WikiBot/tree/GUI).
 
 ## Commands
 **Not updated according to current version.**
