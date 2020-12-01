@@ -359,9 +359,11 @@ def main_keyboard():
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
     check = find_command(message.text.split())
-
     if check:
-        bot.reply_to(message, "Unrecognized command. Say whaaaat?")
+        if check[1:] in commands:
+            bot.reply_to(message, "Wrong usage of command")
+        else:
+            bot.reply_to(message, "Unrecognized command. Say whaaaat?")
     else:
         bot.reply_to(message, "You have to use /commands.")
 
