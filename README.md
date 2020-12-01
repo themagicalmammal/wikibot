@@ -75,5 +75,6 @@ Gives the URL of the wiki page of the word.
 ![URL](https://github.com/themagicalmammal/WikiBot/blob/master/References/url.PNG)
 
 ## Credits
-#### [Goldsmith](https://github.com/goldsmith) - For his amazing [Wikipedia library](https://github.com/goldsmith/Wikipedia).
+#### 1. [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard method to bot & optimising a lot of bot commands.
+#### 2. [Goldsmith](https://github.com/goldsmith) - For his amazing [Wikipedia library](https://github.com/goldsmith/Wikipedia).
 
