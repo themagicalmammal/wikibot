@@ -6,6 +6,9 @@ bot = TeleBot(token=API_TOKEN)
 error = 'Wrong word, use /title'
 error2 = 'Wrong word, use /suggest'
 word = " for the word..."
+commands = ['start', 'extra', 'special', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contributions', 'help',
+            'title', 'titles', 'url', 'random', 'spot', 'definition', 'map', 'nearby', 'suggest', 'back', 'commands',
+            'lang']
 
 
 def find_command(msg):
