@@ -2,13 +2,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE)
 [![Python](https://camo.githubusercontent.com/829ae006dcf8b49c63061f119aa3ee4ce50db7eaace948ca34799c7fc7eddad4/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f707954656c656772616d426f744150492e737667)](https://github.com/themagicalmammal/WikiBot/search?l=python)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/themagicalmammal/WikiBot/pulls)<br />
-WikiBot is Telegram Bot 🤖 which with the help of wikipedia library provides you multiple features like defination, title searches, location searches and a lot more!
+Wikibot is Telegram Bot 🤖 which with the help of Wikipedia library provides you multiple features like defination, title searches, location searches and a lot more!
 
 ## Index
 
-### 1. [Information](https://github.com/themagicalmammal/WikiBot#info)
+### 1. [Info](https://github.com/themagicalmammal/WikiBot#info)
 
-### 2. [Deploy](https://github.com/themagicalmammal/WikiBot#deployment)
+### 2. [Deploy](https://github.com/themagicalmammal/WikiBot#deploy)
 
 ### 3. [Commands](https://github.com/themagicalmammal/WikiBot#bot-commands)
 - **[Help](https://github.com/themagicalmammal/WikiBot#1-help)**
@@ -20,7 +20,7 @@ WikiBot is Telegram Bot 🤖 which with the help of wikipedia library provides y
 ## Info
 [<img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.PNG" />](https://telegram.me/pro_wikibot) <br />
 
-## Deployment
+## Deploy
 **1. Install the Requirements.** <br />
 Install the [requirements.txt](https://raw.githubusercontent.com/themagicalmammal/WikiBot/master/requirements.txt) for the bot. <br />
 **2. Create an Telegram API token.** <br />
@@ -31,7 +31,7 @@ Deploy it on Heroku or use your PC. <br /> <br />
 #### User Interface
 Since, you can directly run this with python it doesn't need a interface. But, to build one, you can use [these](https://github.com/themagicalmammal/WikiBot/tree/GUI).
 
-## Bot Commands
+## Commands
 **Not updated according to current version.**
 ### 1. Help
 A simple command that gives you the commands & dev info.
