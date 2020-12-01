@@ -1,4 +1,6 @@
+import time
 import wikipedia
+
 from telebot import TeleBot, types
 
 API_TOKEN = ''  # Paste your token API
@@ -368,4 +370,11 @@ def echo_message(message):
         bot.reply_to(message, "You have to use /commands.")
 
 
-bot.polling()
+while True:
+    # noinspection PyBroadException
+    try:
+        bot.polling(none_stop=True)
+        # ConnectionError and ReadTimeout because of possible timout of the requests library
+        # maybe there are others, therefore Exception
+    except Exception:
+        time.sleep(15)
