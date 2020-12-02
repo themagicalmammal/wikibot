@@ -8,8 +8,8 @@ bot = TeleBot(token=API_TOKEN)
 error = 'Wrong word, use /title'
 error2 = 'Wrong word, use /suggest'
 word = " for the word..."
-commands = ['start', 'extra', 'special', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contributions', 'help',
-            'title', 'titles', 'url', 'random', 'spot', 'definition', 'map', 'nearby', 'suggest', 'back', 'commands',
+commands = ['start', 'extra', 'special', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contribute', 'help',
+            'title', 'titles', 'url', 'random', 'spot', 'def', 'map', 'nearby', 'suggest', 'back', 'commands',
             'lang']
 
 
@@ -81,7 +81,7 @@ def dev(message):
 def aid(message):
     text = 'You can use the following commands: \n\n' \
            '<b>Primary</b> \n' \
-           '/definition - fetches definition of the word you want \n' \
+           '/def - fetches definition of the word you want \n' \
            '/title - fetches a bunch of related titles for a word \n' \
            '/url - gives the URL for the wiki page of the word \n' \
            '/lang - set the language you want, by typing its <a ' \
@@ -107,37 +107,13 @@ def process_title(message):
     # noinspection PyBroadException
     try:
         title_msg = str(message.text)
-        title_result = wikipedia.search(title_msg, results=4)
+        title_result = wikipedia.search(title_msg)
         if title_result:
             bot.send_message(chat_id=message.chat.id, text="Possible titles are...",
                              parse_mode='html')
             for i in title_result:
                 bot.send_message(chat_id=message.chat.id, text=i.replace(title_msg, "<b>" + title_msg + "</b>")
                                  .replace(title_msg.lower(), "<b>" + title_msg.lower() + "</b>"),
-                                 parse_mode='html', reply_markup=main_keyboard())
-        else:
-            bot.send_message(chat_id=message.chat.id, text=error2, reply_markup=main_keyboard())
-    except Exception:
-        bot.send_message(chat_id=message.chat.id, text=error2, reply_markup=main_keyboard())
-
-
-@bot.message_handler(commands=['titles'])
-def titles(message):
-    titles_msg = bot.reply_to(message, "<b>Titles</b>" + word, parse_mode='html')
-    bot.register_next_step_handler(titles_msg, process_titles)
-
-
-def process_titles(message):
-    # noinspection PyBroadException
-    try:
-        titles_msg = str(message.text)
-        titles_result = wikipedia.search(titles_msg)
-        bot.send_message(chat_id=message.chat.id, text="All possible titles are...",
-                         parse_mode='html')
-        if titles_result:
-            for i in titles_result:
-                bot.send_message(chat_id=message.chat.id, text=i.replace(titles_msg, "<b>" + titles_msg + "</b>")
-                                 .replace(titles_msg.lower(), "<b>" + titles_msg.lower() + "</b>"),
                                  parse_mode='html', reply_markup=main_keyboard())
         else:
             bot.send_message(chat_id=message.chat.id, text=error2, reply_markup=main_keyboard())
@@ -186,7 +162,7 @@ def spot(message):
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
 
 
-@bot.message_handler(commands=['definition'])
+@bot.message_handler(commands=['def'])
 def definition(message):
     def_msg = bot.reply_to(message, "<b>Definition</b>" + word, parse_mode='html')
     bot.register_next_step_handler(def_msg, process_definition)
@@ -341,7 +317,7 @@ def main_extra():
 
 def main_special():
     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/suggest', '/titles', '/spot', '/back']
+    texts = ['/suggest', '/spot', '/back']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -352,7 +328,7 @@ def main_special():
 
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/definition', '/title', '/url', '/map', '/nearby', '/random', '/special', '/help', '/extra', '/lang']
+    texts = ['/def', '/title', '/url', '/map', '/nearby', '/random', '/special', '/help', '/extra', '/lang']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
