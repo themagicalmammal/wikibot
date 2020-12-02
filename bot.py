@@ -167,10 +167,10 @@ def process_definition(message):
                          reply_markup=main_keyboard())
     except Exception as c:
         if str(c)[:7] == "Page id":
-            msg = '<b>Not Found!</b> \n\n'
+            msg = 'Not found'
         else:
-            msg = '<b>Multiple similar titles found!</b> \n\n'
-        bot.send_message(chat_id=message.chat.id, text=msg + str(c), parse_mode='html', reply_markup=main_keyboard())
+            msg = 'Multiple similar titles found'
+        bot.send_message(chat_id=message.chat.id, text='<b>' + msg + '!</b> \n\n' + str(c), parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['map'])
@@ -220,10 +220,10 @@ def process_suggest(message):
         suggest_str = str(wikipedia.suggest(suggest_msg))
         if suggest_str != "None":
             pre = "Suggestion for the word <b>" + suggest_msg + "</b> is "
-            bot.send_message(chat_id=message.chat.id, text=pre + suggest_str, parse_mode='html',
-                             reply_markup=main_keyboard())
+            text = pre + suggest_str
         else:
-            bot.send_message(chat_id=message.chat.id, text=sorry, parse_mode='html', reply_markup=main_keyboard())
+            text = sorry
+        bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text=sorry, parse_mode='html', reply_markup=main_keyboard())
 
@@ -280,11 +280,11 @@ def process_ln(message):
                      'zh-hans', 'zh-hant', 'zh-hk', 'zh-min-nan', 'zh-mo', 'zh-my', 'zh-sg', 'zh-tw', 'zh-yue', 'zu']
         if ln_msg in lang_list:
             wikipedia.set_lang(ln_msg)
-            bot.send_message(chat_id=message.chat.id, text="Done", reply_markup=main_keyboard())
+            text = "Done"
         else:
-            wrong = 'Wrong language, please check correct <a ' \
+            text = 'Wrong language, please check correct <a ' \
                     'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">prefix</a> '
-            bot.send_message(chat_id=message.chat.id, text=wrong, parse_mode='html', reply_markup=main_keyboard())
+        bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Error, setting language", reply_markup=main_keyboard())
 
@@ -316,18 +316,19 @@ def echo_message(message):
     check = find_command(message.text.split())
     if check:
         if check[1:] in commands:
-            bot.reply_to(message, "Wrong usage of command")
+            msg = "Wrong usage of command"
         else:
-            bot.reply_to(message, "Unrecognized command. Say whaaaat?")
+            msg = "Unrecognized command. Say What?"
     else:
-        bot.reply_to(message, "You have to use /commands.")
+        msg = "You have to use /commands."
+    bot.reply_to(message, msg)
 
 
 while True:
     # noinspection PyBroadException
     try:
         bot.polling(none_stop=True)
-        # ConnectionError and ReadTimeout because of possible timout of the requests library
+        # ConnectionError and ReadTimeout because of possible timeout of the requests library
         # maybe there are others, therefore Exception
     except Exception:
         time.sleep(15)
