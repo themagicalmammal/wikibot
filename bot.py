@@ -30,7 +30,7 @@ def send_welcome(message):
     text = 'A bunch of <b>extra commands</b> I provide: \n\n' \
            '/dev - provides information about my creator\n' \
            '/source - my source code\n' \
-           '/contributions - to contribute to this project\n' \
+           '/contribute - to contribute to this project\n' \
            '/issues - to submit problems/issues\n' \
            '/purpose - shows the purpose why I was made'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
@@ -71,7 +71,7 @@ def dev(message):
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
-@bot.message_handler(commands=['contributions'])
+@bot.message_handler(commands=['contribute'])
 def dev(message):
     text = 'href="https://github.com/themagicalmammal/WikiBot/pulls">Contributions</a> are happily accepted.'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
@@ -199,7 +199,10 @@ def process_definition(message):
         bot.send_message(chat_id=message.chat.id, text="<b>" + def_msg + "</b> \n\n" + def_str, parse_mode='html',
                          reply_markup=main_keyboard())
     except Exception as c:
-        msg = '<b>Multiple similar titles found!</b> \n\n'
+        if str(c)[:7] == "Page id":
+            msg = '<b>Not Found!</b> \n\n'
+        else:
+            msg = '<b>Multiple similar titles found!</b> \n\n'
         bot.send_message(chat_id=message.chat.id, text=msg + str(c), parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -327,7 +330,7 @@ def process_ln(message):
 
 def main_extra():
     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/dev', '/source', '/contributions', '/issues', '/purpose', '/back']
+    texts = ['/dev', '/source', '/contribute', '/issues', '/purpose', '/back']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -337,7 +340,7 @@ def main_extra():
 
 
 def main_special():
-    markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True, one_time_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
     texts = ['/suggest', '/titles', '/spot', '/back']
     buttons = []
     for text in texts:
@@ -348,7 +351,7 @@ def main_special():
 
 
 def main_keyboard():
-    markup = types.ReplyKeyboardMarkup(row_width=5, resize_keyboard=True, one_time_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
     texts = ['/definition', '/title', '/url', '/map', '/nearby', '/random', '/special', '/help', '/extra', '/lang']
     buttons = []
     for text in texts:
