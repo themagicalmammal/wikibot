@@ -1,6 +1,5 @@
 import time
 import wikipedia
-
 from telebot import TeleBot, types
 
 API_TOKEN = ''  # Paste your token API
@@ -8,9 +7,8 @@ bot = TeleBot(token=API_TOKEN)
 error = 'Wrong word, use /title'
 error2 = 'Wrong word, use /suggest'
 word = " for the word..."
-commands = ['start', 'extra', 'special', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contribute', 'help',
-            'title', 'titles', 'url', 'random', 'spot', 'def', 'map', 'nearby', 'suggest', 'back', 'commands',
-            'lang']
+commands = ['start', 'extra', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contribute', 'help', 'title', 'url',
+            'random', 'spot', 'def', 'map', 'nearby', 'suggest', 'back', 'commands', 'lang']
 
 
 def find_command(msg):
@@ -36,18 +34,9 @@ def send_welcome(message):
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
 
 
-@bot.message_handler(commands=['special'])
-def send_welcome(message):
-    text = 'Some <b>similar commands</b> I provide: \n\n' \
-           '/suggest - returns a suggested word or none if not found \n' \
-           '/titles - fetches all possible titles for a word\n' \
-           '/spot - fetches a random title from the wiki page'
-    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_special())
-
-
 @bot.message_handler(commands=['purpose'])
 def purpose(message):
-    text = 'I was made with the purpose to make wikipedia accessible with a bot.'
+    text = 'This was made with the purpose to make wikipedia easily accessible with a bot.'
     bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
@@ -90,8 +79,10 @@ def aid(message):
            '/map - location in map with wiki database \n' \
            '/nearby - locations near a coordinate \n' \
            '/random - pops a random article from wiki \n\n' \
+           '<b>Tertiary</b> \n' \
+           '/suggest - returns a suggested word or none if not found \n' \
+           '/spot - fetches a random title from the wiki page \n\n' \
            '<b>Others</b> \n' \
-           '/special - some different set of commands \n' \
            '/extra - some extra set of commands \n\n' \
            "<b>Note:</b> If the commands don't show up type /commands\n"
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
@@ -237,13 +228,7 @@ def process_suggest(message):
         bot.send_message(chat_id=message.chat.id, text=sorry, parse_mode='html', reply_markup=main_keyboard())
 
 
-@bot.message_handler(commands=['back'])
-def back(message):
-    bot.send_message(chat_id=message.chat.id, text="Going <b>Back</b>...", parse_mode='html',
-                     reply_markup=main_keyboard())
-
-
-@bot.message_handler(commands=['commands'])
+@bot.message_handler(commands=['commands', 'back'])
 def back(message):
     bot.send_message(chat_id=message.chat.id, text="<b>Commands</b>", parse_mode='html',
                      reply_markup=main_keyboard())
@@ -315,20 +300,9 @@ def main_extra():
     return markup
 
 
-def main_special():
-    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/suggest', '/spot', '/back']
-    buttons = []
-    for text in texts:
-        button = types.KeyboardButton(text)
-        buttons.append(button)
-    markup.add(*buttons)
-    return markup
-
-
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/map', '/nearby', '/random', '/special', '/help', '/extra', '/lang']
+    texts = ['/def', '/title', '/url', '/map', '/nearby', '/random', '/help', '/extra', '/lang']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
