@@ -2,3 +2,4 @@
 venv
 .handler-saves
 test.py
+firebase-sdk.json
