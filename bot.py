@@ -19,6 +19,7 @@ def find_command(msg):
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
+    user_id = message.from_user.id
     welcome = 'Greetings! Welcome, I am WikiBot.\nTo know how to control me type /help.'
     bot.send_message(chat_id=message.chat.id, text=welcome, reply_markup=main_keyboard())
 
