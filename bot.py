@@ -21,6 +21,18 @@ def add_user(message):
     ref.update({user_id: "en"})
 
 
+def set_lang(message):
+    user_id = message.from_user.id
+    ref.update({user_id: message.text})
+    global z
+    z = ref.get()
+
+
+def change_lang(message):
+    user_id = message.from_user.id
+    wikipedia.set_lang(z[user_id])
+
+
 def find_command(msg):
     for text in msg:
         if '/' in text:
