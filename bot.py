@@ -1,7 +1,12 @@
 import time
 import wikipedia
+import firebase_admin
+from firebase_admin import credentials, db
 from telebot import TeleBot, types
 
+cred = credentials.Certificate('firebase-sdk.json')
+firebase_admin.initialize_app(cred, {'databaseURL': 'https://wikibot-themagicalmammal-default-rtdb.firebaseio.com/'})
+ref = db.reference('/')
 API_TOKEN = ''  # Paste your token API
 bot = TeleBot(token=API_TOKEN)
 error = 'Wrong word, use /title'
@@ -9,6 +14,11 @@ error2 = 'Wrong word, use /suggest'
 word = " for the word..."
 commands = ['start', 'extra', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contribute', 'help', 'title', 'url',
             'random', 'spot', 'def', 'map', 'nearby', 'suggest', 'back', 'commands', 'lang']
+
+
+def add_user(message):
+    user_id = message.from_user.id
+    ref.update({user_id: "en"})
 
 
 def find_command(msg):
@@ -19,7 +29,7 @@ def find_command(msg):
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    user_id = message.from_user.id
+    add_user(message)
     welcome = 'Greetings! Welcome, I am WikiBot.\nTo know how to control me type /help.'
     bot.send_message(chat_id=message.chat.id, text=welcome, reply_markup=main_keyboard())
 
@@ -171,7 +181,8 @@ def process_definition(message):
             msg = 'Not found'
         else:
             msg = 'Multiple similar titles found'
-        bot.send_message(chat_id=message.chat.id, text='<b>' + msg + '!</b> \n\n' + str(c), parse_mode='html', reply_markup=main_keyboard())
+        bot.send_message(chat_id=message.chat.id, text='<b>' + msg + '!</b> \n\n' + str(c), parse_mode='html',
+                         reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['map'])
@@ -284,7 +295,7 @@ def process_ln(message):
             text = "Done"
         else:
             text = 'Wrong language, please check correct <a ' \
-                    'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">prefix</a> '
+                   'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">prefix</a> '
         bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Error, setting language", reply_markup=main_keyboard())
