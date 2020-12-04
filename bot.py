@@ -121,6 +121,7 @@ def process_title(message):
     # noinspection PyBroadException
     try:
         title_msg = str(message.text)
+        change_lang(message)
         title_result = wikipedia.search(title_msg)
         if title_result:
             bot.send_message(chat_id=message.chat.id, text="Possible titles are...",
@@ -145,6 +146,7 @@ def process_url(message):
     # noinspection PyBroadException
     try:
         url_message = str(message.text)
+        change_lang(message)
         url_str = wikipedia.page(url_message)
         url_result = str(url_str.url)
         pre = "URL for the word <b>" + url_message + "</b> is \n\n"
@@ -185,6 +187,7 @@ def definition(message):
 def process_definition(message):
     try:
         def_msg = str(message.text)
+        change_lang(message)
         def_str = str(wikipedia.summary(def_msg, sentences=20, auto_suggest=True, redirect=True))
         bot.send_message(chat_id=message.chat.id, text="<b>" + def_msg + "</b> \n\n" + def_str, parse_mode='html',
                          reply_markup=main_keyboard())
@@ -224,6 +227,7 @@ def process_geo(message):
     try:
         lat, lan = (str(message.text).replace('E', '').replace('W', '').replace('N', '').replace('S', '').
                     replace('° ', '').replace('°', '').replace(',', '').replace('  ', ' ').split(" "))
+        change_lang(message)
         for i in wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=1000):
             bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
     except Exception:
@@ -237,10 +241,11 @@ def suggest(message):
 
 
 def process_suggest(message):
-    # noinspection PyBroadException
     sorry = "Sorry, <b>no suggestions.</b>"
+    # noinspection PyBroadException
     try:
         suggest_msg = str(message.text)
+        change_lang(message)
         suggest_str = str(wikipedia.suggest(suggest_msg))
         if suggest_str != "None":
             pre = "Suggestion for the word <b>" + suggest_msg + "</b> is "
@@ -303,8 +308,8 @@ def process_ln(message):
                      'xal', 'xh', 'xmf', 'xsy', 'yi', 'yo', 'yue', 'za', 'zea', 'zgh', 'zh', 'zh-classical', 'zh-cn',
                      'zh-hans', 'zh-hant', 'zh-hk', 'zh-min-nan', 'zh-mo', 'zh-my', 'zh-sg', 'zh-tw', 'zh-yue', 'zu']
         if ln_msg in lang_list:
-            wikipedia.set_lang(ln_msg)
-            text = "Done"
+            set_lang(message)
+            text = "Language, set successfully."
         else:
             text = 'Wrong language, please check correct <a ' \
                    'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">prefix</a> '
