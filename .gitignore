@@ -1,5 +1,5 @@
+.handler-saves
 .idea
 venv
-.handler-saves
+firebase.json
 test.py
-firebase-sdk.json

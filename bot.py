@@ -4,7 +4,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 from telebot import TeleBot, types
 
-cred = credentials.Certificate('firebase-sdk.json')
+cred = credentials.Certificate('firebase.json')
 firebase_admin.initialize_app(cred, {'databaseURL': 'https://wikibot-themagicalmammal-default-rtdb.firebaseio.com/'})
 ref = db.reference('/')
 API_TOKEN = ''  # Paste your token API
@@ -23,7 +23,7 @@ def add_user(message):
 
 def set_lang(message):
     user_id = message.from_user.id
-    ref.update({user_id: message.text})
+    ref.update({user_id: message.text.lower()})
     global z
     z = ref.get()
 
