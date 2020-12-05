@@ -4,7 +4,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 from telebot import TeleBot, types
 
-cred = credentials.Certificate('firebase.json')
+cred = credentials.Certificate('firebase.json') # Get your Firebase setup
 firebase_admin.initialize_app(cred, {'databaseURL': 'https://wikibot-themagicalmammal-default-rtdb.firebaseio.com/'})
 ref = db.reference('/')
 z = ref.get()
