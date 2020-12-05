@@ -10,9 +10,7 @@ Wikibot is Telegram Bot 🤖 which with the help of Wikipedia library provides y
 
 ### 1. [Info](https://github.com/themagicalmammal/WikiBot#info)
 
-### 2. [Deploy](https://github.com/themagicalmammal/WikiBot#deploy)
-
-### 3. [Commands](https://github.com/themagicalmammal/WikiBot#bot-commands)
+### 2. [Commands](https://github.com/themagicalmammal/WikiBot#bot-commands)
 - **[Help](https://github.com/themagicalmammal/WikiBot#1-help)**
 - **[How2Use](https://github.com/themagicalmammal/WikiBot#2-how-to-use)**
 - **[Definition](https://github.com/themagicalmammal/WikiBot#3-definition)**
@@ -21,17 +19,6 @@ Wikibot is Telegram Bot 🤖 which with the help of Wikipedia library provides y
 
 ## Info
 [<img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.PNG" />](https://telegram.me/pro_wikibot) <br />
-
-## Deploy
-**1. Install the Requirements.** <br />
-Install the [requirements.txt](https://raw.githubusercontent.com/themagicalmammal/WikiBot/master/requirements.txt) for the bot. <br />
-**2. Create an Telegram API token.** <br />
-Make a bot on telegram with [BotFather](https://telegram.me/BotFather), create a bot then import the API Key to bot.py. <br />
-**3.** [![Heroku](https://camo.githubusercontent.com/6979881d5a96b7b18a057083bb8aeb87ba35fc279452e29034c1e1c49ade0636/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667)](https://signup.heroku.com) <br />
-Deploy it on Heroku or use your PC. <br /> <br />
-
-#### User Interface
-##### Since, you can directly run this with python it doesn't need a interface. But, to build one, you can use [these](https://github.com/themagicalmammal/WikiBot/tree/GUI).
 
 ## Commands
 **Not updated according to current version.**
