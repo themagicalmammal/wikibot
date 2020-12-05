@@ -7,6 +7,7 @@ from telebot import TeleBot, types
 cred = credentials.Certificate('firebase.json')
 firebase_admin.initialize_app(cred, {'databaseURL': 'https://wikibot-themagicalmammal-default-rtdb.firebaseio.com/'})
 ref = db.reference('/')
+z = ref.get()
 API_TOKEN = ''  # Paste your token API
 bot = TeleBot(token=API_TOKEN)
 error = 'Wrong word, use /title'
@@ -14,7 +15,6 @@ error2 = 'Wrong word, use /suggest'
 word = " for the word..."
 commands = ['start', 'extra', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contribute', 'help', 'title', 'url',
             'random', 'spot', 'def', 'map', 'nearby', 'suggest', 'back', 'commands', 'lang']
-z = ref.get()
 
 
 def add_user(message):
@@ -24,9 +24,14 @@ def add_user(message):
 
 def set_lan(message):
     user_id = message.from_user.id
-    ref.update({user_id: message.text.lower()})
+    ref.update({user_id: message.text})
     global z
     z = ref.get()
+
+
+def change_lan(message):
+    user_id = str(message.from_user.id)
+    wikipedia.set_lang(z[user_id])
 
 
 def find_command(msg):
@@ -117,7 +122,8 @@ def process_title(message):
     # noinspection PyBroadException
     try:
         title_msg = str(message.text)
-        title_result = wikipedia.search(title_msg)
+        change_lan(message)
+        title_result = str(wikipedia.search(title_msg))
         if title_result:
             bot.send_message(chat_id=message.chat.id, text="Possible titles are...",
                              parse_mode='html')
@@ -141,8 +147,9 @@ def process_url(message):
     # noinspection PyBroadException
     try:
         url_message = str(message.text)
-        url_str = wikipedia.page(url_message)
-        url_result = str(url_str.url)
+        change_lan(message)
+        url_page = wikipedia.page(url_message)
+        url_result = url_page.url
         pre = "URL for the word <b>" + url_message + "</b> is \n\n"
         bot.send_message(chat_id=message.chat.id, text=pre + url_result, parse_mode='html',
                          reply_markup=main_keyboard())
@@ -154,9 +161,10 @@ def process_url(message):
 def random(message):
     # noinspection PyBroadException
     try:
+        change_lan(message)
         random_title = str(wikipedia.random(pages=1))
         random_page = wikipedia.page(random_title)
-        random_result = str(random_page.url)
+        random_result = random_page.url
         bot.send_message(chat_id=message.chat.id, text=random_result, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
@@ -166,6 +174,7 @@ def random(message):
 def spot(message):
     # noinspection PyBroadException
     try:
+        change_lan(message)
         spot_title = str(wikipedia.random(pages=1))
         bot.send_message(chat_id=message.chat.id, text=spot_title, reply_markup=main_keyboard())
     except Exception:
@@ -181,7 +190,8 @@ def definition(message):
 def process_definition(message):
     try:
         def_msg = str(message.text)
-        def_str = str(wikipedia.summary(def_msg, sentences=20, auto_suggest=True, redirect=True))
+        change_lan(message)
+        def_str = wikipedia.summary(def_msg, sentences=19)
         bot.send_message(chat_id=message.chat.id, text="<b>" + def_msg + "</b> \n\n" + def_str, parse_mode='html',
                          reply_markup=main_keyboard())
     except Exception as c:
@@ -237,6 +247,7 @@ def process_suggest(message):
     # noinspection PyBroadException
     try:
         suggest_msg = str(message.text)
+        change_lan(message)
         suggest_str = str(wikipedia.suggest(suggest_msg))
         if suggest_str != "None":
             pre = "Suggestion for the word <b>" + suggest_msg + "</b> is "
