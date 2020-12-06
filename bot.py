@@ -237,8 +237,14 @@ def process_geo(message):
     try:
         lat, lan = (str(message.text).replace('E', '').replace('W', '').replace('N', '').replace('S', '').
                     replace('° ', '').replace('°', '').replace(',', '').replace('  ', ' ').split(" "))
-        for i in wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=1000):
-            bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
+        locations = wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=1000)
+        if locations:
+            bot.send_message(chat_id=message.chat.id, text="Nearby locations I could find...", reply_markup=main_keyboard())
+            for i in locations:
+                bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
+        else:
+            bot.send_message(chat_id=message.chat.id, text="Sorry, can't find nearby locations", reply_markup=main_keyboard())
+
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
 
