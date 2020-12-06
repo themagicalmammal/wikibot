@@ -4,7 +4,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 from telebot import TeleBot, types
 
-cred = credentials.Certificate('firebase.json') # Get your Firebase setup
+cred = credentials.Certificate('firebase.json')  # Get your Firebase setup
 firebase_admin.initialize_app(cred, {'databaseURL': 'https://wikibot-themagicalmammal-default-rtdb.firebaseio.com/'})
 ref = db.reference('/')
 z = ref.get()
@@ -46,6 +46,12 @@ def send_welcome(message):
     first = message.from_user.first_name
     welcome = 'Greetings ' + first + '! Welcome, I am Wikibot.\nTo learn how to control me, /help.'
     bot.send_message(chat_id=message.chat.id, text=welcome, reply_markup=main_keyboard())
+
+
+@bot.message_handler(func=lambda message: True if message.text.lower() in ["hi", "hey"] else False)
+def command_text_hi(message):
+    reply = message.text.lower().replace("h", "H") + '! ' + message.from_user.first_name
+    bot.send_message(chat_id=message.chat.id, text=reply)
 
 
 @bot.message_handler(commands=['extra'])
