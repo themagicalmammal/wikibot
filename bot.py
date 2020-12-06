@@ -222,6 +222,7 @@ def process_co(message):
     # noinspection PyBroadException
     try:
         co_msg = str(message.text)
+        wikipedia.set_lang('en')
         lat, lon = wikipedia.WikipediaPage(co_msg).coordinates
         bot.send_location(chat_id=message.chat.id, latitude=lat, longitude=lon, reply_markup=main_keyboard())
     except Exception:
@@ -239,14 +240,16 @@ def process_geo(message):
     try:
         lat, lan = (str(message.text).replace('E', '').replace('W', '').replace('N', '').replace('S', '').
                     replace('° ', '').replace('°', '').replace(',', '').replace('  ', ' ').split(" "))
+        wikipedia.set_lang('en')
         locations = wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=1000)
         if locations:
-            bot.send_message(chat_id=message.chat.id, text="Nearby locations I could find...", reply_markup=main_keyboard())
+            nearby = "<b>Nearby locations</b> I could find..."
+            bot.send_message(chat_id=message.chat.id, text=nearby, parse_mode='html', reply_markup=main_keyboard())
             for i in locations:
                 bot.send_message(chat_id=message.chat.id, text=i, reply_markup=main_keyboard())
         else:
-            bot.send_message(chat_id=message.chat.id, text="Sorry, can't find nearby locations", reply_markup=main_keyboard())
-
+            sorry = "Sorry, can't find nearby locations"
+            bot.send_message(chat_id=message.chat.id, text=sorry, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
 
