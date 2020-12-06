@@ -1,6 +1,7 @@
 [<img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/> <br /><br />](https://github.com/themagicalmammal/WikiBot)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/themagicalmammal/WikiBot/pulls)
 [<img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white" width='67'/>](https://www.python.org/)
+[<img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white" width='68'/>](https://id.heroku.com/login)
 [<img src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase" width='75'/>](https://firebase.google.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE)
 <br />
