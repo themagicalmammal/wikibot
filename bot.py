@@ -43,7 +43,8 @@ def find_command(msg):
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     add_user(message)
-    welcome = 'Greetings! Welcome, I am WikiBot.\nTo know how to control me type /help.'
+    first = message.from_user.first_name
+    welcome = 'Greetings ' + first + '! Welcome, I am Wikibot.\nTo learn how to control me, /help.'
     bot.send_message(chat_id=message.chat.id, text=welcome, reply_markup=main_keyboard())
 
 
@@ -73,20 +74,20 @@ def dev(message):
 @bot.message_handler(commands=['source'])
 def dev(message):
     text = 'This is an Open Source Project. My code is ' \
-           '<a href="https://github.com/themagicalmammal/WikiBot">here</a>. '
+           '<a href="https://github.com/themagicalmammal/Wikibot">here</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['issues'])
 def dev(message):
     text = 'If you have problems or want to submit a issue, go <a ' \
-           'href="https://github.com/themagicalmammal/WikiBot/issues">here</a>. '
+           'href="https://github.com/themagicalmammal/Wikibot/issues">here</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['contribute'])
 def dev(message):
-    text = 'href="https://github.com/themagicalmammal/WikiBot/pulls">Contributions</a> are happily accepted.'
+    text = 'href="https://github.com/themagicalmammal/Wikibot/pulls">Contributions</a> are happily accepted.'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
