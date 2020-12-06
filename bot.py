@@ -6,7 +6,7 @@ from firebase_admin import credentials, db
 from telebot import TeleBot, types
 
 cred = credentials.Certificate('firebase.json')  # Get your Firebase setup
-firebase_admin.initialize_app(cred, {'databaseURL': 'https://wikibot-themagicalmammal-default-rtdb.firebaseio.com/'})
+firebase_admin.initialize_app(cred, {'databaseURL': 'https://yourappname-user-default-rtdb.firebaseio.com/'})
 ref = db.reference('/')
 z = ref.get()
 TOKEN = ''  # Paste your token API
