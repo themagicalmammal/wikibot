@@ -107,7 +107,7 @@ def aid(message):
            '/title - fetches a bunch of related titles for a word \n' \
            '/url - gives the URL for the wiki page of the word \n' \
            '/lang - set the language you want, by typing its <a ' \
-           'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">prefix</a> \n\n' \
+           'href="https://github.com/themagicalmammal/Wikibot/blob/master/Language.md">prefix</a> \n\n' \
            '<b>Secondary</b> \n' \
            '/map - location in map with wiki database \n' \
            '/nearby - locations near a coordinate \n' \
@@ -332,7 +332,7 @@ def process_ln(message):
             text = "Language, set successfully."
         else:
             text = 'Wrong language, please check correct <a ' \
-                   'href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">prefix</a> '
+                   'href="https://github.com/themagicalmammal/Wikibot/blob/master/Language.md">prefix</a> '
         bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Error, setting language", reply_markup=main_keyboard())
