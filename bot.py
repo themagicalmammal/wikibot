@@ -117,7 +117,7 @@ def process_title(message):
     try:
         title_msg = str(message.text)
         change_lan(message)
-        title_result = str(wikipedia.search(title_msg))
+        title_result = wikipedia.search(title_msg)
         if title_result:
             bot.send_message(chat_id=message.chat.id, text="Possible titles are...",
                              parse_mode='html')
