@@ -7,7 +7,7 @@
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-blue.svg"/></a>
 <br />
 Wikibot is bot which with the help of wiki-library provides you with multiple features like definations, titles, url's & a lot more! 
-<br />
+<br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
 <a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase"/></a>
@@ -15,60 +15,86 @@ Wikibot is bot which with the help of wiki-library provides you with multiple fe
 
 ## Table of Contents
 
-### 1. [Info](https://github.com/themagicalmammal/WikiBot#info)
+* [Bio](https://github.com/themagicalmammal/Wikibot#Bio)
 
-### 2. [Commands](https://github.com/themagicalmammal/WikiBot#bot-commands)
-- **[Help](https://github.com/themagicalmammal/WikiBot#1-help)**
-- **[How2Use](https://github.com/themagicalmammal/WikiBot#2-how-to-use)**
-- **[Definition](https://github.com/themagicalmammal/WikiBot#3-definition)**
-- **[Title](https://github.com/themagicalmammal/WikiBot#4-title)**
-- **[URL](https://github.com/themagicalmammal/WikiBot#5-url)**
+* [Bot Commands](https://github.com/themagicalmammal/WikiBot#bot-commands)
 
-## Info
+## Bio
 [<img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png" />](https://telegram.me/pro_wikibot) <br />
 
-## Commands
-**Not updated according to current version.**
-### 1. Help
-A simple command that gives you the commands & dev info.
-```python
-/help
-```
+## Bot Commands
 
-![Help](https://github.com/themagicalmammal/WikiBot/blob/master/References/help.PNG)
-
-### 2. How to Use
-Lists out useful commands that can be used via the Bot.
-```python
-/how2use
-```
-
-![How2Use](https://github.com/themagicalmammal/WikiBot/blob/master/References/how2use.PNG)
-
-### 3. Definition
-Searches & Outputs the defination of the word you typed.
+### 1. Def
+Short form of definition. Fetches wiki definition for your word.
 ```python
 /def
 ```
 
-![Def](https://github.com/themagicalmammal/WikiBot/blob/master/References/definition.PNG)
-![Def2](https://github.com/themagicalmammal/WikiBot/blob/master/References/definition2.PNG)
+![def](https://github.com/themagicalmammal/WikiBot/blob/master/References/def.gif)
 
-### 4. Title
-Shows a list of possible titles that you can search for a word.
+### 2. Title
+Shows a list of possible titles that you can search from a word.
 ```python
 /title
 ```
 
-![Title](https://github.com/themagicalmammal/WikiBot/blob/master/References/title.PNG)
+![title](https://github.com/themagicalmammal/WikiBot/blob/master/References/title.gif)
 
-### 5. URL
-Gives the URL of the wiki page of the word.
+### 3. URL
+Provides you with the URL of the wiki page for a word.
 ```python
 /url
 ```
 
-![URL](https://github.com/themagicalmammal/WikiBot/blob/master/References/url.PNG)
+![url](https://github.com/themagicalmammal/WikiBot/blob/master/References/url.gif)
+
+### 4. Lang
+Change to your local language which will be used for every wiki output.
+```python
+/lang
+/prefix
+```
+
+![lang](https://github.com/themagicalmammal/WikiBot/blob/master/References/lang.gif)
+
+### 5. Map
+Provides you with location of your input place with wiki-api.
+```python
+/map
+```
+
+![map](https://github.com/themagicalmammal/WikiBot/blob/master/References/map.gif)
+
+### 6. Nearby
+With the help of coordinates provides you with nearby locations under 1km.
+```python
+/nearby
+```
+
+![nearby](https://github.com/themagicalmammal/WikiBot/blob/master/References/nearby.gif)
+
+### 7. Random
+Sends you with a random wiki link.
+```python
+/url
+```
+
+![random](https://github.com/themagicalmammal/WikiBot/blob/master/References/random.gif)
+```
+
+### 8. Others
+Some other set of commands that wikibot provides.
+```python
+/help
+/extra
+/spot
+/suggest
+/dev
+/source
+/issues
+```
+
+![other](https://github.com/themagicalmammal/WikiBot/blob/master/References/other.gif)
 
 ## References
 #### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add webhook to your bot.
