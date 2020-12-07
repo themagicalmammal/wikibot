@@ -15,8 +15,8 @@ server = Flask(__name__)
 error = 'Wrong word, use /title'
 error2 = 'Wrong word, use /suggest'
 word = " for the word..."
-commands = ['start', 'extra', 'purpose', 'dev', 'purpose', 'source', 'issues', 'contribute', 'help', 'title', 'url',
-            'random', 'spot', 'def', 'map', 'nearby', 'suggest', 'back', 'commands', 'lang']
+commands = ['start', 'extra', 'dev', 'source', 'issues', 'help', 'title', 'url', 'random', 'spot', 'def', 'map',
+            'nearby', 'suggest', 'back', 'commands', 'lang']
 
 
 def add_user(message):
@@ -61,16 +61,8 @@ def send_welcome(message):
     text = 'A bunch of <b>extra commands</b> I provide: \n\n' \
            '/dev - provides information about my creator\n' \
            '/source - my source code\n' \
-           '/contribute - to contribute to this project\n' \
-           '/issues - to submit problems/issues\n' \
-           '/purpose - shows the purpose why I was made'
+           '/issues - to submit problems/issues or suggest mods'
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_extra())
-
-
-@bot.message_handler(commands=['purpose'])
-def purpose(message):
-    text = 'This was made with the purpose to make wikipedia easily accessible with a bot.'
-    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['dev'])
@@ -93,12 +85,6 @@ def dev(message):
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
-@bot.message_handler(commands=['contribute'])
-def dev(message):
-    text = 'href="https://github.com/themagicalmammal/Wikibot/pulls">Contributions</a> are happily accepted.'
-    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
-
-
 @bot.message_handler(commands=['help'])
 def aid(message):
     text = 'You can use the following commands: \n\n' \
@@ -112,10 +98,9 @@ def aid(message):
            '/map - location in map with wiki database \n' \
            '/nearby - locations near a coordinate \n' \
            '/random - pops a random article from wiki \n\n' \
-           '<b>Tertiary</b> \n' \
-           '/suggest - returns a suggested word or none if not found \n' \
-           '/spot - fetches a random title from the wiki page \n\n' \
            '<b>Others</b> \n' \
+           '/suggest - returns a suggested word or none if not found \n' \
+           '/spot - fetches a random title from the wiki page \n' \
            '/extra - some extra set of commands \n\n' \
            "<b>Note:</b> If the commands don't show up type /commands\n"
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
@@ -213,7 +198,7 @@ def process_definition(message):
 
 
 @bot.message_handler(commands=['map'])
-def map(message):
+def chart(message):
     co_msg = bot.reply_to(message, "<b>Location</b> of the place...", parse_mode='html')
     bot.register_next_step_handler(co_msg, process_co)
 
@@ -339,8 +324,8 @@ def process_ln(message):
 
 
 def main_extra():
-    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/dev', '/source', '/contribute', '/issues', '/purpose', '/back']
+    markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
+    texts = ['/dev', '/source', '/issues', '/back']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -351,7 +336,7 @@ def main_extra():
 
 def main_keyboard():
     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
-    texts = ['/def', '/title', '/url', '/map', '/nearby', '/random', '/help', '/extra', '/lang']
+    texts = ['/def', '/title', '/url', '/lang', '/map', '/nearby', '/random', '/help', '/extra']
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -374,7 +359,7 @@ def echo_message(message):
 
 
 @server.route('/' + TOKEN, methods=['POST'])
-def getMessage():
+def establish():
     bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
