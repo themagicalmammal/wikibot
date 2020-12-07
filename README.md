@@ -68,6 +68,9 @@ Gives the URL of the wiki page of the word.
 
 ![URL](https://github.com/themagicalmammal/WikiBot/blob/master/References/url.PNG)
 
+## License
+### The MIT License ([MIT](https://github.com/themagicalmammal/Wikibot/blob/master/LICENSE))
+Copyright © 2020 Dipan
 
 ## References
 #### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add webhook to your bot.
