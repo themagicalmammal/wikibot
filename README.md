@@ -68,15 +68,18 @@ Gives the URL of the wiki page of the word.
 
 ![URL](https://github.com/themagicalmammal/WikiBot/blob/master/References/url.PNG)
 
-## License
-### The MIT License ([MIT](https://github.com/themagicalmammal/Wikibot/blob/master/LICENSE))
-Copyright © 2020 Dipan
-
 ## References
 #### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add webhook to your bot.
 #### 2. [Telebot](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples) - Bot examples for texts & commands.
 #### 3. [Firebase](https://www.youtube.com/watch?v=EiddkXBK0-o) - Easy way to learn about firebase.
 #### 4. [Wiki-libs](https://wikipedia.readthedocs.io/en/latest/) - Simple docs to learn about it's functions.
 
+## Contribute
+Thank you for considering to contribute to Wikibot. Please add useful comments or try contacting [me](https://telegram.me/themagicalmammal) before submitting any pull requests.
+
 ## Credits
 #### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimised commands.
+
+## License
+### The MIT License ([MIT](https://github.com/themagicalmammal/Wikibot/blob/master/LICENSE))
+Copyright © 2020 Dipan
