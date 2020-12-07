@@ -31,7 +31,7 @@ Wikibot is a bot which with the help of wiki-library provides you with multiple 
 * **[License](https://github.com/themagicalmammal/Wikibot#license)**
 
 ## Bio
-When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki provided. <br />
+When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki can provide. <br />
 <p align="center">
 <a href="https://telegram.me/pro_wikibot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png"/></a>
 </p>
@@ -43,24 +43,27 @@ Short form of definition. Fetches wiki definition for your word.
 ```python
 /def
 ```
-
-![def](https://github.com/themagicalmammal/WikiBot/blob/master/References/def.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/def.gif"/></a>
+</p>
 
 ### 2. Title
 Shows a list of possible titles that you can search from a word.
 ```python
 /title
 ```
-
-![title](https://github.com/themagicalmammal/WikiBot/blob/master/References/title.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/title.gif"/></a>
+</p>
 
 ### 3. URL
 Provides you with the URL of the wiki page for a word.
 ```python
 /url
 ```
-
-![url](https://github.com/themagicalmammal/WikiBot/blob/master/References/url.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/url.gif"/></a>
+</p>
 
 ### 4. Lang
 Change to your local language which will be used for every wiki output.
@@ -68,32 +71,36 @@ Change to your local language which will be used for every wiki output.
 /lang
 /prefix
 ```
-
-![lang](https://github.com/themagicalmammal/WikiBot/blob/master/References/lang.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/lang.gif"/></a>
+</p>
 
 ### 5. Map
 Provides you with the location of your input place with Wiki-API.
 ```python
 /map
 ```
-
-![map](https://github.com/themagicalmammal/WikiBot/blob/master/References/map.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/map.gif"/></a>
+</p>
 
 ### 6. Nearby
 With the help of coordinates provides you with nearby locations under 1km.
 ```python
 /nearby
 ```
-
-![nearby](https://github.com/themagicalmammal/WikiBot/blob/master/References/nearby.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/nearby.gif"/></a>
+</p>
 
 ### 7. Random
 Sends you a random wiki link.
 ```python
 /random
 ```
-
-![random](https://github.com/themagicalmammal/WikiBot/blob/master/References/random.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/random.gif"/></a>
+</p>
 
 ### 8. Others
 Some other set of commands that wikibot provides.
@@ -106,8 +113,9 @@ Some other set of commands that wikibot provides.
 /source
 /issues
 ```
-
-![other](https://github.com/themagicalmammal/WikiBot/blob/master/References/other.gif)
+<p align="center">
+<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/other.gif"/></a>
+</p>
 
 ## References
 #### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add a webhook to your bot.
