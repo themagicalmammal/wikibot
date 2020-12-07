@@ -1,10 +1,10 @@
 <p align="center">
 <a href="https://github.com/themagicalmammal/WikiBot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/></a> 
 <br /><br />
-<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue"/></a>
-<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-blue.svg"/></a>
-<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-blue.svg"/></a>
-<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-blue.svg"/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-purple"/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-purple.svg"/></a>
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-purple.svg"/></a>
+<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-purple.svg"/></a>
 <br />
 Wikibot is bot which with the help of wiki-library provides you with multiple features like definations, titles, url's & a lot more! 
 <br /> <br />
@@ -15,9 +15,20 @@ Wikibot is bot which with the help of wiki-library provides you with multiple fe
 
 ## Table of Contents
 
-* [Bio](https://github.com/themagicalmammal/Wikibot#Bio)
-
-* [Bot Commands](https://github.com/themagicalmammal/WikiBot#bot-commands)
+* **[Bio](https://github.com/themagicalmammal/Wikibot#bio)**
+* **[Bot Commands](https://github.com/themagicalmammal/Wikibot#bot-commands)**
+  * [Def](https://github.com/themagicalmammal/Wikibot#1-def)
+  * [Title](https://github.com/themagicalmammal/Wikibot#2-title)
+  * [URL](https://github.com/themagicalmammal/Wikibot#3-url)
+  * [Lang](https://github.com/themagicalmammal/Wikibot#4-lang)
+  * [Map](https://github.com/themagicalmammal/Wikibot#5-map)
+  * [Nearby](https://github.com/themagicalmammal/Wikibot#6-nearby)
+  * [Random](https://github.com/themagicalmammal/Wikibot#7-random)
+  * [Others](https://github.com/themagicalmammal/Wikibot#8-others)
+* **[References](https://github.com/themagicalmammal/Wikibot#references)**
+* **[Contribute](https://github.com/themagicalmammal/Wikibot#contribute)**
+* **[Credits](https://github.com/themagicalmammal/Wikibot#credits)**
+* **[License](https://github.com/themagicalmammal/Wikibot#license)**
 
 ## Bio
 [<img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png" />](https://telegram.me/pro_wikibot) <br />
