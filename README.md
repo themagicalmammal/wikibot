@@ -1,14 +1,17 @@
-[<img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/> <br /><br />](https://github.com/themagicalmammal/WikiBot)
-Wikibot is Telegram Bot 🤖 which with the help of Wiki library provide you with multiple features like definations, title searches, location searches & a lot more!
+<p align="center">
+<a href="https://github.com/themagicalmammal/WikiBot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/></a> 
+<br /><br />
+Wikibot is bot which with the help of wiki-library provides you with multiple features like definations, titles, url's & a lot more! 
 <br /> <br />
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-blue.svg)](https://github.com/themagicalmammal/WikiBot/pulls)
-[<img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white" width='67'/>](https://www.python.org/)
-[<img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white" width='58'/>](https://flask.palletsprojects.com/en/1.1.x/)
-[<img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white" width='68'/>](https://id.heroku.com/login)
-[<img src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase" width='75'/>](https://firebase.google.com/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE)
+<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue"/></a>
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white" width='67'/></a>
+<a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white" width='58'/></a>
+<a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white" width='68'/></a>
+<a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase" width='75'/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-blue.svg"/></a>
+</p>
 
-## Index
+## Table of Contents
 
 ### 1. [Info](https://github.com/themagicalmammal/WikiBot#info)
 
