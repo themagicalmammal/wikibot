@@ -73,15 +73,23 @@ def dev(message):
 
 @bot.message_handler(commands=['source'])
 def dev(message):
-    text = 'This is an Open Source Project. My code is ' \
-           '<a href="https://github.com/themagicalmammal/Wikibot">here</a>. '
+    text = 'This is a Open Source Project. To checkout my ' \
+           '<a href="https://github.com/themagicalmammal/Wikibot">code</a>. '
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
 @bot.message_handler(commands=['issues'])
 def dev(message):
-    text = 'If you have problems or want to submit a issue, go <a ' \
-           'href="https://github.com/themagicalmammal/Wikibot/issues">here</a>. '
+    text = 'To submit a issue or suggest a useful revision, use <a ' \
+           'href="https://github.com/themagicalmammal/Wikibot/issues">this</a>. '
+    bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
+
+
+@bot.message_handler(commands=['prefix'])
+def prefix(message):
+    text = "You can set your language with the help of prefix, for English it is en if you know your language " \
+           "prefix you can type it but if you need help you can use <a " \
+           "href='https://github.com/themagicalmammal/Wikibot/blob/master/Language.md'>this</a>."
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -92,8 +100,7 @@ def aid(message):
            '/def - fetches definition of the word you want \n' \
            '/title - fetches a bunch of related titles for a word \n' \
            '/url - gives the URL for the wiki page of the word \n' \
-           '/lang - set the language you want, by typing its <a ' \
-           'href="https://github.com/themagicalmammal/Wikibot/blob/master/Language.md">prefix</a> \n\n' \
+           '/lang - set the language you want (languages use /prefix) \n\n' \
            '<b>Secondary</b> \n' \
            '/map - location in map with wiki database \n' \
            '/nearby - locations near a coordinate \n' \
