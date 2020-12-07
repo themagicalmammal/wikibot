@@ -1,10 +1,10 @@
 <p align="center">
 <a href="https://github.com/themagicalmammal/WikiBot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/></a> 
 <br /><br />
-<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-purple"/></a>
-<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-purple.svg"/></a>
-<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-purple.svg"/></a>
-<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-purple.svg"/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blueviolet"/></a>
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-blueviolet.svg"/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-blueviolet.svg"/></a>
+<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-blueviolet.svg"/></a>
 <br />
 Wikibot is bot which with the help of wiki-library provides you with multiple features like definations, titles, url's & a lot more! 
 <br /> <br />
@@ -31,7 +31,8 @@ Wikibot is bot which with the help of wiki-library provides you with multiple fe
 * **[License](https://github.com/themagicalmammal/Wikibot#license)**
 
 ## Bio
-[<img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png" />](https://telegram.me/pro_wikibot) <br />
+When I made this bot there existed no bot which did more than outputting defination of a word. Wikipedia has a lot more set of functions which were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that wiki provided. <br />
+<a href="https://telegram.me/pro_wikibot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png"/></a>
 
 ## Bot Commands
 
