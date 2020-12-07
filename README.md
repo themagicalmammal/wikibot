@@ -80,7 +80,6 @@ Sends you with a random wiki link.
 ```
 
 ![random](https://github.com/themagicalmammal/WikiBot/blob/master/References/random.gif)
-```
 
 ### 8. Others
 Some other set of commands that wikibot provides.
