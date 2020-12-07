@@ -6,7 +6,7 @@
 <a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-blueviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-blueviolet.svg"/></a>
 <br />
-Wikibot is bot which with the help of wiki-library provides you with multiple features like definations, titles, url's & a lot more! 
+Wikibot is a bot which with the help of wiki-library provides you with multiple features like definitions, titles, URLs & a lot more!
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
@@ -31,8 +31,10 @@ Wikibot is bot which with the help of wiki-library provides you with multiple fe
 * **[License](https://github.com/themagicalmammal/Wikibot#license)**
 
 ## Bio
-When I made this bot there existed no bot which did more than outputting defination of a word. Wikipedia has a lot more set of functions which were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that wiki provided. <br />
+When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki provided. <br />
+<p align="center">
 <a href="https://telegram.me/pro_wikibot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png"/></a>
+</p>
 
 ## Bot Commands
 
@@ -70,7 +72,7 @@ Change to your local language which will be used for every wiki output.
 ![lang](https://github.com/themagicalmammal/WikiBot/blob/master/References/lang.gif)
 
 ### 5. Map
-Provides you with location of your input place with wiki-api.
+Provides you with the location of your input place with Wiki-API.
 ```python
 /map
 ```
@@ -86,9 +88,9 @@ With the help of coordinates provides you with nearby locations under 1km.
 ![nearby](https://github.com/themagicalmammal/WikiBot/blob/master/References/nearby.gif)
 
 ### 7. Random
-Sends you with a random wiki link.
+Sends you a random wiki link.
 ```python
-/url
+/random
 ```
 
 ![random](https://github.com/themagicalmammal/WikiBot/blob/master/References/random.gif)
@@ -108,16 +110,16 @@ Some other set of commands that wikibot provides.
 ![other](https://github.com/themagicalmammal/WikiBot/blob/master/References/other.gif)
 
 ## References
-#### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add webhook to your bot.
+#### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add a webhook to your bot.
 #### 2. [Telebot](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples) - Bot examples for texts & commands.
 #### 3. [Firebase](https://www.youtube.com/watch?v=EiddkXBK0-o) - Easy way to learn about firebase.
-#### 4. [Wiki-libs](https://wikipedia.readthedocs.io/en/latest/) - Simple docs to learn about it's functions.
+#### 4. [Wiki-libs](https://wikipedia.readthedocs.io/en/latest/) - Simple docs to learn about its functions.
 
 ## Contribute
-Thank you for considering to contribute to Wikibot. Please add useful comments or try contacting [me](https://telegram.me/themagicalmammal) before submitting any pull requests.
+Thank you for considering contributing to Wikibot. Please add useful comments or try contacting [me](https://telegram.me/themagicalmammal) before submitting any pull requests.
 
 ## Credits
-#### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimised commands.
+#### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimized commands.
 
 ## License
 ### The MIT License ([MIT](https://github.com/themagicalmammal/Wikibot/blob/master/LICENSE))
