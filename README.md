@@ -23,7 +23,7 @@ Wikibot is bot which with the help of wiki-library provides you with multiple fe
 - **[URL](https://github.com/themagicalmammal/WikiBot#5-url)**
 
 ## Info
-[<img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.PNG" />](https://telegram.me/pro_wikibot) <br />
+[<img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png" />](https://telegram.me/pro_wikibot) <br />
 
 ## Commands
 **Not updated according to current version.**
