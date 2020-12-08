@@ -25,6 +25,7 @@ Wikibot is a bot which with the help of wiki-library provides you with multiple 
   * [Nearby](https://github.com/themagicalmammal/Wikibot#6-nearby)
   * [Random](https://github.com/themagicalmammal/Wikibot#7-random)
   * [Others](https://github.com/themagicalmammal/Wikibot#8-others)
+* **[Try Out](https://github.com/themagicalmammal/Wikibot#try-out)**
 * **[References](https://github.com/themagicalmammal/Wikibot#references)**
 * **[Contribute](https://github.com/themagicalmammal/Wikibot#contribute)**
 * **[Credits](https://github.com/themagicalmammal/Wikibot#credits)**
@@ -116,6 +117,37 @@ Some other set of commands that wikibot provides.
 <p align="center">
 <a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/other.gif"/></a>
 </p>
+
+## Try Out
+If you want to test this with your bot. You can follow these **steps:**
+1. Setup a **Bot** with **[BotFather](https://t.me/botfather)**.
+2. Put your **Token** in
+```python
+TOKEN = ''
+```
+3. Setup **RTDB** in **[Firebase](https://firebase.google.com/)**.
+4. Download your **key file**, then either you can modfiy below line or rename your key to firebase.json.
+```python
+cred = credentials.Certificate('firebase.json')
+```
+5. Place it next to bot.py.
+6. Paste your RTDB link in 
+```python
+firebase_admin.initialize_app(cred, {'databaseURL': 'https://yourappname-user-default-rtdb.firebaseio.com/'})
+```
+7. Setup a Project in **Heroku**.
+8. Paste your Project URL in
+```python
+bot.set_webhook(url='https://yourappname.herokuapp.com/' + TOKEN)
+```
+9. Files needed for Heroku
+```heroku
+firebase.json
+Procfile
+bot.py
+requirements.txt
+```
+10. Done! Your project should run if not check **Heroku --logs**.
 
 ## References
 #### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add a webhook to your bot.
