@@ -6,7 +6,7 @@
 <a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-blueviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-blueviolet.svg"/></a>
 <br />
-Wikibot is a bot which with the help of wiki-library provides you with multiple features like definitions, titles, URLs & a lot more!
+Wikibot is a bot which with the help of Wiki-library provides you with multiple features like Definitions, Titles, URLs & a lot more!
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
@@ -15,21 +15,21 @@ Wikibot is a bot which with the help of wiki-library provides you with multiple 
 
 ## Table of Contents
 
-* **[Bio](https://github.com/themagicalmammal/Wikibot#bio)**
-* **[Bot Commands](https://github.com/themagicalmammal/Wikibot#bot-commands)**
-  * [Def](https://github.com/themagicalmammal/Wikibot#1-def)
-  * [Title](https://github.com/themagicalmammal/Wikibot#2-title)
-  * [URL](https://github.com/themagicalmammal/Wikibot#3-url)
-  * [Lang](https://github.com/themagicalmammal/Wikibot#4-lang)
-  * [Map](https://github.com/themagicalmammal/Wikibot#5-map)
-  * [Nearby](https://github.com/themagicalmammal/Wikibot#6-nearby)
-  * [Random](https://github.com/themagicalmammal/Wikibot#7-random)
-  * [Others](https://github.com/themagicalmammal/Wikibot#8-others)
-* **[Try Out](https://github.com/themagicalmammal/Wikibot#try-out)**
-* **[References](https://github.com/themagicalmammal/Wikibot#references)**
-* **[Contribute](https://github.com/themagicalmammal/Wikibot#contribute)**
-* **[Credits](https://github.com/themagicalmammal/Wikibot#credits)**
-* **[License](https://github.com/themagicalmammal/Wikibot#license)**
+* **[Bio](#bio)**
+* **[Bot Commands](#bot-commands)**
+  * [Def](#1-def)
+  * [Title](#2-title)
+  * [URL](#3-url)
+  * [Lang](#4-lang)
+  * [Map](#5-map)
+  * [Nearby](#6-nearby)
+  * [Random](#7-random)
+  * [Others](#8-others)
+* **[Try Out](#try-out)**
+* **[References](#references)**
+* **[Contribute](#contribute)**
+* **[Credits](#credits)**
+* **[License](#license)**
 
 ## Bio
 When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki can provide. <br />
