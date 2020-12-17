@@ -1,22 +1,21 @@
 <p align="center">
 <a href="https://github.com/themagicalmammal/WikiBot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/></a> 
 <br /><br />
-<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blueviolet"/></a>
-<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-blueviolet.svg"/></a>
-<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-blueviolet.svg"/></a>
-<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-blueviolet.svg"/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-darkviolet.svg"/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-darkviolet.svg"/></a>
+<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-darkviolet.svg"/></a>
 <br />
-Wikibot is a bot which with the help of Wiki-library provides you with multiple features like Definitions, Titles, URLs & a lot more!
+Wikibot, a bot which uses the Wiki-library & provides you with features like definitions, titles & other cool stuff!
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
 <a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase"/></a>
 </p>
 
-## Table of Contents
-
-* **[Bio](#bio)**
-* **[Bot Commands](#bot-commands)**
+### Table of Contents
+* [Bio](#bio)
+* [Bot Commands](#bot-commands)
   * [Def](#1-def)
   * [Title](#2-title)
   * [URL](#3-url)
@@ -25,11 +24,10 @@ Wikibot is a bot which with the help of Wiki-library provides you with multiple 
   * [Nearby](#6-nearby)
   * [Random](#7-random)
   * [Others](#8-others)
-* **[Try Out](#try-out)**
-* **[References](#references)**
-* **[Contribute](#contribute)**
-* **[Credits](#credits)**
-* **[License](#license)**
+* [Test](#test)
+* [Contribute](#contribute)
+* [Credits](#credits)
+* [References](#references)
 
 ## Bio
 When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki can provide. <br />
@@ -118,49 +116,49 @@ Some other set of commands that wikibot provides.
 <a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/other.gif"/></a>
 </p>
 
-## Try Out
-If you want to test this with your bot. You can follow these **steps:**
-1. Setup a **Bot** with **[BotFather](https://t.me/botfather)**.
+## Test
+To test this bot. You can follow these steps:
+1. Setup a Bot with **[BotFather](https://t.me/botfather)**.
 2. Put your **Token** in
 ```python
 TOKEN = ''
 ```
 3. Setup **RTDB** in **[Firebase](https://firebase.google.com/)**.
-4. Download your **key file**, then either you can modfiy below line or rename your key to firebase.json.
+4. Download your **key file**, place it next to your bot file
 ```python
-cred = credentials.Certificate('firebase.json')
+cred = credentials.Certificate('xxxYOURKEYFILExxx.json')
 ```
-5. Place it next to bot.py.
-6. Paste your RTDB link in 
+5. Paste your RTDB url in 
 ```python
 firebase_admin.initialize_app(cred, {'databaseURL': 'https://yourappname-user-default-rtdb.firebaseio.com/'})
 ```
-7. Setup a Project in **Heroku**.
-8. Paste your Project URL in
+6. Setup a project in **Heroku**.
+7. Paste your Project url in
 ```python
 bot.set_webhook(url='https://yourappname.herokuapp.com/' + TOKEN)
 ```
-9. Files needed for Heroku
+8. Files you need for Heroku
 ```heroku
-firebase.json
+xxxYOURKEYFILExxx.json #firebase key
 Procfile
 bot.py
 requirements.txt
 ```
-10. Done! Your project should run if not check **Heroku --logs**.
+9. To resolve bugs
+```heroku
+Heroku --logs
+```
+
+## Contribute
+Thank you for considering contributing to Wikibot. Please add useful comments with your PR's. <br /> <br />
+
+To contact me go [here](https://telegram.me/themagicalmammal).
+
+## Credits
+#### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimized commands.
 
 ## References
 #### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add a webhook to your bot.
 #### 2. [Telebot](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples) - Bot examples for texts & commands.
 #### 3. [Firebase](https://www.youtube.com/watch?v=EiddkXBK0-o) - Easy way to learn about firebase.
 #### 4. [Wiki-libs](https://wikipedia.readthedocs.io/en/latest/) - Simple docs to learn about its functions.
-
-## Contribute
-Thank you for considering contributing to Wikibot. Please add useful comments or try contacting [me](https://telegram.me/themagicalmammal) before submitting any pull requests.
-
-## Credits
-#### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimized commands.
-
-## License
-### The MIT License ([MIT](https://github.com/themagicalmammal/Wikibot/blob/master/LICENSE))
-Copyright © 2020 Dipan
