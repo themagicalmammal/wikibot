@@ -1,12 +1,11 @@
-import wikipedia
-import firebase_admin
 import os
+import wikipedia as wiki
 from flask import Flask, request
-from firebase_admin import credentials, db
+from firebase_admin import initialize_app, credentials, db
 from telebot import TeleBot, types
 
 cred = credentials.Certificate('firebase.json')  # Get your Firebase setup
-firebase_admin.initialize_app(cred, {'databaseURL': 'https://yourappname-user-default-rtdb.firebaseio.com/'})
+initialize_app(cred, {'databaseURL': 'https://yourappname-user-default-rtdb.firebaseio.com/'})
 ref = db.reference('/')
 z = ref.get()
 TOKEN = ''  # Paste your token API
@@ -33,7 +32,7 @@ def set_lan(message):
 
 def change_lan(message):
     user_id = str(message.from_user.id)
-    wikipedia.set_lang(z[user_id])
+    wiki.set_lang(z[user_id])
 
 
 def find_command(msg):
@@ -124,7 +123,7 @@ def process_title(message):
     try:
         title_msg = str(message.text)
         change_lan(message)
-        title_result = wikipedia.search(title_msg)
+        title_result = wiki.search(title_msg)
         if title_result:
             bot.send_message(chat_id=message.chat.id, text="Possible titles are...",
                              parse_mode='html')
@@ -149,7 +148,7 @@ def process_url(message):
     try:
         url_message = str(message.text)
         change_lan(message)
-        url_page = wikipedia.page(url_message)
+        url_page = wiki.page(url_message)
         url_result = url_page.url
         pre = "URL for the word <b>" + url_message + "</b> is \n\n"
         bot.send_message(chat_id=message.chat.id, text=pre + url_result, parse_mode='html',
@@ -163,8 +162,8 @@ def random(message):
     # noinspection PyBroadException
     try:
         change_lan(message)
-        random_title = str(wikipedia.random(pages=1))
-        random_page = wikipedia.page(random_title)
+        random_title = str(wiki.random(pages=1))
+        random_page = wiki.page(random_title)
         random_result = random_page.url
         bot.send_message(chat_id=message.chat.id, text=random_result, reply_markup=main_keyboard())
     except Exception:
@@ -176,7 +175,7 @@ def spot(message):
     # noinspection PyBroadException
     try:
         change_lan(message)
-        spot_title = str(wikipedia.random(pages=1))
+        spot_title = str(wiki.random(pages=1))
         bot.send_message(chat_id=message.chat.id, text=spot_title, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text=error, reply_markup=main_keyboard())
@@ -192,7 +191,7 @@ def process_definition(message):
     try:
         def_msg = str(message.text)
         change_lan(message)
-        def_str = wikipedia.summary(def_msg, sentences=19)
+        def_str = wiki.summary(def_msg, sentences=19)
         bot.send_message(chat_id=message.chat.id, text="<b>" + def_msg + "</b> \n\n" + def_str, parse_mode='html',
                          reply_markup=main_keyboard())
     except Exception as c:
@@ -214,8 +213,8 @@ def process_co(message):
     # noinspection PyBroadException
     try:
         co_msg = str(message.text)
-        wikipedia.set_lang('en')
-        lat, lon = wikipedia.WikipediaPage(co_msg).coordinates
+        wiki.set_lang('en')
+        lat, lon = wiki.WikipediaPage(co_msg).coordinates
         bot.send_location(chat_id=message.chat.id, latitude=lat, longitude=lon, reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Not a location.", reply_markup=main_keyboard())
@@ -232,8 +231,8 @@ def process_geo(message):
     try:
         lat, lan = (str(message.text).replace('E', '').replace('W', '').replace('N', '').replace('S', '').
                     replace('° ', '').replace('°', '').replace(',', '').replace('  ', ' ').split(" "))
-        wikipedia.set_lang('en')
-        locations = wikipedia.geosearch(latitude=lat, longitude=lan, results=5, radius=1000)
+        wiki.set_lang('en')
+        locations = wiki.geosearch(latitude=lat, longitude=lan, results=5, radius=1000)
         if locations:
             nearby = "<b>Nearby locations</b> I could find..."
             bot.send_message(chat_id=message.chat.id, text=nearby, parse_mode='html', reply_markup=main_keyboard())
@@ -258,7 +257,7 @@ def process_suggest(message):
     try:
         suggest_msg = str(message.text)
         change_lan(message)
-        suggest_str = str(wikipedia.suggest(suggest_msg))
+        suggest_str = str(wiki.suggest(suggest_msg))
         if suggest_str != "None":
             pre = "Suggestion for the word <b>" + suggest_msg + "</b> is "
             text = pre + suggest_str
