@@ -6,7 +6,7 @@
 <a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-darkviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-darkviolet.svg"/></a>
 <br />
-Wikibot is a bot which with the help of Wiki-library provides you with multiple features like Definitions, Titles, URLs & a lot more!
+Wikibot, a bot which uses the Wiki-library & provides you with features like Definitions, Titles & a lot more!
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
@@ -25,11 +25,10 @@ Wikibot is a bot which with the help of Wiki-library provides you with multiple 
   * [Nearby](#6-nearby)
   * [Random](#7-random)
   * [Others](#8-others)
-* **[Try Out](#try-out)**
-* **[References](#references)**
+* **[Test](#test)**
 * **[Contribute](#contribute)**
 * **[Credits](#credits)**
-* **[License](#license)**
+* **[References](#references)**
 
 ## Bio
 When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki can provide. <br />
@@ -152,7 +151,9 @@ Heroku --logs
 ```
 
 ## Contribute
-Thank you for considering contributing to Wikibot. Please add useful comments or try contacting [me](https://telegram.me/themagicalmammal) before submitting any pull requests.
+Thank you for considering contributing to Wikibot. Please add useful comments with your PR's. <br /> <br />
+
+To contact me go [here](https://telegram.me/themagicalmammal).
 
 ## Credits
 #### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimized commands.
