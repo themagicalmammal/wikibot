@@ -4,13 +4,19 @@ from flask import Flask, request
 from firebase_admin import initialize_app, credentials, db
 from telebot import TeleBot, types
 
-cred = credentials.Certificate('firebase.json')  # Get your Firebase setup
+# Firebase connection
+cred = credentials.Certificate('firebase.json')  # Firebase key
 initialize_app(cred, {'databaseURL': 'https://yourappname-user-default-rtdb.firebaseio.com/'})
 ref = db.reference('/')
 z = ref.get()
-TOKEN = ''  # Paste your token API
+
+# Telegram API
+TOKEN = ''  # Bot key
 bot = TeleBot(TOKEN)
+
+# Flask connection
 server = Flask(__name__)
+
 error = 'Wrong word, use /title'
 error2 = 'Wrong word, use /suggest'
 word = " for the word..."
@@ -364,6 +370,7 @@ def echo_message(message):
     bot.reply_to(message, msg)
 
 
+# Heroku Connection
 @server.route('/' + TOKEN, methods=['POST'])
 def establish():
     bot.process_new_updates([types.Update.de_json(request.stream.read().decode("utf-8"))])
