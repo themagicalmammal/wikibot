@@ -1,4 +1,8 @@
+#Pycharm
 .handler-saves
 .idea
 venv
+#Firebase key
 firebase.json
+#Test file
+test.py
