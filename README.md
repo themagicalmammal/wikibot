@@ -6,17 +6,16 @@
 <a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-darkviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-darkviolet.svg"/></a>
 <br />
-Wikibot, a bot which uses the Wiki-library & provides you with features like Definitions, Titles & a lot more!
+Wikibot, a bot which uses the Wiki-library & provides you with features like definitions, titles & other cool stuff!
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
 <a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase"/></a>
 </p>
 
-## Table of Contents
-
-* **[Bio](#bio)**
-* **[Bot Commands](#bot-commands)**
+### Table of Contents
+* [Bio](#bio)
+* [Bot Commands](#bot-commands)
   * [Def](#1-def)
   * [Title](#2-title)
   * [URL](#3-url)
@@ -25,10 +24,10 @@ Wikibot, a bot which uses the Wiki-library & provides you with features like Def
   * [Nearby](#6-nearby)
   * [Random](#7-random)
   * [Others](#8-others)
-* **[Test](#test)**
-* **[Contribute](#contribute)**
-* **[Credits](#credits)**
-* **[References](#references)**
+* [Test](#test)
+* [Contribute](#contribute)
+* [Credits](#credits)
+* [References](#references)
 
 ## Bio
 When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki can provide. <br />
