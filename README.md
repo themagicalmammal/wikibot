@@ -1,6 +1,8 @@
 <p align="center">
+ <a href="https://deepsource.io/gh/themagicalmammal/Wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/Wikibot.svg/?label=active+issues&show_trend=true"/></a>
+<a href="https://deepsource.io/gh/themagicalmammal/Wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/Wikibot.svg/?label=resolved+issues&show_trend=true"/></a> <br >
 <a href="https://github.com/themagicalmammal/WikiBot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/></a> 
-<br /><br />
+<br />
 <a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-darkviolet.svg"/></a>
 <a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
