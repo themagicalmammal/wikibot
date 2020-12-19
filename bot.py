@@ -64,14 +64,15 @@ def find_command(msg):
     for text in msg:
         if "/" in text:
             return text
+    return None
 
 
 @bot.message_handler(commands=["start"])
 def welcome(message):
     add_user(message)
-    first = message.from_user.first_name
-    welcome = ("Greetings " + first +
-               "! Welcome, I am Wikibot.\nTo learn how to control me, /help.")
+    welcome = ("Greetings " + message.from_user.first_name +
+               "! Welcome, I am Wikibot.\n\n"
+               "To learn how to control me, /help.")
     bot.send_message(chat_id=message.chat.id,
                      text=welcome,
                      reply_markup=main_keyboard())
