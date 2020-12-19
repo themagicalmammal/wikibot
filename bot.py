@@ -1,7 +1,8 @@
 import os
+
 import wikipedia as wiki
+from firebase_admin import credentials, db, initialize_app
 from flask import Flask, request
-from firebase_admin import initialize_app, credentials, db
 from telebot import TeleBot, types
 
 # Firebase connection
