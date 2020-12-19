@@ -3,7 +3,7 @@
 <br /><br />
 <a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-darkviolet.svg"/></a>
-<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/contributions-welcome-darkviolet.svg"/></a>
+<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-darkviolet.svg"/></a>
 <br />
 Wikibot, a bot which uses the Wiki-library & provides you with features like definitions, titles & other cool stuff!
@@ -14,7 +14,7 @@ Wikibot, a bot which uses the Wiki-library & provides you with features like def
 </p>
 
 ### Table of Contents
-* [Bio](#bio)
+* [Intro](#Intro)
 * [Bot Commands](#bot-commands)
   * [Def](#1-def)
   * [Title](#2-title)
@@ -29,8 +29,8 @@ Wikibot, a bot which uses the Wiki-library & provides you with features like def
 * [Credits](#credits)
 * [References](#references)
 
-## Bio
-When I made this bot there existed no bot which did more than outputting the definition of a word. Wikipedia has a lot more set of functions that were not provided by any of the existing bots. So, this bot was made with the sole purpose of showing other functions that Wiki can provide. <br />
+## Intro
+While researching about bots, I found out that, there existed no bot that could do more than showing the definition of a word. But, Wiki can do a lot more than just showing a definition. Thus, this bot was made with the sole purpose of showing what Wiki can do.  <br />
 <p align="center">
 <a href="https://telegram.me/pro_wikibot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png"/></a>
 </p>
