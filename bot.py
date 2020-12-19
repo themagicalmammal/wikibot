@@ -50,7 +50,7 @@ def add_user(message):
 
 def set_lan(message):
     user_id = message.from_user.id
-    ref.update({user_id: message.text})
+    ref.update({user_id: str(message.text).lower})
     global z
     z = ref.get()
 
@@ -133,9 +133,8 @@ def issues(message):
 @bot.message_handler(commands=["prefix"])
 def prefix(message):
     text = (
-        "You can set your language with the help of prefix, for English it is en if you know your language "
-        "prefix you can type it but if you need help you can use <a "
-        "href='https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md'>this</a>."
+        "You can set your language with the help of a prefix (English:en) <a "
+        "href=https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md'>this</a>. "
     )
     bot.send_message(
         chat_id=message.chat.id,
@@ -884,12 +883,12 @@ def process_ln(message):
             "zu",
         ]
         if ln_msg in lang_list:
-            set_lan(ln_msg)
+            set_lan(message)
             text = "Language, set successfully."
         else:
             text = (
-                "Wrong language, please check correct <a "
-                'href="https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md">prefix</a> '
+                'Wrong language, please check correct <a href='
+                '"https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md">prefix</a>.'
             )
         bot.send_message(
             chat_id=message.chat.id,
