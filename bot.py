@@ -67,7 +67,7 @@ def find_command(msg):
 
 
 @bot.message_handler(commands=["start"])
-def send_welcome(message):
+def welcome(message):
     add_user(message)
     first = message.from_user.first_name
     welcome = ("Greetings " + first +
@@ -86,7 +86,7 @@ def command_text_hi(message):
 
 
 @bot.message_handler(commands=["extra"])
-def send_welcome(message):
+def extra(message):
     text = ("A bunch of <b>extra commands</b> I provide: \n\n"
             "/dev - provides information about my creator\n"
             "/source - my source code\n"
@@ -106,7 +106,7 @@ def dev(message):
 
 
 @bot.message_handler(commands=["source"])
-def dev(message):
+def source(message):
     text = ("This is a Open Source Project. To checkout my "
             '<a href="https://github.com/themagicalmammal/Wikibot">code</a>. ')
     bot.send_message(
@@ -118,7 +118,7 @@ def dev(message):
 
 
 @bot.message_handler(commands=["issues"])
-def dev(message):
+def issues(message):
     text = (
         "To submit a issue or suggest a useful revision, use <a "
         'href="https://github.com/themagicalmammal/Wikibot/issues">this</a>. ')
