@@ -29,7 +29,6 @@ Wikibot, a bot which uses the Wiki-library & provides you with features like def
 * [Test](#test)
 * [Contribute](#contribute)
 * [Credits](#credits)
-* [References](#references)
 
 ## Intro
 While researching about bots, I found out that, there existed no bot that could do more than showing the definition of a word. But, Wiki can do a lot more than just showing a definition. Thus, this bot was made with the sole purpose of showing what Wiki can do.  <br />
@@ -154,13 +153,5 @@ Heroku --logs
 ## Contribute
 Thank you for considering contributing to Wikibot. Please add useful comments with your PR's. <br /> <br />
 
-To contact me go [here](https://telegram.me/themagicalmammal).
-
 ## Credits
 #### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimized commands.
-
-## References
-#### 1. [Webhook](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples/webhook_examples) - To learn how to add a webhook to your bot.
-#### 2. [Telebot](https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples) - Bot examples for texts & commands.
-#### 3. [Firebase](https://www.youtube.com/watch?v=EiddkXBK0-o) - Easy way to learn about firebase.
-#### 4. [Wiki-libs](https://wikipedia.readthedocs.io/en/latest/) - Simple docs to learn about its functions.
