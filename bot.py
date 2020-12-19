@@ -78,7 +78,7 @@ def welcome(message):
 
 
 @bot.message_handler(func=lambda message: True
-if message.text.lower() in ["hi", "hey"] else False)
+                     if message.text.lower() in ["hi", "hey"] else False)
 def command_text_hi(message):
     reply = message.text.lower().replace(
         "h", "H") + "! " + message.from_user.first_name
@@ -192,8 +192,8 @@ def process_title(message):
                     chat_id=message.chat.id,
                     text=i.replace(title_msg,
                                    "<b>" + title_msg + "</b>").replace(
-                        title_msg.lower(),
-                        "<b>" + title_msg.lower() + "</b>"),
+                                       title_msg.lower(),
+                                       "<b>" + title_msg.lower() + "</b>"),
                     parse_mode="html",
                     reply_markup=main_keyboard(),
                 )
@@ -339,7 +339,7 @@ def process_geo(message):
         lat, lan = (str(message.text).replace("E", "").replace(
             "W",
             "").replace("N", "").replace("S", "").replace("° ", "").replace(
-            "°", "").replace(",", "").replace("  ", " ").split(" "))
+                "°", "").replace(",", "").replace("  ", " ").split(" "))
         wiki.set_lang("en")
         locations = wiki.geosearch(latitude=lat,
                                    longitude=lan,
@@ -887,7 +887,7 @@ def process_ln(message):
             text = "Language, set successfully."
         else:
             text = (
-                'Wrong language, please check correct <a href='
+                "Wrong language, please check correct <a href="
                 '"https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md">prefix</a>.'
             )
         bot.send_message(
