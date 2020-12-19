@@ -6,3 +6,5 @@ venv
 firebase.json
 #Test file
 test.py
+#Heroku
+prowikibot
