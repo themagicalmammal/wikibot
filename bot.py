@@ -94,7 +94,7 @@ def dev(message):
 def prefix(message):
     text = "You can set your language with the help of prefix, for English it is en if you know your language " \
            "prefix you can type it but if you need help you can use <a " \
-           "href='https://github.com/themagicalmammal/Wikibot/blob/master/Language.md'>this</a>."
+           "href='https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md'>this</a>."
     bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
 
 
@@ -325,11 +325,11 @@ def process_ln(message):
                      'xal', 'xh', 'xmf', 'xsy', 'yi', 'yo', 'yue', 'za', 'zea', 'zgh', 'zh', 'zh-classical', 'zh-cn',
                      'zh-hans', 'zh-hant', 'zh-hk', 'zh-min-nan', 'zh-mo', 'zh-my', 'zh-sg', 'zh-tw', 'zh-yue', 'zu']
         if ln_msg in lang_list:
-            set_lan(message)
+            set_lan(ln_msg)
             text = "Language, set successfully."
         else:
             text = 'Wrong language, please check correct <a ' \
-                   'href="https://github.com/themagicalmammal/Wikibot/blob/master/Language.md">prefix</a> '
+                   'href="https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md">prefix</a> '
         bot.send_message(chat_id=message.chat.id, text=text, parse_mode='html', reply_markup=main_keyboard())
     except Exception:
         bot.send_message(chat_id=message.chat.id, text="Error, setting language", reply_markup=main_keyboard())
