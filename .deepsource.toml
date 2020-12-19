@@ -6,6 +6,7 @@ enabled = true
 
   [analyzers.meta]
   runtime_version = "3.x.x"
+  skip_doc_coverage = ["module", "magic", "init"]
 
 [[transformers]]
 name = "black"
@@ -17,4 +18,8 @@ enabled = true
 
 [[transformers]]
 name = "autopep8"
+enabled = true
+
+[[transformers]]
+name = "isort"
 enabled = true
