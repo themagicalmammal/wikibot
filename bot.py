@@ -78,8 +78,8 @@ def welcome(message):
                      reply_markup=main_keyboard())
 
 
-@bot.message_handler(func=lambda message: True
-                     if message.text.lower() in ["hi", "hey"] else False)
+@bot.message_handler(
+    func=lambda message: message.text.lower() in ["hi", "hey"])
 def command_text_hi(message):
     reply = message.text.lower().replace(
         "h", "H") + "! " + message.from_user.first_name
