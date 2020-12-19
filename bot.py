@@ -108,7 +108,7 @@ def dev(message):
 
 @bot.message_handler(commands=["source"])
 def source(message):
-    text = ("This is a Open Source Project. To checkout my "
+    text = ('This is a Open Source Project. To checkout my '
             '<a href="https://github.com/themagicalmammal/Wikibot">code</a>. ')
     bot.send_message(
         chat_id=message.chat.id,
@@ -134,8 +134,9 @@ def issues(message):
 @bot.message_handler(commands=["prefix"])
 def prefix(message):
     text = (
-        "You can set your language with the help of a prefix (English:en) <a "
-        "href=https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md'>this</a>. "
+        'You can set your language with the help of a prefix (English:en) <a '
+        'href="https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md"'
+        '>this</a>. '
     )
     bot.send_message(
         chat_id=message.chat.id,
@@ -889,7 +890,8 @@ def process_ln(message):
         else:
             text = (
                 "Wrong language, please check correct <a href="
-                '"https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md">prefix</a>.'
+                '"https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md"'
+                '>prefix</a>.'
             )
         bot.send_message(
             chat_id=message.chat.id,
