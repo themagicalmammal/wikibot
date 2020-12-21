@@ -72,7 +72,7 @@ def find_command(msg):
 def welcome(message):
     add_user(message)
     welcome_msg = ("Greetings " + message.from_user.first_name +
-                   "! Welcome, I am Wikibot.\n\n"
+                   "! Welcome, I am wikibot.\n\n"
                    "To learn how to control me, /help.")
     bot.send_message(chat_id=message.chat.id,
                      text=welcome_msg,
@@ -110,7 +110,7 @@ def dev(message):
 @bot.message_handler(commands=["source"])
 def source(message):
     text = ("This is a Open Source Project. To checkout my "
-            '<a href="https://github.com/themagicalmammal/Wikibot">code</a>. ')
+            '<a href="https://github.com/themagicalmammal/wikibot">code</a>. ')
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -123,7 +123,7 @@ def source(message):
 def issues(message):
     text = (
         "To submit a issue or suggest a useful revision, use <a "
-        'href="https://github.com/themagicalmammal/Wikibot/issues">this</a>. ')
+        'href="https://github.com/themagicalmammal/wikibot/issues">this</a>. ')
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -136,7 +136,7 @@ def issues(message):
 def prefix(message):
     text = (
         "You can set your language with the help of a prefix (English:en) <a "
-        'href="https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md"'
+        'href="https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
         ">this</a>. ")
     bot.send_message(
         chat_id=message.chat.id,
@@ -890,7 +890,7 @@ def process_ln(message):
         else:
             text = (
                 "Wrong language, please check correct <a href="
-                '"https://github.com/themagicalmammal/Wikibot/blob/master/Lang.md"'
+                '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
                 ">prefix</a>.")
         bot.send_message(
             chat_id=message.chat.id,

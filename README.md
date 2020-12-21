@@ -1,14 +1,14 @@
 <p align="center">
- <a href="https://deepsource.io/gh/themagicalmammal/Wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/Wikibot.svg/?label=active+issues&show_trend=true"/></a>
-<a href="https://deepsource.io/gh/themagicalmammal/Wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/Wikibot.svg/?label=resolved+issues&show_trend=true"/></a> <br >
-<a href="https://github.com/themagicalmammal/WikiBot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/Resources/logo.gif" width='527'/></a> 
+ <a href="https://deepsource.io/gh/themagicalmammal/wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/wikibot.svg/?label=active+issues&show_trend=true"/></a>
+<a href="https://deepsource.io/gh/themagicalmammal/wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/wikibot.svg/?label=resolved+issues&show_trend=true"/></a> <br >
+<a href="https://github.com/themagicalmammal/wikibot"><img src="https://github.com/themagicalmammal/wikibot/blob/master/Resources/logo.gif" width='527'/></a> 
 <br />
-<a href="https://github.com/themagicalmammal/WikiBot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
+<a href="https://github.com/themagicalmammal/wikibot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-darkviolet.svg"/></a>
-<a href="https://github.com/themagicalmammal/WikiBot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
+<a href="https://github.com/themagicalmammal/wikibot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-darkviolet.svg"/></a>
 <br />
-Wikibot, a bot which uses the Wiki-library & provides you with features like definitions, titles & other cool stuff!
+wikibot, a bot which uses the Wiki-library & provides you with features like definitions, titles & other cool stuff!
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
@@ -33,7 +33,7 @@ Wikibot, a bot which uses the Wiki-library & provides you with features like def
 ## Intro
 While researching about bots, I found out that, there existed no bot that could do more than showing the definition of a word. But, Wiki can do a lot more than just showing a definition. Thus, this bot was made with the sole purpose of showing what Wiki can do.  <br />
 <p align="center">
-<a href="https://telegram.me/pro_wikibot"><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/info.png"/></a>
+<a href="https://telegram.me/pro_wikibot"><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/info.png"/></a>
 </p>
 
 ## Bot Commands
@@ -44,7 +44,7 @@ Short form of definition. Fetches wiki definition for your word.
 /def
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/def.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/def.gif"/></a>
 </p>
 
 ### 2. Title
@@ -53,7 +53,7 @@ Shows a list of possible titles that you can search from a word.
 /title
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/title.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/title.gif"/></a>
 </p>
 
 ### 3. URL
@@ -62,7 +62,7 @@ Provides you with the URL of the wiki page for a word.
 /url
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/url.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/url.gif"/></a>
 </p>
 
 ### 4. Lang
@@ -72,7 +72,7 @@ Change to your local language which will be used for every wiki output.
 /prefix
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/lang.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/lang.gif"/></a>
 </p>
 
 ### 5. Map
@@ -81,7 +81,7 @@ Provides you with the location of your input place with Wiki-API.
 /map
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/map.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/map.gif"/></a>
 </p>
 
 ### 6. Nearby
@@ -90,7 +90,7 @@ With the help of coordinates provides you with nearby locations under 1km.
 /nearby
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/nearby.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/nearby.gif"/></a>
 </p>
 
 ### 7. Random
@@ -99,7 +99,7 @@ Sends you a random wiki link.
 /random
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/random.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/random.gif"/></a>
 </p>
 
 ### 8. Others
@@ -114,7 +114,7 @@ Some other set of commands that wikibot provides.
 /issues
 ```
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/WikiBot/blob/master/References/other.gif"/></a>
+<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/other.gif"/></a>
 </p>
 
 ## Test
@@ -151,7 +151,7 @@ Heroku --logs
 ```
 
 ## Contribute
-Thank you for considering contributing to Wikibot. Please add useful comments with your PR's. <br /> <br />
+Thank you for considering contributing to wikibot. Please add useful comments with your PR's. <br /> <br />
 
 ## Credits
 #### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimized commands.
