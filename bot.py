@@ -1,8 +1,9 @@
 from os import environ
-from wikipedia import *
+
 from firebase_admin import credentials, db, initialize_app
 from flask import Flask, request
 from telebot import TeleBot, types
+from wikipedia import *
 
 # Firebase connection
 cred = credentials.Certificate("firebase.json")  # Firebase key
@@ -92,10 +93,12 @@ def support(message):
             "/dev - provides information about my creator\n"
             "/issues - to submit problems/issues or suggest mods\n"
             "/source - my source code")
-    bot.send_message(chat_id=message.chat.id,
-                     text=text,
-                     parse_mode="html",
-                     reply_markup=main_support())
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=main_support(),
+    )
 
 
 @bot.message_handler(commands=["dev"])
@@ -342,7 +345,10 @@ def process_geo(message):
             "").replace("N", "").replace("S", "").replace("° ", "").replace(
                 "°", "").replace(",", "").replace("  ", " ").split(" "))
         set_lang("en")
-        locations = geosearch(latitude=lat, longitude=lan, results=5, radius=1000)
+        locations = geosearch(latitude=lat,
+                              longitude=lan,
+                              results=5,
+                              radius=1000)
         if locations:
             nearby = "<b>Nearby locations</b> I could find..."
             bot.send_message(
