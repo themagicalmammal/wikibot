@@ -1,6 +1,5 @@
-import os
-
-import wikipedia as wiki
+from os import environ
+from wikipedia import *
 from firebase_admin import credentials, db, initialize_app
 from flask import Flask, request
 from telebot import TeleBot, types
@@ -19,6 +18,9 @@ bot = TeleBot(TOKEN)
 
 # Flask connection
 server = Flask(__name__)
+
+# Github repo
+repo =
 
 error = "Wrong word, use /title"
 error2 = "Wrong word, use /suggest"
@@ -58,7 +60,7 @@ def set_lan(message):
 
 def change_lan(message):
     user_id = str(message.from_user.id)
-    wiki.set_lang(z[user_id])
+    set_lang(z[user_id])
 
 
 def find_command(msg):
@@ -182,7 +184,7 @@ def process_title(message):
     try:
         title_msg = str(message.text)
         change_lan(message)
-        title_result = wiki.search(title_msg)
+        title_result = search(title_msg)
         if title_result:
             bot.send_message(
                 chat_id=message.chat.id,
@@ -220,7 +222,7 @@ def process_url(message):
     try:
         url_message = str(message.text)
         change_lan(message)
-        url_page = wiki.page(url_message)
+        url_page = page(url_message)
         url_result = url_page.url
         pre = "URL for the word <b>" + url_message + "</b> is \n\n"
         bot.send_message(
@@ -240,8 +242,8 @@ def random(message):
     # noinspection PyBroadException
     try:
         change_lan(message)
-        random_title = str(wiki.random(pages=1))
-        random_page = wiki.page(random_title)
+        random_title = str(random(pages=1))
+        random_page = page(random_title)
         random_result = random_page.url
         bot.send_message(chat_id=message.chat.id,
                          text=random_result,
@@ -257,7 +259,7 @@ def spot(message):
     # noinspection PyBroadException
     try:
         change_lan(message)
-        spot_title = str(wiki.random(pages=1))
+        spot_title = str(random(pages=1))
         bot.send_message(chat_id=message.chat.id,
                          text=spot_title,
                          reply_markup=main_keyboard())
@@ -279,7 +281,7 @@ def process_definition(message):
     try:
         def_msg = str(message.text)
         change_lan(message)
-        def_str = wiki.summary(def_msg, sentences=19)
+        def_str = summary(def_msg, sentences=19)
         bot.send_message(
             chat_id=message.chat.id,
             text="<b>" + def_msg + "</b> \n\n" + def_str,
@@ -311,8 +313,8 @@ def process_co(message):
     # noinspection PyBroadException
     try:
         co_msg = str(message.text)
-        wiki.set_lang("en")
-        lat, lon = wiki.WikipediaPage(co_msg).coordinates
+        set_lang("en")
+        lat, lon = WikipediaPage(co_msg).coordinates
         bot.send_location(
             chat_id=message.chat.id,
             latitude=lat,
@@ -342,8 +344,8 @@ def process_geo(message):
             "W",
             "").replace("N", "").replace("S", "").replace("° ", "").replace(
                 "°", "").replace(",", "").replace("  ", " ").split(" "))
-        wiki.set_lang("en")
-        locations = wiki.geosearch(latitude=lat,
+        set_lang("en")
+        locations = geosearch(latitude=lat,
                                    longitude=lan,
                                    results=5,
                                    radius=1000)
@@ -386,7 +388,7 @@ def process_suggest(message):
     try:
         suggest_msg = str(message.text)
         change_lan(message)
-        suggest_str = str(wiki.suggest(suggest_msg))
+        suggest_str = str(suggest(suggest_msg))
         if suggest_str != "None":
             pre = "Suggestion for the word <b>" + suggest_msg + "</b> is "
             text = pre + suggest_str
@@ -910,7 +912,7 @@ def main_support():
     markup = types.ReplyKeyboardMarkup(row_width=2,
                                        resize_keyboard=True,
                                        one_time_keyboard=True)
-    texts = ["/dev", "/source", "/issues", "/back"]
+    texts = ["/dev", "/issues", "/source", "/back"]
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -971,4 +973,4 @@ def webhook():
 
 
 if __name__ == "__main__":
-    server.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    server.run(host="0.0.0.0", port=int(environ.get("PORT", 5000)))
