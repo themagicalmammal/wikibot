@@ -19,9 +19,6 @@ bot = TeleBot(TOKEN)
 # Flask connection
 server = Flask(__name__)
 
-# Github repo
-repo =
-
 error = "Wrong word, use /title"
 error2 = "Wrong word, use /suggest"
 word = " for the word..."
@@ -345,10 +342,7 @@ def process_geo(message):
             "").replace("N", "").replace("S", "").replace("° ", "").replace(
                 "°", "").replace(",", "").replace("  ", " ").split(" "))
         set_lang("en")
-        locations = geosearch(latitude=lat,
-                                   longitude=lan,
-                                   results=5,
-                                   radius=1000)
+        locations = geosearch(latitude=lat, longitude=lan, results=5, radius=1000)
         if locations:
             nearby = "<b>Nearby locations</b> I could find..."
             bot.send_message(
