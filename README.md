@@ -8,7 +8,7 @@
 <a href="https://github.com/themagicalmammal/wikibot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/Support-active-darkviolet.svg"/></a>
 <br />
-wikibot, a bot which uses the Wiki-library & provides you with features like definitions, titles & other cool stuff!
+This :robot: is made in python with the help of the Wiki library.
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
 <a href="https://id.heroku.com/login"><img src="https://img.shields.io/badge/heroku%20-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/></a>
