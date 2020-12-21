@@ -25,7 +25,7 @@ error2 = "Wrong word, use /suggest"
 word = " for the word..."
 commands = [
     "start",
-    "extra",
+    "support",
     "dev",
     "source",
     "issues",
@@ -87,16 +87,16 @@ def command_text_hi(message):
     bot.send_message(chat_id=message.chat.id, text=reply)
 
 
-@bot.message_handler(commands=["extra"])
-def extra(message):
-    text = ("A bunch of <b>extra commands</b> I provide: \n\n"
+@bot.message_handler(commands=["support"])
+def support(message):
+    text = ("To contact the dev or raise any issue: \n\n"
             "/dev - provides information about my creator\n"
-            "/source - my source code\n"
-            "/issues - to submit problems/issues or suggest mods")
+            "/issues - to submit problems/issues or suggest mods\n"
+            "/source - my source code")
     bot.send_message(chat_id=message.chat.id,
                      text=text,
                      parse_mode="html",
-                     reply_markup=main_extra())
+                     reply_markup=main_support())
 
 
 @bot.message_handler(commands=["dev"])
@@ -161,7 +161,7 @@ def aid(message):
             "<b>Others</b> \n"
             "/suggest - returns a suggested word or none if not found \n"
             "/spot - fetches a random title from the wiki page \n"
-            "/extra - some extra set of commands \n\n"
+            "/support - contact dev or raise issue \n\n"
             "<b>Note:</b> If the commands don't show up type /commands\n")
     bot.send_message(
         chat_id=message.chat.id,
@@ -906,7 +906,7 @@ def process_ln(message):
         )
 
 
-def main_extra():
+def main_support():
     markup = types.ReplyKeyboardMarkup(row_width=2,
                                        resize_keyboard=True,
                                        one_time_keyboard=True)
@@ -932,7 +932,7 @@ def main_keyboard():
         "/nearby",
         "/random",
         "/help",
-        "/extra",
+        "/support",
     ]
     buttons = []
     for text in texts:
