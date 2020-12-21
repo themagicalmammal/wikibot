@@ -4,9 +4,9 @@
 <a href="https://github.com/themagicalmammal/wikibot"><img src="https://github.com/themagicalmammal/wikibot/blob/master/Resources/logo.gif" width='527'/></a> 
 <br />
 <a href="https://github.com/themagicalmammal/wikibot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
-<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3-darkviolet.svg"/></a>
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3+-darkviolet.svg"/></a>
 <a href="https://github.com/themagicalmammal/wikibot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
-<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/chat-on Telegram-darkviolet.svg"/></a>
+<a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/Support-active-darkviolet.svg"/></a>
 <br />
 wikibot, a bot which uses the Wiki-library & provides you with features like definitions, titles & other cool stuff!
 <br /> <br />
