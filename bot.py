@@ -103,7 +103,7 @@ def dev(message):
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_support()
+        reply_markup=main_support(),
     )
 
 
