@@ -29,6 +29,7 @@ def check(text, command):
     checker = text.replace("/", "").replace("#", "").lower().split(" ")
     if command in checker:
         return 1
+    return 0
 
 
 def add_user(message):
