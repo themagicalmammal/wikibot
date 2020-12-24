@@ -138,9 +138,9 @@ def bug(message):
 @bot.message_handler(func=lambda message: check(message.text, "prefix"))
 def prefix(message):
     text = (
-        "You can set your language with the help of a prefix (English:en) <a "
+        "Language is set with the help of it's Prefix. \n<b>Example</b> - English:en<a "
         'href="https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-        ">this</a>. "
+        ">.</a>"
     )
     bot.send_message(
         chat_id=message.chat.id,
