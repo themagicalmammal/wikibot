@@ -81,9 +81,9 @@ def welcome(message):
 def support(message):
     text = (
         "To contact the dev or raise any issue: \n\n"
-        "Dev - provides information about my creator\n"
-        "Bugs - to report bugs or suggest mods\n"
-        "Source - to view the source code"
+        "<b>Bugs</b> - to report bugs or suggest mods\n"
+        "<b>Dev</b> - provides information about my creator\n"
+        "<b>Source</b> - to view the source code"
     )
     bot.send_message(
         chat_id=message.chat.id,
@@ -95,35 +95,43 @@ def support(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "dev"))
 def dev(message):
-    text = "I was made with ❤ by @themagicalmammal."
-    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
+    text = (
+        "I was made with ❤ by @themagicalmammal"
+        '<a href="https://github.com/themagicalmammal">.</a>'
+    )
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=main_support()
+    )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "source"))
 def source(message):
     text = (
-        "This is a Open Source Project. To checkout my "
-        '<a href="https://github.com/themagicalmammal/wikibot">code</a>. '
+        "Checkout out How I was made"
+        '<a href="https://github.com/themagicalmammal/wikibot">.</a>'
     )
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_keyboard(),
+        reply_markup=main_support(),
     )
 
 
-@bot.message_handler(func=lambda message: check(message.text, "issues"))
-def issues(message):
+@bot.message_handler(func=lambda message: check(message.text, "bug"))
+def bug(message):
     text = (
-        "To submit a issue or suggest a useful revision, use <a "
-        'href="https://github.com/themagicalmammal/wikibot/issues">this</a>. '
+        "Submit a Issue or Revision<a "
+        'href="https://github.com/themagicalmammal/wikibot/issues">.</a> '
     )
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_keyboard(),
+        reply_markup=main_support(),
     )
 
 
