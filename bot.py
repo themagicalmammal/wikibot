@@ -3,7 +3,7 @@ from os import environ
 from firebase_admin import credentials, db, initialize_app
 from flask import Flask, request
 from telebot import TeleBot, types
-from wikipedia import *
+from wikipedia import summary, page, search, set_lang, random, geosearch, suggest
 
 # Firebase connection
 cred = credentials.Certificate("firebase.json")  # Firebase key
