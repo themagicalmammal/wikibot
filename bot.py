@@ -80,10 +80,10 @@ def welcome(message):
 @bot.message_handler(func=lambda message: check(message.text, "support"))
 def support(message):
     text = (
-        "To contact the dev or raise any issue: \n\n"
-        "<b>Bugs</b> - to report bugs or suggest mods\n"
-        "<b>Dev</b> - provides information about my creator\n"
-        "<b>Source</b> - to view the source code"
+        "Support commands that I provide -  \n\n"
+        "Bugs 🐛 - to report bugs or suggest mods\n"
+        "Dev 🧑🏻‍💻️ - provides information about my creator\n"
+        "Source 💻️ - to view the source code"
     )
     bot.send_message(
         chat_id=message.chat.id,
@@ -165,19 +165,19 @@ def aid(message):
     text = (
         "You can use these commands to control me - \n\n"
         "<b>Primary</b> \n"
-        "Definition - fetches definition of a word \n"
-        "Title - fetches a bunch of related titles of a word \n"
-        "URL - gives the URL of wiki page of the word \n"
-        "Prefix - show all available languages \n"
-        "Language - set the language you want \n\n"
+        "Definition 📖 - fetches definition of a word \n"
+        "Title 🖊️️ - fetches a bunch of related titles\n"
+        "URL 🔗 - gives the URL of wiki page of the word \n"
+        "Prefix 🔡 - show all available languages \n"
+        "Language 🔣 - set the language you want \n\n"
         "<b>Secondary</b> \n"
-        "Map - location in map with wiki database \n"
-        "Nearby - locations near a coordinate \n"
-        "Random - pops a random article from wiki \n\n"
+        "Nearby 📍 - locations near a coordinate \n"
+        "Map 🗺️ - location in map with wiki database \n"
+        "Random 🔀 - pops a random article from wiki \n\n"
         "<b>Extra</b> \n"
-        "Support - to contact the dev or raise a issue \n"
-        "Suggest - returns a suggested word or nothing \n"
-        "Fluky - fetches a random title from wiki \n"
+        "Support 👨‍🔧 - to contact the dev or raise a issue \n"
+        "Fluky 💫 - fetches a random title from wiki \n"
+        "Suggest 💡 - returns a suggested word if found \n"
     )
     bot.send_message(
         chat_id=message.chat.id,
