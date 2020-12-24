@@ -27,8 +27,7 @@ This :robot: is made in python with the help of the Wiki library.
   * [Random](#7-random)
   * [Others](#8-others)
 * [Test](#test)
-* [Contribute](#contribute)
-* [Credits](#credits)
+* [Contributors](#contributors)
 
 ## Intro
 While researching about bots, I found out that, there existed no bot that could do more than showing the definition of a word. But, Wiki can do a lot more than just showing a definition. Thus, this bot was made with the sole purpose of showing what Wiki can do.  <br />
@@ -150,8 +149,5 @@ requirements.txt
 Heroku --logs
 ```
 
-## Contribute
-Thank you for considering contributing to wikibot. Please add useful comments with your PR's. <br /> <br />
-
-## Credits
+## Contributors
 #### [kurkurzz](https://github.com/kurkurzz) - Introducing the keyboard & some optimized commands.
