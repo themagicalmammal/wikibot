@@ -1,4 +1,5 @@
 from os import environ
+
 from firebase_admin import credentials, db, initialize_app
 from flask import Flask, request
 from telebot import TeleBot, types
@@ -25,7 +26,7 @@ word = " for the word..."
 
 
 def check(text, command):
-    checker = text.replace('/', '').replace('#', '').lower().split(" ")
+    checker = text.replace("/", "").replace("#", "").lower().split(" ")
     if command in checker:
         return 1
 
@@ -57,43 +58,48 @@ def find_command(msg):
 @bot.message_handler(func=lambda message: check(message.text, "start"))
 def welcome(message):
     add_user(message)
-    welcome_msg = ("Greetings " + message.from_user.first_name +
-                   "! Welcome, I am Wikibot.\n\n"
-                   "To learn how to control me, /help.")
-    bot.send_message(chat_id=message.chat.id,
-                     text=welcome_msg,
-                     reply_markup=main_keyboard())
+    welcome_msg = (
+        "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
+        "To learn how to control me, /help."
+    )
+    bot.send_message(
+        chat_id=message.chat.id, text=welcome_msg, reply_markup=main_keyboard()
+    )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "support"))
 def support(message):
-    text = ("To contact the dev or raise any issue: \n\n"
-            "Dev - provides information about my creator\n"
-            "Bugs - to report bugs or suggest mods\n"
-            "Source - to view the source code")
-    bot.send_message(chat_id=message.chat.id,
-                     text=text,
-                     parse_mode="html",
-                     reply_markup=main_support())
+    text = (
+        "To contact the dev or raise any issue: \n\n"
+        "Dev - provides information about my creator\n"
+        "Bugs - to report bugs or suggest mods\n"
+        "Source - to view the source code"
+    )
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=main_support(),
+    )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "dev"))
 def dev(message):
     text = "I was made with ❤ by @themagicalmammal."
-    bot.send_message(chat_id=message.chat.id,
-                     text=text,
-                     reply_markup=main_keyboard())
+    bot.send_message(chat_id=message.chat.id, text=text, reply_markup=main_keyboard())
 
 
 @bot.message_handler(func=lambda message: check(message.text, "source"))
 def source(message):
-    text = ("This is a Open Source Project. To checkout my "
-            '<a href="https://github.com/themagicalmammal/wikibot">code</a>. ')
+    text = (
+        "This is a Open Source Project. To checkout my "
+        '<a href="https://github.com/themagicalmammal/wikibot">code</a>. '
+    )
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_keyboard()
+        reply_markup=main_keyboard(),
     )
 
 
@@ -101,12 +107,13 @@ def source(message):
 def issues(message):
     text = (
         "To submit a issue or suggest a useful revision, use <a "
-        'href="https://github.com/themagicalmammal/wikibot/issues">this</a>. ')
+        'href="https://github.com/themagicalmammal/wikibot/issues">this</a>. '
+    )
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_keyboard()
+        reply_markup=main_keyboard(),
     )
 
 
@@ -115,37 +122,40 @@ def prefix(message):
     text = (
         "You can set your language with the help of a prefix (English:en) <a "
         'href="https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-        ">this</a>. ")
+        ">this</a>. "
+    )
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_keyboard()
+        reply_markup=main_keyboard(),
     )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "help"))
 def aid(message):
-    text = ("You can use these commands to control me: \n\n"
-            "<b>Primary</b> \n"
-            "Definition - fetches definition of the word you want \n"
-            "Title - fetches a bunch of related titles for a word \n"
-            "URL - gives the URL for the wiki page of the word \n"
-            "Language - set the language you want \n"
-            "<b>Note:-</b> Use the keyword Prefix to show all available languages \n\n"
-            "<b>Secondary</b> \n"
-            "Map - location in map with wiki database \n"
-            "Nearby - locations near a coordinate \n"
-            "Random - pops a random article from wiki \n\n"
-            "<b>Others</b> \n"
-            "Suggest - returns a suggested word or nothing \n"
-            "Chance - fetches a random title from wiki \n"
-            "Support - to contact the dev or raise a issue \n")
+    text = (
+        "You can use these commands to control me: \n\n"
+        "<b>Primary</b> \n"
+        "Definition - fetches definition of the word you want \n"
+        "Title - fetches a bunch of related titles for a word \n"
+        "URL - gives the URL for the wiki page of the word \n"
+        "Language - set the language you want \n"
+        "<b>Note:-</b> Use the keyword Prefix to show all available languages \n\n"
+        "<b>Secondary</b> \n"
+        "Map - location in map with wiki database \n"
+        "Nearby - locations near a coordinate \n"
+        "Random - pops a random article from wiki \n\n"
+        "<b>Others</b> \n"
+        "Suggest - returns a suggested word or nothing \n"
+        "Chance - fetches a random title from wiki \n"
+        "Support - to contact the dev or raise a issue \n"
+    )
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_keyboard()
+        reply_markup=main_keyboard(),
     )
 
 
@@ -169,23 +179,26 @@ def process_title(message):
             for i in title_result:
                 bot.send_message(
                     chat_id=message.chat.id,
-                    text=i.replace(title_msg,
-                                   "<b>" + title_msg + "</b>").replace(
-                        title_msg.lower(),
-                        "<b>" + title_msg.lower() + "</b>"),
+                    text=i.replace(title_msg, "<b>" + title_msg + "</b>").replace(
+                        title_msg.lower(), "<b>" + title_msg.lower() + "</b>"
+                    ),
                     parse_mode="html",
-                    reply_markup=main_keyboard()
+                    reply_markup=main_keyboard(),
                 )
         else:
-            bot.send_message(chat_id=message.chat.id,
-                             text=error2,
-                             parse_mode="html",
-                             reply_markup=main_keyboard())
+            bot.send_message(
+                chat_id=message.chat.id,
+                text=error2,
+                parse_mode="html",
+                reply_markup=main_keyboard(),
+            )
     except Exception:
-        bot.send_message(chat_id=message.chat.id,
-                         text=error2,
-                         parse_mode="html",
-                         reply_markup=main_keyboard())
+        bot.send_message(
+            chat_id=message.chat.id,
+            text=error2,
+            parse_mode="html",
+            reply_markup=main_keyboard(),
+        )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "url"))
@@ -203,13 +216,15 @@ def process_url(message):
             chat_id=message.chat.id,
             text=url_page,
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
     except Exception:
-        bot.send_message(chat_id=message.chat.id,
-                         text=error,
-                         parse_mode="html",
-                         reply_markup=main_keyboard())
+        bot.send_message(
+            chat_id=message.chat.id,
+            text=error,
+            parse_mode="html",
+            reply_markup=main_keyboard(),
+        )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "random"))
@@ -217,12 +232,16 @@ def random(message):
     try:
         change_lan(message)
         random_title = str(random(pages=1)).url
-        bot.send_message(chat_id=message.chat.id,
-                         text=random_title,
-                         reply_markup=main_keyboard())
+        bot.send_message(
+            chat_id=message.chat.id, text=random_title, reply_markup=main_keyboard()
+        )
     except Exception:
-        bot.send_message(chat_id=message.chat.id,
-                         text=error, parse_mode='html', reply_markup=main_keyboard())
+        bot.send_message(
+            chat_id=message.chat.id,
+            text=error,
+            parse_mode="html",
+            reply_markup=main_keyboard(),
+        )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "chance"))
@@ -230,19 +249,21 @@ def chance(message):
     try:
         change_lan(message)
         chance_title = str(random(pages=1))
-        bot.send_message(chat_id=message.chat.id,
-                         text=chance_title,
-                         reply_markup=main_keyboard())
+        bot.send_message(
+            chat_id=message.chat.id, text=chance_title, reply_markup=main_keyboard()
+        )
     except Exception:
-        bot.send_message(chat_id=message.chat.id,
-                         text=error, parse_mode='html', reply_markup=main_keyboard())
+        bot.send_message(
+            chat_id=message.chat.id,
+            text=error,
+            parse_mode="html",
+            reply_markup=main_keyboard(),
+        )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "definition"))
 def definition(message):
-    def_msg = bot.reply_to(message,
-                           "<b>Definition</b>" + word,
-                           parse_mode="html")
+    def_msg = bot.reply_to(message, "<b>Definition</b>" + word, parse_mode="html")
     bot.register_next_step_handler(def_msg, process_definition)
 
 
@@ -255,7 +276,7 @@ def process_definition(message):
             chat_id=message.chat.id,
             text="<b>" + def_msg + "</b> \n\n" + def_str,
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
     except Exception as c:
         if str(c)[:7] == "Page id":
@@ -266,15 +287,13 @@ def process_definition(message):
             chat_id=message.chat.id,
             text="<b>" + msg + "!</b> \n\n" + str(c),
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "map"))
 def chart(message):
-    co_msg = bot.reply_to(message,
-                          "<b>Location</b> of the place...",
-                          parse_mode="html")
+    co_msg = bot.reply_to(message, "<b>Location</b> of the place...", parse_mode="html")
     bot.register_next_step_handler(co_msg, process_co)
 
 
@@ -283,30 +302,45 @@ def process_co(message):
         co_msg = str(message.text)
         set_lang("en")
         lat, lon = WikipediaPage(co_msg).coordinates
-        bot.send_message(chat_id=message.chat.id, text=str(round(lat, 5)) + ", " + str(round(lon, 5)))
-        bot.send_location(chat_id=message.chat.id, latitude=lat, longitude=lon, reply_markup=main_keyboard())
+        bot.send_message(
+            chat_id=message.chat.id, text=str(round(lat, 5)) + ", " + str(round(lon, 5))
+        )
+        bot.send_location(
+            chat_id=message.chat.id,
+            latitude=lat,
+            longitude=lon,
+            reply_markup=main_keyboard(),
+        )
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
             text="Not a location.",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "nearby"))
 def geo(message):
-    geo_msg = bot.reply_to(message,
-                           "Send me the <b>coordinates</b>...",
-                           parse_mode="html")
+    geo_msg = bot.reply_to(
+        message, "Send me the <b>coordinates</b>...", parse_mode="html"
+    )
     bot.register_next_step_handler(geo_msg, process_geo)
 
 
 def process_geo(message):
     try:
-        lat, lan = (str(message.text).replace("E", "").replace(
-            "W",
-            "").replace("N", "").replace("S", "").replace("° ", "").replace(
-            "°", "").replace(",", "").replace("  ", " ").split(" "))
+        lat, lan = (
+            str(message.text)
+            .replace("E", "")
+            .replace("W", "")
+            .replace("N", "")
+            .replace("S", "")
+            .replace("° ", "")
+            .replace("°", "")
+            .replace(",", "")
+            .replace("  ", " ")
+            .split(" ")
+        )
         set_lang("en")
         locations = geosearch(latitude=lat, longitude=lan, results=10, radius=1000)
         if locations:
@@ -315,31 +349,31 @@ def process_geo(message):
                 chat_id=message.chat.id,
                 text=nearby,
                 parse_mode="html",
-                reply_markup=main_keyboard()
+                reply_markup=main_keyboard(),
             )
             for i in locations:
-                bot.send_message(chat_id=message.chat.id,
-                                 text=i,
-                                 reply_markup=main_keyboard())
+                bot.send_message(
+                    chat_id=message.chat.id, text=i, reply_markup=main_keyboard()
+                )
         else:
             sorry = "Sorry, can't find nearby locations"
-            bot.send_message(chat_id=message.chat.id,
-                             text=sorry,
-                             reply_markup=main_keyboard())
+            bot.send_message(
+                chat_id=message.chat.id, text=sorry, reply_markup=main_keyboard()
+            )
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
             text="Use <b>Map</b> to get coordinates.",
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "suggest"))
 def suggest(message):
-    suggest_msg = bot.reply_to(message,
-                               "You want <b>suggestion</b> for...",
-                               parse_mode="html")
+    suggest_msg = bot.reply_to(
+        message, "You want <b>suggestion</b> for...", parse_mode="html"
+    )
     bot.register_next_step_handler(suggest_msg, process_suggest)
 
 
@@ -358,14 +392,14 @@ def process_suggest(message):
             chat_id=message.chat.id,
             text=text,
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
             text=sorry,
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
 
 
@@ -375,15 +409,15 @@ def back(message):
         chat_id=message.chat.id,
         text="<b>Commands</b>",
         parse_mode="html",
-        reply_markup=main_keyboard()
+        reply_markup=main_keyboard(),
     )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "language"))
 def ln(message):
-    ln_msg = bot.reply_to(message,
-                          "Type the prefix of your <b>language</b>...",
-                          parse_mode="html")
+    ln_msg = bot.reply_to(
+        message, "Type the prefix of your <b>language</b>...", parse_mode="html"
+    )
     bot.register_next_step_handler(ln_msg, process_ln)
 
 
@@ -843,7 +877,7 @@ def process_ln(message):
             "zh-sg",
             "zh-tw",
             "zh-yue",
-            "zu"
+            "zu",
         ]
         if ln_msg in lang_list:
             set_lan(message)
@@ -852,31 +886,27 @@ def process_ln(message):
             text = (
                 "Wrong language, please check correct <a href="
                 '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-                ">prefix</a>.")
+                ">prefix</a>."
+            )
         bot.send_message(
             chat_id=message.chat.id,
             text=text,
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
             text="Error, setting language",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
 
 
 def main_support():
-    markup = types.ReplyKeyboardMarkup(row_width=2,
-                                       resize_keyboard=True,
-                                       one_time_keyboard=True)
-    texts = [
-        "🧑🏻‍💻️ Dev",
-        "🐛 Bug",
-        "💻️ Source",
-        "🔙 Back"
-    ]
+    markup = types.ReplyKeyboardMarkup(
+        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    )
+    texts = ["🧑🏻‍💻️ Dev", "🐛 Bug", "💻️ Source", "🔙 Back"]
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -886,9 +916,9 @@ def main_support():
 
 
 def main_keyboard():
-    markup = types.ReplyKeyboardMarkup(row_width=2,
-                                       resize_keyboard=True,
-                                       one_time_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(
+        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    )
     texts = [
         "Definition 📖",
         "Title 🖊️️",
@@ -909,8 +939,12 @@ def main_keyboard():
 
 @bot.message_handler(func=lambda message: True)
 def unrecognized(message):
-    bot.send_message(chat_id=message.chat.id, text="<b>Please</b>, use a keyword", parse_mode='html',
-                     reply_markup=main_keyboard())
+    bot.send_message(
+        chat_id=message.chat.id,
+        text="<b>Please</b>, use a keyword",
+        parse_mode="html",
+        reply_markup=main_keyboard(),
+    )
 
 
 # Heroku Connection
