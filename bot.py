@@ -228,7 +228,7 @@ def process_url(message):
 
 
 @bot.message_handler(func=lambda message: check(message.text, "random"))
-def random(message):
+def randomize(message):
     try:
         change_lan(message)
         random_title = str(random(pages=1)).url
@@ -370,7 +370,7 @@ def process_geo(message):
 
 
 @bot.message_handler(func=lambda message: check(message.text, "suggest"))
-def suggest(message):
+def suggestion(message):
     suggest_msg = bot.reply_to(
         message, "You want <b>suggestion</b> for...", parse_mode="html"
     )
