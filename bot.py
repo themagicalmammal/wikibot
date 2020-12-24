@@ -89,7 +89,17 @@ def support(message):
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_support(),
+        reply_markup=support_keyboard(),
+    )
+
+
+@bot.message_handler(func=lambda message: check(message.text, "extra"))
+def extra(message):
+    bot.send_message(
+        chat_id=message.chat.id,
+        text="<b>Extra</b>",
+        parse_mode="html",
+        reply_markup=extra_keyboard(),
     )
 
 
@@ -103,7 +113,7 @@ def dev(message):
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_support(),
+        reply_markup=support_keyboard(),
     )
 
 
@@ -117,7 +127,7 @@ def source(message):
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_support(),
+        reply_markup=support_keyboard(),
     )
 
 
@@ -131,7 +141,7 @@ def bug(message):
         chat_id=message.chat.id,
         text=text,
         parse_mode="html",
-        reply_markup=main_support(),
+        reply_markup=support_keyboard(),
     )
 
 
@@ -153,21 +163,21 @@ def prefix(message):
 @bot.message_handler(func=lambda message: check(message.text, "help"))
 def aid(message):
     text = (
-        "You can use these commands to control me: \n\n"
+        "You can use these commands to control me - \n\n"
         "<b>Primary</b> \n"
-        "Definition - fetches definition of the word you want \n"
-        "Title - fetches a bunch of related titles for a word \n"
-        "URL - gives the URL for the wiki page of the word \n"
-        "Language - set the language you want \n"
-        "<b>Note:-</b> Use the keyword Prefix to show all available languages \n\n"
+        "Definition - fetches definition of a word \n"
+        "Title - fetches a bunch of related titles of a word \n"
+        "URL - gives the URL of wiki page of the word \n"
+        "Prefix - show all available languages \n"
+        "Language - set the language you want \n\n"
         "<b>Secondary</b> \n"
         "Map - location in map with wiki database \n"
         "Nearby - locations near a coordinate \n"
         "Random - pops a random article from wiki \n\n"
-        "<b>Others</b> \n"
-        "Suggest - returns a suggested word or nothing \n"
-        "Chance - fetches a random title from wiki \n"
+        "<b>Extra</b> \n"
         "Support - to contact the dev or raise a issue \n"
+        "Suggest - returns a suggested word or nothing \n"
+        "Fluky - fetches a random title from wiki \n"
     )
     bot.send_message(
         chat_id=message.chat.id,
@@ -262,13 +272,13 @@ def randomize(message):
         )
 
 
-@bot.message_handler(func=lambda message: check(message.text, "chance"))
-def chance(message):
+@bot.message_handler(func=lambda message: check(message.text, "fluky"))
+def fluky(message):
     try:
         change_lan(message)
-        chance_title = str(random(pages=1))
+        fluky_title = str(random(pages=1))
         bot.send_message(
-            chat_id=message.chat.id, text=chance_title, reply_markup=main_keyboard()
+            chat_id=message.chat.id, text=fluky_title, reply_markup=main_keyboard()
         )
     except Exception:
         bot.send_message(
@@ -920,11 +930,34 @@ def process_ln(message):
         )
 
 
-def main_support():
+def extra_keyboard():
     markup = types.ReplyKeyboardMarkup(
         row_width=2, resize_keyboard=True, one_time_keyboard=True
     )
-    texts = ["🧑🏻‍💻️ Dev", "🐛 Bug", "💻️ Source", "🔙 Back"]
+    texts = [
+        "Support 👨‍🔧",
+        "Suggest 💡",
+        "Fluky 💫",
+        "Back ⬅️"
+    ]
+    buttons = []
+    for text in texts:
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
+    return markup
+
+
+def support_keyboard():
+    markup = types.ReplyKeyboardMarkup(
+        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    )
+    texts = [
+        "🧑🏻‍💻️ Dev",
+        "🐛 Bug",
+        "💻️ Source",
+        "🔙 Back"
+    ]
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -942,10 +975,10 @@ def main_keyboard():
         "Title 🖊️️",
         "URL  🔗",
         "Language 🔣",
-        "Map 🗺️",
-        "Nearby 📍",
         "Random 🔀",
         "Help ⚠️",
+        "Map 🗺️",
+        "Nearby 📍"
     ]
     buttons = []
     for text in texts:
