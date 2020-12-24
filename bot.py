@@ -934,12 +934,7 @@ def extra_keyboard():
     markup = types.ReplyKeyboardMarkup(
         row_width=2, resize_keyboard=True, one_time_keyboard=True
     )
-    texts = [
-        "Support 👨‍🔧",
-        "Suggest 💡",
-        "Fluky 💫",
-        "Back ⬅️"
-    ]
+    texts = ["Support 👨‍🔧", "Suggest 💡", "Fluky 💫", "Back ⬅️"]
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -952,12 +947,7 @@ def support_keyboard():
     markup = types.ReplyKeyboardMarkup(
         row_width=2, resize_keyboard=True, one_time_keyboard=True
     )
-    texts = [
-        "🧑🏻‍💻️ Dev",
-        "🐛 Bug",
-        "💻️ Source",
-        "🔙 Back"
-    ]
+    texts = ["🧑🏻‍💻️ Dev", "🐛 Bug", "💻️ Source", "🔙 Back"]
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
@@ -978,7 +968,7 @@ def main_keyboard():
         "Random 🔀",
         "Help ⚠️",
         "Map 🗺️",
-        "Nearby 📍"
+        "Nearby 📍",
     ]
     buttons = []
     for text in texts:
