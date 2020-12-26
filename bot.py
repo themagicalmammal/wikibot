@@ -698,9 +698,10 @@ def process_url(message):
         url_message = str(message.text)
         change_lan(message)
         url_page = page(url_message).url
+        url_link = "<a href='" + url_page + "'>🔗</a>"
         bot.send_message(
             chat_id=message.chat.id,
-            text=url_page,
+            text=url_link + "for <b>" + url_message + "</b>",
             parse_mode="html",
             reply_markup=main_keyboard(),
         )
