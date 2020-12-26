@@ -527,8 +527,8 @@ def find_command(msg):
 def welcome(message):
     add_user(message)
     welcome_msg = (
-        "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
-        "To learn how to control me, /help."
+            "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
+                                                          "To learn how to control me, /help."
     )
     bot.send_message(
         chat_id=message.chat.id, text=welcome_msg, reply_markup=main_keyboard()
@@ -718,34 +718,21 @@ def process_url(message):
 def randomize(message):
     try:
         change_lan(message)
-        random_title = str(random(pages=1)).url
+        random_title = page(random(pages=1)).url
         bot.send_message(
             chat_id=message.chat.id, text=random_title, reply_markup=main_keyboard()
         )
-    except Exception:
-        bot.send_message(
-            chat_id=message.chat.id,
-            text=error,
-            parse_mode="html",
-            reply_markup=main_keyboard(),
-        )
+    except:
+        randomize(message)
 
 
 @bot.message_handler(func=lambda message: check(message.text, "fluky"))
 def fluky(message):
-    try:
-        change_lan(message)
-        fluky_title = str(random(pages=1))
-        bot.send_message(
-            chat_id=message.chat.id, text=fluky_title, reply_markup=main_keyboard()
-        )
-    except Exception:
-        bot.send_message(
-            chat_id=message.chat.id,
-            text=error,
-            parse_mode="html",
-            reply_markup=main_keyboard(),
-        )
+    change_lan(message)
+    fluky_title = random(pages=1)
+    bot.send_message(
+        chat_id=message.chat.id, text=fluky_title, reply_markup=main_keyboard()
+    )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "definition"))
@@ -819,15 +806,15 @@ def process_geo(message):
     try:
         lat, lan = (
             str(message.text)
-            .replace("E", "")
-            .replace("W", "")
-            .replace("N", "")
-            .replace("S", "")
-            .replace("° ", "")
-            .replace("°", "")
-            .replace(",", "")
-            .replace("  ", " ")
-            .split(" ")
+                .replace("E", "")
+                .replace("W", "")
+                .replace("N", "")
+                .replace("S", "")
+                .replace("° ", "")
+                .replace("°", "")
+                .replace(",", "")
+                .replace("  ", " ")
+                .split(" ")
         )
         set_lang("en")
         locations = geosearch(latitude=lat, longitude=lan, results=10, radius=1000)
@@ -917,7 +904,7 @@ def process_ln(message):
             text = "Set Successfully."
         else:
             text = (
-                "Wrong language, please check correct <a href="
+                "Please, input the correct <a href="
                 '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
                 ">prefix</a>."
             )
@@ -930,7 +917,7 @@ def process_ln(message):
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
-            text="Error, setting language",
+            text="Error, changing language",
             reply_markup=main_keyboard(),
         )
 
