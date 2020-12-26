@@ -527,8 +527,8 @@ def find_command(msg):
 def welcome(message):
     add_user(message)
     welcome_msg = (
-            "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
-                                                          "To learn how to control me, /help."
+        "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
+        "To learn how to control me, /help."
     )
     bot.send_message(
         chat_id=message.chat.id, text=welcome_msg, reply_markup=main_keyboard()
@@ -806,15 +806,15 @@ def process_geo(message):
     try:
         lat, lan = (
             str(message.text)
-                .replace("E", "")
-                .replace("W", "")
-                .replace("N", "")
-                .replace("S", "")
-                .replace("° ", "")
-                .replace("°", "")
-                .replace(",", "")
-                .replace("  ", " ")
-                .split(" ")
+            .replace("E", "")
+            .replace("W", "")
+            .replace("N", "")
+            .replace("S", "")
+            .replace("° ", "")
+            .replace("°", "")
+            .replace(",", "")
+            .replace("  ", " ")
+            .split(" ")
         )
         set_lang("en")
         locations = geosearch(latitude=lat, longitude=lan, results=10, radius=1000)
