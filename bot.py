@@ -527,8 +527,8 @@ def find_command(msg):
 def welcome(message):
     add_user(message)
     welcome_msg = (
-        "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
-        "To learn how to control me, /help."
+            "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
+                                                          "To learn how to control me, /help."
     )
     bot.send_message(
         chat_id=message.chat.id, text=welcome_msg, reply_markup=main_keyboard()
@@ -633,7 +633,6 @@ def aid(message):
         "Map 🗺️ - location in map with wiki database \n"
         "Random 🔀 - pops a random article from wiki \n\n"
         "<b>Extra</b> \n"
-        "Support 👨‍🔧 - to contact the dev or raise a issue \n"
         "Fluky 💫 - fetches a random title from wiki \n"
         "Suggest 💡 - returns a suggested word if found \n"
     )
@@ -751,7 +750,7 @@ def process_definition(message):
             chat_id=message.chat.id,
             text="<b>" + def_msg + "</b> \n\n" + def_split,
             parse_mode="html",
-            reply_markup=main_keyboard(),
+            reply_markup=extra_keyboard(),
         )
     except Exception as c:
         if str(c)[:7] == "Page id":
@@ -762,7 +761,7 @@ def process_definition(message):
             chat_id=message.chat.id,
             text=msg,
             parse_mode="html",
-            reply_markup=main_keyboard(),
+            reply_markup=extra_keyboard(),
         )
 
 
@@ -806,20 +805,20 @@ def process_geo(message):
     try:
         lat, lan = (
             str(message.text)
-            .replace("E", "")
-            .replace("W", "")
-            .replace("N", "")
-            .replace("S", "")
-            .replace("° ", "")
-            .replace("°", "")
-            .replace(",", "")
-            .replace("  ", " ")
-            .split(" ")
+                .replace("E", "")
+                .replace("W", "")
+                .replace("N", "")
+                .replace("S", "")
+                .replace("° ", "")
+                .replace("°", "")
+                .replace(",", "")
+                .replace("  ", " ")
+                .split(" ")
         )
         set_lang("en")
         locations = geosearch(latitude=lat, longitude=lan, results=10, radius=1000)
         if locations:
-            nearby = "<b>Nearby locations</b> I could find..."
+            nearby = "<b>Nearby locations</b> are..."
             bot.send_message(
                 chat_id=message.chat.id,
                 text=nearby,
@@ -847,7 +846,7 @@ def process_geo(message):
 @bot.message_handler(func=lambda message: check(message.text, "suggest"))
 def suggestion(message):
     suggest_msg = bot.reply_to(
-        message, "You want <b>suggestion</b> for...", parse_mode="html"
+        message, "<b>Suggestion</b> for the word...", parse_mode="html"
     )
     bot.register_next_step_handler(suggest_msg, process_suggest)
 
@@ -859,22 +858,21 @@ def process_suggest(message):
         change_lan(message)
         suggest_str = str(suggest(suggest_msg))
         if suggest_str != "None":
-            pre = "Suggestion for the word <b>" + suggest_msg + "</b> is "
-            text = pre + suggest_str
+            text = suggest_str
         else:
             text = sorry
         bot.send_message(
             chat_id=message.chat.id,
             text=text,
             parse_mode="html",
-            reply_markup=main_keyboard(),
+            reply_markup=extra_keyboard(),
         )
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
             text=sorry,
             parse_mode="html",
-            reply_markup=main_keyboard(),
+            reply_markup=extra_keyboard(),
         )
 
 
@@ -926,7 +924,7 @@ def extra_keyboard():
     markup = types.ReplyKeyboardMarkup(
         row_width=2, resize_keyboard=True, one_time_keyboard=True
     )
-    texts = ["Support 👨‍🔧", "Suggest 💡", "Fluky 💫", "Back ⬅️"]
+    texts = ["Suggest 💡", "Fluky 💫", "Back ⬅️"]
     buttons = []
     for text in texts:
         button = types.KeyboardButton(text)
