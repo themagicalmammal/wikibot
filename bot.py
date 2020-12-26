@@ -767,12 +767,12 @@ def randomize(message):
     try:
         change_lan(message)
         random_title = page(random(pages=1)).url
-        random_text="<a href='" + random_title + "'>✨</a>"
+        random_text = "<a href='" + random_title + "'>✨</a>"
         bot.send_message(
             chat_id=message.chat.id,
             text=random_text,
             parse_mode="html",
-            reply_markup=main_keyboard()
+            reply_markup=main_keyboard(),
         )
     except:
         randomize(message)
