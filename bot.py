@@ -757,21 +757,22 @@ def process_definition(message):
     try:
         def_msg = str(message.text)
         change_lan(message)
-        def_str = summary(def_msg, sentences=19)
+        def_str = summary(def_msg, sentences=10)
+        def_split = def_str.split("\n\n", 1)[0]
         bot.send_message(
             chat_id=message.chat.id,
-            text="<b>" + def_msg + "</b> \n\n" + def_str,
+            text="<b>" + def_msg + "</b> \n\n" + def_split,
             parse_mode="html",
             reply_markup=main_keyboard(),
         )
     except Exception as c:
         if str(c)[:7] == "Page id":
-            msg = "Not found"
+            msg = "<b>Not Found!</b>"
         else:
-            msg = "Multiple similar titles found"
+            msg = str(c).replace("may refer to", "<b>may refer to</b>")
         bot.send_message(
             chat_id=message.chat.id,
-            text="<b>" + msg + "!</b> \n\n" + str(c),
+            text=msg,
             parse_mode="html",
             reply_markup=main_keyboard(),
         )
