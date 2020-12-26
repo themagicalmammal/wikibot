@@ -557,11 +557,14 @@ def welcome(message):
     user_id = message.from_user.id
     ref.update({user_id: "en"})
     welcome_msg = (
-            "Greetings " + message.from_user.first_name + ", I am Wikibot 🤖\n\n"
-                                                          "What can I do? Use <b>help</b>."
+        "Greetings " + message.from_user.first_name + ", I am Wikibot 🤖\n\n"
+        "What can I do? Use <b>help</b>."
     )
     bot.send_message(
-        chat_id=message.chat.id, text=welcome_msg, parse_mode='html', reply_markup=main_keyboard()
+        chat_id=message.chat.id,
+        text=welcome_msg,
+        parse_mode="html",
+        reply_markup=main_keyboard(),
     )
 
 
@@ -815,15 +818,15 @@ def process_geo(message):
     try:
         lat, lan = (
             str(message.text)
-                .replace("E", "")
-                .replace("W", "")
-                .replace("N", "")
-                .replace("S", "")
-                .replace("° ", "")
-                .replace("°", "")
-                .replace(",", "")
-                .replace("  ", " ")
-                .split(" ")
+            .replace("E", "")
+            .replace("W", "")
+            .replace("N", "")
+            .replace("S", "")
+            .replace("° ", "")
+            .replace("°", "")
+            .replace(",", "")
+            .replace("  ", " ")
+            .split(" ")
         )
         set_lang("en")
         locations = geosearch(latitude=lat, longitude=lan, results=10, radius=1000)
