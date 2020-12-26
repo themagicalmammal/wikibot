@@ -506,7 +506,7 @@ def add_user(message):
 
 def set_lan(message):
     user_id = message.from_user.id
-    ref.update({user_id: str(message.text).lower})
+    ref.update({user_id: str(message.text).lower()})
     global z
     z = ref.get()
 
@@ -904,7 +904,7 @@ def process_ln(message):
             text = "Set Successfully."
         else:
             text = (
-                "Please, input the correct <a href="
+                "Please, check for the correct <a href="
                 '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
                 ">prefix</a>."
             )
