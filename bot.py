@@ -541,7 +541,7 @@ def extra_keyboard():
 
 
 def check(text, command):
-    checker = text.replace("/", "").replace("#", "").lower().split(" ")
+    checker = str(text).replace("/", "").replace("#", "").lower().split(" ")
     if command in checker:
         return 1
     return 0
@@ -764,8 +764,12 @@ def randomize(message):
     try:
         change_lan(message)
         random_title = page(random(pages=1)).url
+        random_text="<a href='" + random_title + "'>✨</a>"
         bot.send_message(
-            chat_id=message.chat.id, text=random_title, reply_markup=main_keyboard()
+            chat_id=message.chat.id,
+            text=random_text,
+            parse_mode="html",
+            reply_markup=main_keyboard()
         )
     except:
         randomize(message)
