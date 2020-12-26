@@ -492,6 +492,54 @@ lang_list = [
 ]
 
 
+def main_keyboard():
+    markup = types.ReplyKeyboardMarkup(
+        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    )
+    texts = [
+        "Definition 📖",
+        "Title 🖊️️",
+        "URL  🔗",
+        "Language 🔣",
+        "Random 🔀",
+        "Help ⚠️",
+        "Map 🗺️",
+        "Nearby 📍",
+    ]
+    buttons = []
+    for text in texts:
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
+    return markup
+
+
+def support_keyboard():
+    markup = types.ReplyKeyboardMarkup(
+        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    )
+    texts = ["🧑🏻‍💻️ Dev", "🐛 Bug", "💻️ Source", "🔙 Back"]
+    buttons = []
+    for text in texts:
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
+    return markup
+
+
+def extra_keyboard():
+    markup = types.ReplyKeyboardMarkup(
+        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    )
+    texts = ["Suggest 💡", "Fluky 💫", "Back ⬅️"]
+    buttons = []
+    for text in texts:
+        button = types.KeyboardButton(text)
+        buttons.append(button)
+    markup.add(*buttons)
+    return markup
+
+
 def check(text, command):
     checker = text.replace("/", "").replace("#", "").lower().split(" ")
     if command in checker:
@@ -499,149 +547,53 @@ def check(text, command):
     return 0
 
 
-def add_user(message):
-    user_id = message.from_user.id
-    ref.update({user_id: "en"})
-
-
-def set_lan(message):
-    user_id = message.from_user.id
-    ref.update({user_id: str(message.text).lower()})
-    global z
-    z = ref.get()
-
-
 def change_lan(message):
     user_id = str(message.from_user.id)
     set_lang(z[user_id])
 
 
-def find_command(msg):
-    for text in msg:
-        if "/" in text:
-            return text
-    return None
-
-
 @bot.message_handler(func=lambda message: check(message.text, "start"))
 def welcome(message):
-    add_user(message)
+    user_id = message.from_user.id
+    ref.update({user_id: "en"})
     welcome_msg = (
-            "Greetings " + message.from_user.first_name + "! Welcome, I am Wikibot.\n\n"
-                                                          "To learn how to control me, /help."
+            "Greetings " + message.from_user.first_name + ", I am Wikibot 🤖\n\n"
+                                                          "What can I do? Use <b>help</b>."
     )
     bot.send_message(
-        chat_id=message.chat.id, text=welcome_msg, reply_markup=main_keyboard()
+        chat_id=message.chat.id, text=welcome_msg, parse_mode='html', reply_markup=main_keyboard()
     )
 
 
-@bot.message_handler(func=lambda message: check(message.text, "support"))
-def support(message):
-    text = (
-        "Support commands that I provide -  \n\n"
-        "Bugs 🐛 - to report bugs or suggest mods\n"
-        "Dev 🧑🏻‍💻️ - provides information about my creator\n"
-        "Source 💻️ - to view the source code"
-    )
-    bot.send_message(
-        chat_id=message.chat.id,
-        text=text,
-        parse_mode="html",
-        reply_markup=support_keyboard(),
-    )
+@bot.message_handler(func=lambda message: check(message.text, "definition"))
+def definition(message):
+    def_msg = bot.reply_to(message, "<b>Definition</b>" + word, parse_mode="html")
+    bot.register_next_step_handler(def_msg, process_definition)
 
 
-@bot.message_handler(func=lambda message: check(message.text, "extra"))
-def extra(message):
-    bot.send_message(
-        chat_id=message.chat.id,
-        text="<b>Extra</b>",
-        parse_mode="html",
-        reply_markup=extra_keyboard(),
-    )
-
-
-@bot.message_handler(func=lambda message: check(message.text, "dev"))
-def dev(message):
-    text = (
-        "I was made with ❤ by @themagicalmammal"
-        '<a href="https://github.com/themagicalmammal">.</a>'
-    )
-    bot.send_message(
-        chat_id=message.chat.id,
-        text=text,
-        parse_mode="html",
-        reply_markup=support_keyboard(),
-    )
-
-
-@bot.message_handler(func=lambda message: check(message.text, "source"))
-def source(message):
-    text = (
-        "Checkout out How I was made"
-        '<a href="https://github.com/themagicalmammal/wikibot">.</a>'
-    )
-    bot.send_message(
-        chat_id=message.chat.id,
-        text=text,
-        parse_mode="html",
-        reply_markup=support_keyboard(),
-    )
-
-
-@bot.message_handler(func=lambda message: check(message.text, "bug"))
-def bug(message):
-    text = (
-        "Submit a Issue or Revision<a "
-        'href="https://github.com/themagicalmammal/wikibot/issues">.</a> '
-    )
-    bot.send_message(
-        chat_id=message.chat.id,
-        text=text,
-        parse_mode="html",
-        reply_markup=support_keyboard(),
-    )
-
-
-@bot.message_handler(func=lambda message: check(message.text, "prefix"))
-def prefix(message):
-    text = (
-        "Language is set with the help of it's Prefix. \n<b>Example</b> - English:en<a "
-        'href="https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-        ">.</a>"
-    )
-    bot.send_message(
-        chat_id=message.chat.id,
-        text=text,
-        parse_mode="html",
-        reply_markup=main_keyboard(),
-    )
-
-
-@bot.message_handler(func=lambda message: check(message.text, "help"))
-def aid(message):
-    text = (
-        "You can use these commands to control me - \n\n"
-        "<b>Primary</b> \n"
-        "Definition 📖 - fetches definition of a word \n"
-        "Title 🖊️️ - fetches a bunch of related titles\n"
-        "URL 🔗 - gives the URL of wiki page of the word \n"
-        "Prefix 🔡 - show all available languages \n"
-        "Language 🔣 - set the language you want \n\n"
-        "<b>Secondary</b> \n"
-        "Nearby 📍 - locations near a coordinate \n"
-        "Map 🗺️ - location in map with wiki database \n"
-        "Random 🔀 - pops a random article from wiki \n\n"
-        "<b>Extra</b> \n"
-        "Fluky 💫 - fetches a random title from wiki \n"
-        "Suggest 💡 - returns a suggested word if found \n"
-    )
-    bot.send_message(
-        chat_id=message.chat.id,
-        text=text,
-        parse_mode="html",
-        reply_markup=main_keyboard(),
-    )
+def process_definition(message):
+    try:
+        def_msg = str(message.text)
+        change_lan(message)
+        def_str = summary(def_msg, sentences=10)
+        def_split = def_str.split("\n\n", 1)[0]
+        bot.send_message(
+            chat_id=message.chat.id,
+            text="<b>" + def_msg + "</b> \n\n" + def_split,
+            parse_mode="html",
+            reply_markup=main_keyboard(),
+        )
+    except Exception as c:
+        if str(c)[:7] == "Page id":
+            msg = "<b>Not Found!</b>"
+        else:
+            msg = str(c).replace("may refer to", "<b>may refer to</b>")
+        bot.send_message(
+            chat_id=message.chat.id,
+            text=msg,
+            parse_mode="html",
+            reply_markup=main_keyboard(),
+        )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "title"))
@@ -686,6 +638,32 @@ def process_title(message):
         )
 
 
+@bot.message_handler(func=lambda message: check(message.text, "help"))
+def aid(message):
+    text = (
+        "These keywords can be used to control me - \n\n"
+        "<b>Primary</b> \n"
+        "Definition 📖 - fetches definition of a word \n"
+        "Title 🖊️️ - fetches a bunch of related titles\n"
+        "URL 🔗 - gives the URL of wiki page of the word \n"
+        "Prefix 🔡 - show all available languages \n"
+        "Language 🔣 - set the language you want \n\n"
+        "<b>Secondary</b> \n"
+        "Nearby 📍 - locations near a coordinate \n"
+        "Map 🗺️ - location in map with wiki database \n"
+        "Random 🔀 - pops a random article from wiki \n\n"
+        "<b>Extra</b> \n"
+        "Fluky 💫 - fetches a random title from wiki \n"
+        "Suggest 💡 - returns a suggested word if found \n"
+    )
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=main_keyboard(),
+    )
+
+
 @bot.message_handler(func=lambda message: check(message.text, "url"))
 def url(message):
     url_msg = bot.reply_to(message, "<b>URL</b>" + word, parse_mode="html")
@@ -713,6 +691,74 @@ def process_url(message):
         )
 
 
+@bot.message_handler(func=lambda message: check(message.text, "language"))
+def ln(message):
+    ln_msg = bot.reply_to(
+        message, "Type the prefix of your <b>language</b>...", parse_mode="html"
+    )
+    bot.register_next_step_handler(ln_msg, process_ln)
+
+
+def process_ln(message):
+    try:
+        ln_msg = str(message.text).lower()
+        if ln_msg in lang_list:
+            user_id = message.from_user.id
+            ref.update({user_id: str(message.text).lower()})
+            global z
+            z = ref.get()
+            text = "Set Successfully."
+        else:
+            text = (
+                "Please, check for the correct <a href="
+                '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
+                ">prefix</a>."
+            )
+        bot.send_message(
+            chat_id=message.chat.id,
+            text=text,
+            parse_mode="html",
+            reply_markup=main_keyboard(),
+        )
+    except Exception:
+        bot.send_message(
+            chat_id=message.chat.id,
+            text="Error, changing language",
+            reply_markup=main_keyboard(),
+        )
+
+
+@bot.message_handler(func=lambda message: check(message.text, "support"))
+def support(message):
+    text = (
+        "Support commands that I provide -  \n\n"
+        "Bugs 🐛 - to report bugs or suggest mods\n"
+        "Dev 🧑🏻‍💻️ - provides information about my creator\n"
+        "Source 💻️ - to view the source code"
+    )
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=support_keyboard(),
+    )
+
+
+@bot.message_handler(func=lambda message: check(message.text, "prefix"))
+def prefix(message):
+    text = (
+        "Language is set with the help of it's Prefix. \n<b>Example</b> - English:en<a "
+        'href="https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
+        ">.</a>"
+    )
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=main_keyboard(),
+    )
+
+
 @bot.message_handler(func=lambda message: check(message.text, "random"))
 def randomize(message):
     try:
@@ -723,46 +769,6 @@ def randomize(message):
         )
     except:
         randomize(message)
-
-
-@bot.message_handler(func=lambda message: check(message.text, "fluky"))
-def fluky(message):
-    change_lan(message)
-    fluky_title = random(pages=1)
-    bot.send_message(
-        chat_id=message.chat.id, text=fluky_title, reply_markup=main_keyboard()
-    )
-
-
-@bot.message_handler(func=lambda message: check(message.text, "definition"))
-def definition(message):
-    def_msg = bot.reply_to(message, "<b>Definition</b>" + word, parse_mode="html")
-    bot.register_next_step_handler(def_msg, process_definition)
-
-
-def process_definition(message):
-    try:
-        def_msg = str(message.text)
-        change_lan(message)
-        def_str = summary(def_msg, sentences=10)
-        def_split = def_str.split("\n\n", 1)[0]
-        bot.send_message(
-            chat_id=message.chat.id,
-            text="<b>" + def_msg + "</b> \n\n" + def_split,
-            parse_mode="html",
-            reply_markup=extra_keyboard(),
-        )
-    except Exception as c:
-        if str(c)[:7] == "Page id":
-            msg = "<b>Not Found!</b>"
-        else:
-            msg = str(c).replace("may refer to", "<b>may refer to</b>")
-        bot.send_message(
-            chat_id=message.chat.id,
-            text=msg,
-            parse_mode="html",
-            reply_markup=extra_keyboard(),
-        )
 
 
 @bot.message_handler(func=lambda message: check(message.text, "map"))
@@ -843,6 +849,25 @@ def process_geo(message):
         )
 
 
+@bot.message_handler(func=lambda message: check(message.text, "fluky"))
+def fluky(message):
+    change_lan(message)
+    fluky_title = random(pages=1)
+    bot.send_message(
+        chat_id=message.chat.id, text=fluky_title, reply_markup=extra_keyboard()
+    )
+
+
+@bot.message_handler(func=lambda message: check(message.text, "back"))
+def back(message):
+    bot.send_message(
+        chat_id=message.chat.id,
+        text="<b>Commands</b>",
+        parse_mode="html",
+        reply_markup=main_keyboard(),
+    )
+
+
 @bot.message_handler(func=lambda message: check(message.text, "suggest"))
 def suggestion(message):
     suggest_msg = bot.reply_to(
@@ -876,96 +901,56 @@ def process_suggest(message):
         )
 
 
-@bot.message_handler(func=lambda message: check(message.text, "back"))
-def back(message):
+@bot.message_handler(func=lambda message: check(message.text, "bug"))
+def bug(message):
+    text = (
+        "Submit a Issue or Revision<a "
+        'href="https://github.com/themagicalmammal/wikibot/issues">.</a> '
+    )
     bot.send_message(
         chat_id=message.chat.id,
-        text="<b>Commands</b>",
+        text=text,
         parse_mode="html",
-        reply_markup=main_keyboard(),
+        reply_markup=support_keyboard(),
     )
 
 
-@bot.message_handler(func=lambda message: check(message.text, "language"))
-def ln(message):
-    ln_msg = bot.reply_to(
-        message, "Type the prefix of your <b>language</b>...", parse_mode="html"
+@bot.message_handler(func=lambda message: check(message.text, "dev"))
+def dev(message):
+    text = (
+        "I was made with ❤ by @themagicalmammal"
+        '<a href="https://github.com/themagicalmammal">.</a>'
     )
-    bot.register_next_step_handler(ln_msg, process_ln)
-
-
-def process_ln(message):
-    try:
-        ln_msg = str(message.text).lower()
-        if ln_msg in lang_list:
-            set_lan(message)
-            text = "Set Successfully."
-        else:
-            text = (
-                "Please, check for the correct <a href="
-                '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-                ">prefix</a>."
-            )
-        bot.send_message(
-            chat_id=message.chat.id,
-            text=text,
-            parse_mode="html",
-            reply_markup=main_keyboard(),
-        )
-    except Exception:
-        bot.send_message(
-            chat_id=message.chat.id,
-            text="Error, changing language",
-            reply_markup=main_keyboard(),
-        )
-
-
-def extra_keyboard():
-    markup = types.ReplyKeyboardMarkup(
-        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=support_keyboard(),
     )
-    texts = ["Suggest 💡", "Fluky 💫", "Back ⬅️"]
-    buttons = []
-    for text in texts:
-        button = types.KeyboardButton(text)
-        buttons.append(button)
-    markup.add(*buttons)
-    return markup
 
 
-def support_keyboard():
-    markup = types.ReplyKeyboardMarkup(
-        row_width=2, resize_keyboard=True, one_time_keyboard=True
+@bot.message_handler(func=lambda message: check(message.text, "source"))
+def source(message):
+    text = (
+        "Checkout out How I was made"
+        '<a href="https://github.com/themagicalmammal/wikibot">.</a>'
     )
-    texts = ["🧑🏻‍💻️ Dev", "🐛 Bug", "💻️ Source", "🔙 Back"]
-    buttons = []
-    for text in texts:
-        button = types.KeyboardButton(text)
-        buttons.append(button)
-    markup.add(*buttons)
-    return markup
-
-
-def main_keyboard():
-    markup = types.ReplyKeyboardMarkup(
-        row_width=2, resize_keyboard=True, one_time_keyboard=True
+    bot.send_message(
+        chat_id=message.chat.id,
+        text=text,
+        parse_mode="html",
+        reply_markup=support_keyboard(),
     )
-    texts = [
-        "Definition 📖",
-        "Title 🖊️️",
-        "URL  🔗",
-        "Language 🔣",
-        "Random 🔀",
-        "Help ⚠️",
-        "Map 🗺️",
-        "Nearby 📍",
-    ]
-    buttons = []
-    for text in texts:
-        button = types.KeyboardButton(text)
-        buttons.append(button)
-    markup.add(*buttons)
-    return markup
+
+
+@bot.message_handler(func=lambda message: check(message.text, "extra"))
+def extra(message):
+    bot.send_message(
+        chat_id=message.chat.id,
+        text="<b>Extra</b>",
+        parse_mode="html",
+        reply_markup=extra_keyboard(),
+    )
 
 
 @bot.message_handler(func=lambda message: True)
