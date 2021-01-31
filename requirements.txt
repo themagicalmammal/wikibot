@@ -36,6 +36,6 @@ rsa==4.6
 six==1.15.0
 soupsieve==2.1
 uritemplate==3.0.1
-urllib3==1.26.2
+urllib3==1.26.3
 Werkzeug==1.0.1
 wikipedia==1.4.0
