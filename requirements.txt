@@ -32,7 +32,7 @@ pycparser==2.20
 pyTelegramBotAPI==3.7.6
 pytz==2021.1
 requests==2.25.1
-rsa==4.7.1
+rsa==4.7.2
 six==1.15.0
 soupsieve==2.2
 uritemplate==3.0.1
