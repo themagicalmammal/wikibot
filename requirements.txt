@@ -16,7 +16,7 @@ google-cloud-firestore==2.0.2
 google-cloud-storage==1.36.0
 google-crc32c==1.1.2
 google-resumable-media==1.2.0
-googleapis-common-protos==1.52.0
+googleapis-common-protos==1.53.0
 grpcio==1.35.0
 httplib2==0.19.0
 idna==3.1
