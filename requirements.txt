@@ -34,7 +34,7 @@ pytz==2021.1
 requests==2.25.1
 rsa==4.7.1
 six==1.15.0
-soupsieve==2.2
+soupsieve==2.2.1
 uritemplate==3.0.1
 urllib3==1.26.3
 Werkzeug==1.0.1
