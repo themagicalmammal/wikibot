@@ -10,7 +10,7 @@ Flask==1.1.2
 google-api-core==1.26.2
 google-api-python-client==2.0.2
 google-auth==1.28.0
-google-auth-httplib2==0.0.4
+google-auth-httplib2==0.1.0
 google-cloud-core==1.6.0
 google-cloud-firestore==2.0.2
 google-cloud-storage==1.37.0
