@@ -8,7 +8,7 @@ click==7.1.2
 firebase-admin==4.5.2
 Flask==1.1.2
 google-api-core==1.26.0
-google-api-python-client==1.12.8
+google-api-python-client==2.0.2
 google-auth==1.27.0
 google-auth-httplib2==0.0.4
 google-cloud-core==1.6.0
