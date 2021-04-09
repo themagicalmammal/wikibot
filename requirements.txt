@@ -7,7 +7,7 @@ chardet==4.0.0
 click==7.1.2
 firebase-admin==4.5.3
 Flask==1.1.2
-google-api-core==1.26.2
+google-api-core==1.26.3
 google-api-python-client==2.0.2
 google-auth==1.28.0
 google-auth-httplib2==0.1.0
@@ -17,7 +17,7 @@ google-cloud-storage==1.37.0
 google-crc32c==1.1.2
 google-resumable-media==1.2.0
 googleapis-common-protos==1.53.0
-grpcio==1.36.1
+grpcio==1.37.0
 httplib2==0.19.1
 idna==3.1
 itsdangerous==1.1.0
