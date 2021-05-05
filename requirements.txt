@@ -33,7 +33,7 @@ pyTelegramBotAPI==3.7.7
 pytz==2021.1
 requests==2.25.1
 rsa==4.7.2
-six==1.15.0
+six==1.16.0
 soupsieve==2.2.1
 uritemplate==3.0.1
 urllib3==1.26.4
