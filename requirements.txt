@@ -37,5 +37,5 @@ six==1.16.0
 soupsieve==2.2.1
 uritemplate==3.0.1
 urllib3==1.26.4
-Werkzeug==1.0.1
+Werkzeug==2.0.0
 wikipedia==1.4.0
