@@ -21,7 +21,7 @@ grpcio==1.37.1
 httplib2==0.19.1
 idna==3.1
 itsdangerous==2.0.0
-Jinja2==2.11.3
+Jinja2==3.0.0
 MarkupSafe==2.0.0
 msgpack==1.0.2
 proto-plus==1.18.1
