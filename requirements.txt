@@ -22,7 +22,7 @@ httplib2==0.19.1
 idna==3.1
 itsdangerous==2.0.0
 Jinja2==3.0.1
-MarkupSafe==2.0.0
+MarkupSafe==2.0.1
 msgpack==1.0.2
 proto-plus==1.18.1
 protobuf==3.17.0
