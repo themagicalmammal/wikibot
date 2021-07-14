@@ -9,7 +9,7 @@ firebase-admin==5.0.1
 Flask==2.0.1
 google-api-core==1.31.0
 google-api-python-client==2.13.0
-google-auth==1.32.1
+google-auth==1.33.0
 google-auth-httplib2==0.1.0
 google-cloud-core==1.7.1
 google-cloud-firestore==2.1.3
