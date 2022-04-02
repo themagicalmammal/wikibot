@@ -17,8 +17,8 @@ from wikipedia import (
 # Firebase connection
 cred = credentials.Certificate("firebase.json")  # Firebase key
 initialize_app(
-    cred, {"databaseURL": "https://yourappname-user-default-rtdb.firebaseio.com/"}
-)
+    cred,
+    {"databaseURL": "https://yourappname-user-default-rtdb.firebaseio.com/"})
 ref = db.reference("/")
 z = ref.get()
 
@@ -493,9 +493,9 @@ lang_list = [
 
 
 def main_keyboard():
-    markup = types.ReplyKeyboardMarkup(
-        row_width=2, resize_keyboard=True, one_time_keyboard=True
-    )
+    markup = types.ReplyKeyboardMarkup(row_width=2,
+                                       resize_keyboard=True,
+                                       one_time_keyboard=True)
     texts = [
         "Definition 📖",
         "Title 🖊️️",
@@ -515,9 +515,9 @@ def main_keyboard():
 
 
 def support_keyboard():
-    markup = types.ReplyKeyboardMarkup(
-        row_width=2, resize_keyboard=True, one_time_keyboard=True
-    )
+    markup = types.ReplyKeyboardMarkup(row_width=2,
+                                       resize_keyboard=True,
+                                       one_time_keyboard=True)
     texts = ["🧑🏻‍💻️ Dev", "🐛 Bug", "💻️ Source", "🔙 Back"]
     buttons = []
     for text in texts:
@@ -528,9 +528,9 @@ def support_keyboard():
 
 
 def extra_keyboard():
-    markup = types.ReplyKeyboardMarkup(
-        row_width=2, resize_keyboard=True, one_time_keyboard=True
-    )
+    markup = types.ReplyKeyboardMarkup(row_width=2,
+                                       resize_keyboard=True,
+                                       one_time_keyboard=True)
     texts = ["Suggest 💡", "Fluky 💫", "Back ⬅️"]
     buttons = []
     for text in texts:
@@ -556,10 +556,9 @@ def change_lan(message):
 def welcome(message):
     user_id = message.from_user.id
     ref.update({user_id: "en"})
-    welcome_msg = (
-        "Greetings " + message.from_user.first_name + ", I am Wikibot 🤖\n\n"
-        "What can I do? Use <b>help</b>."
-    )
+    welcome_msg = ("Greetings " + message.from_user.first_name +
+                   ", I am Wikibot 🤖\n\n"
+                   "What can I do? Use <b>help</b>.")
     bot.send_message(
         chat_id=message.chat.id,
         text=welcome_msg,
@@ -570,7 +569,9 @@ def welcome(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "definition"))
 def definition(message):
-    def_msg = bot.reply_to(message, "<b>Definition</b>" + word, parse_mode="html")
+    def_msg = bot.reply_to(message,
+                           "<b>Definition</b>" + word,
+                           parse_mode="html")
     bot.register_next_step_handler(def_msg, process_definition)
 
 
@@ -619,9 +620,10 @@ def process_title(message):
             for i in title_result:
                 bot.send_message(
                     chat_id=message.chat.id,
-                    text=i.replace(title_msg, "<b>" + title_msg + "</b>").replace(
-                        title_msg.lower(), "<b>" + title_msg.lower() + "</b>"
-                    ),
+                    text=i.replace(title_msg,
+                                   "<b>" + title_msg + "</b>").replace(
+                                       title_msg.lower(),
+                                       "<b>" + title_msg.lower() + "</b>"),
                     parse_mode="html",
                     reply_markup=main_keyboard(),
                 )
@@ -643,22 +645,20 @@ def process_title(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "help"))
 def aid(message):
-    text = (
-        "These keywords can be used to control me - \n\n"
-        "<b>Primary</b> \n"
-        "Definition 📖 - fetches definition of a word \n"
-        "Title 🖊️️ - fetches a bunch of related titles\n"
-        "URL 🔗 - gives the URL of wiki page of the word \n"
-        "Prefix 🔡 - show all available languages \n"
-        "Language 🔣 - set the language you want \n\n"
-        "<b>Secondary</b> \n"
-        "Nearby 📍 - locations near a coordinate \n"
-        "Map 🗺️ - location in map with wiki database \n"
-        "Random 🔀 - pops a random article from wiki \n\n"
-        "<b>Extra</b> \n"
-        "Fluky 💫 - fetches a random title from wiki \n"
-        "Suggest 💡 - returns a suggested word if found \n"
-    )
+    text = ("These keywords can be used to control me - \n\n"
+            "<b>Primary</b> \n"
+            "Definition 📖 - fetches definition of a word \n"
+            "Title 🖊️️ - fetches a bunch of related titles\n"
+            "URL 🔗 - gives the URL of wiki page of the word \n"
+            "Prefix 🔡 - show all available languages \n"
+            "Language 🔣 - set the language you want \n\n"
+            "<b>Secondary</b> \n"
+            "Nearby 📍 - locations near a coordinate \n"
+            "Map 🗺️ - location in map with wiki database \n"
+            "Random 🔀 - pops a random article from wiki \n\n"
+            "<b>Extra</b> \n"
+            "Fluky 💫 - fetches a random title from wiki \n"
+            "Suggest 💡 - returns a suggested word if found \n")
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -696,9 +696,9 @@ def process_url(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "language"))
 def ln(message):
-    ln_msg = bot.reply_to(
-        message, "Type the prefix of your <b>language</b>...", parse_mode="html"
-    )
+    ln_msg = bot.reply_to(message,
+                          "Type the prefix of your <b>language</b>...",
+                          parse_mode="html")
     bot.register_next_step_handler(ln_msg, process_ln)
 
 
@@ -715,8 +715,7 @@ def process_ln(message):
             text = (
                 "Please, check for the correct <a href="
                 '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-                ">prefix</a>."
-            )
+                ">prefix</a>.")
         bot.send_message(
             chat_id=message.chat.id,
             text=text,
@@ -733,12 +732,10 @@ def process_ln(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "support"))
 def support(message):
-    text = (
-        "Support commands that I provide -  \n\n"
-        "Bugs 🐛 - to report bugs or suggest mods\n"
-        "Dev 🧑🏻‍💻️ - provides information about my creator\n"
-        "Source 💻️ - to view the source code"
-    )
+    text = ("Support commands that I provide -  \n\n"
+            "Bugs 🐛 - to report bugs or suggest mods\n"
+            "Dev 🧑🏻‍💻️ - provides information about my creator\n"
+            "Source 💻️ - to view the source code")
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -752,8 +749,7 @@ def prefix(message):
     text = (
         "Language is set with the help of it's Prefix. \n<b>Example</b> - English:en<a "
         'href="https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-        ">.</a>"
-    )
+        ">.</a>")
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -780,7 +776,9 @@ def randomize(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "map"))
 def chart(message):
-    co_msg = bot.reply_to(message, "<b>Location</b> of the place...", parse_mode="html")
+    co_msg = bot.reply_to(message,
+                          "<b>Location</b> of the place...",
+                          parse_mode="html")
     bot.register_next_step_handler(co_msg, process_co)
 
 
@@ -789,9 +787,8 @@ def process_co(message):
         co_msg = str(message.text)
         set_lang("en")
         lat, lon = WikipediaPage(co_msg).coordinates
-        bot.send_message(
-            chat_id=message.chat.id, text=str(round(lat, 5)) + ", " + str(round(lon, 5))
-        )
+        bot.send_message(chat_id=message.chat.id,
+                         text=str(round(lat, 5)) + ", " + str(round(lon, 5)))
         bot.send_location(
             chat_id=message.chat.id,
             latitude=lat,
@@ -808,28 +805,23 @@ def process_co(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "nearby"))
 def geo(message):
-    geo_msg = bot.reply_to(
-        message, "Send me the <b>coordinates</b>...", parse_mode="html"
-    )
+    geo_msg = bot.reply_to(message,
+                           "Send me the <b>coordinates</b>...",
+                           parse_mode="html")
     bot.register_next_step_handler(geo_msg, process_geo)
 
 
 def process_geo(message):
     try:
-        lat, lan = (
-            str(message.text)
-            .replace("E", "")
-            .replace("W", "")
-            .replace("N", "")
-            .replace("S", "")
-            .replace("° ", "")
-            .replace("°", "")
-            .replace(",", "")
-            .replace("  ", " ")
-            .split(" ")
-        )
+        lat, lan = (str(message.text).replace("E", "").replace(
+            "W",
+            "").replace("N", "").replace("S", "").replace("° ", "").replace(
+                "°", "").replace(",", "").replace("  ", " ").split(" "))
         set_lang("en")
-        locations = geosearch(latitude=lat, longitude=lan, results=10, radius=1000)
+        locations = geosearch(latitude=lat,
+                              longitude=lan,
+                              results=10,
+                              radius=1000)
         if locations:
             nearby = "<b>Nearby locations</b> are..."
             bot.send_message(
@@ -839,14 +831,14 @@ def process_geo(message):
                 reply_markup=main_keyboard(),
             )
             for i in locations:
-                bot.send_message(
-                    chat_id=message.chat.id, text=i, reply_markup=main_keyboard()
-                )
+                bot.send_message(chat_id=message.chat.id,
+                                 text=i,
+                                 reply_markup=main_keyboard())
         else:
             sorry = "Sorry, can't find nearby locations"
-            bot.send_message(
-                chat_id=message.chat.id, text=sorry, reply_markup=main_keyboard()
-            )
+            bot.send_message(chat_id=message.chat.id,
+                             text=sorry,
+                             reply_markup=main_keyboard())
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
@@ -860,9 +852,9 @@ def process_geo(message):
 def fluky(message):
     change_lan(message)
     fluky_title = random(pages=1)
-    bot.send_message(
-        chat_id=message.chat.id, text=fluky_title, reply_markup=extra_keyboard()
-    )
+    bot.send_message(chat_id=message.chat.id,
+                     text=fluky_title,
+                     reply_markup=extra_keyboard())
 
 
 @bot.message_handler(func=lambda message: check(message.text, "back"))
@@ -877,9 +869,9 @@ def back(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "suggest"))
 def suggestion(message):
-    suggest_msg = bot.reply_to(
-        message, "<b>Suggestion</b> for the word...", parse_mode="html"
-    )
+    suggest_msg = bot.reply_to(message,
+                               "<b>Suggestion</b> for the word...",
+                               parse_mode="html")
     bot.register_next_step_handler(suggest_msg, process_suggest)
 
 
@@ -910,10 +902,8 @@ def process_suggest(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "bug"))
 def bug(message):
-    text = (
-        "Submit a Issue or Revision<a "
-        'href="https://github.com/themagicalmammal/wikibot/issues">.</a> '
-    )
+    text = ("Submit a Issue or Revision<a "
+            'href="https://github.com/themagicalmammal/wikibot/issues">.</a> ')
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -924,10 +914,8 @@ def bug(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "dev"))
 def dev(message):
-    text = (
-        "I was made with ❤ by @themagicalmammal"
-        '<a href="https://github.com/themagicalmammal">.</a>'
-    )
+    text = ("I was made with ❤ by @themagicalmammal"
+            '<a href="https://github.com/themagicalmammal">.</a>')
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -938,10 +926,8 @@ def dev(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "source"))
 def source(message):
-    text = (
-        "Checkout out How I was made"
-        '<a href="https://github.com/themagicalmammal/wikibot">.</a>'
-    )
+    text = ("Checkout out How I was made"
+            '<a href="https://github.com/themagicalmammal/wikibot">.</a>')
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -974,8 +960,7 @@ def unrecognized(message):
 @server.route("/" + TOKEN, methods=["POST"])
 def establish():
     bot.process_new_updates(
-        [types.Update.de_json(request.stream.read().decode("utf-8"))]
-    )
+        [types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
 
