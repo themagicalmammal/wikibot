@@ -770,7 +770,7 @@ def randomize(message):
             parse_mode="html",
             reply_markup=main_keyboard(),
         )
-    except:
+    except BaseException:
         randomize(message)
 
 
