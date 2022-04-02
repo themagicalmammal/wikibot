@@ -7,24 +7,42 @@
   "separateMinorPatch": true,
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch", "pin", "digest", "devDependencies"],
+      "updateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "devDependencies"
+      ],
       "automerge": true
     },
     {
-      "depTypeList": ["devDependencies"],
-      "updateTypes": ["patch"],
+      "depTypeList": [
+        "devDependencies"
+      ],
+      "updateTypes": [
+        "patch"
+      ],
       "groupName": "devDependencies",
       "automerge": true
     },
     {
-      "depTypeList": ["devDependencies"],
-      "updateTypes": ["minor"],
+      "depTypeList": [
+        "devDependencies"
+      ],
+      "updateTypes": [
+        "minor"
+      ],
       "groupName": "devDependencies",
       "automerge": true
     },
     {
-      "depTypeList": ["dependencies"],
-      "updateTypes": ["patch"],
+      "depTypeList": [
+        "dependencies"
+      ],
+      "updateTypes": [
+        "patch"
+      ],
       "groupName": "Dependencies",
       "automerge": true
     }
