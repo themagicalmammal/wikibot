@@ -17,8 +17,8 @@ from wikipedia import (
 # Firebase connection
 cred = credentials.Certificate("firebase.json")  # Firebase key
 initialize_app(
-    cred, {"databaseURL": "https://yourappname-user-default-rtdb.firebaseio.com/"}
-)
+    cred, {
+        "databaseURL": "https://yourappname-user-default-rtdb.firebaseio.com/"})
 ref = db.reference("/")
 z = ref.get()
 
@@ -570,7 +570,10 @@ def welcome(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "definition"))
 def definition(message):
-    def_msg = bot.reply_to(message, "<b>Definition</b>" + word, parse_mode="html")
+    def_msg = bot.reply_to(
+        message,
+        "<b>Definition</b>" + word,
+        parse_mode="html")
     bot.register_next_step_handler(def_msg, process_definition)
 
 
@@ -619,9 +622,15 @@ def process_title(message):
             for i in title_result:
                 bot.send_message(
                     chat_id=message.chat.id,
-                    text=i.replace(title_msg, "<b>" + title_msg + "</b>").replace(
-                        title_msg.lower(), "<b>" + title_msg.lower() + "</b>"
-                    ),
+                    text=i.replace(
+                        title_msg,
+                        "<b>" +
+                        title_msg +
+                        "</b>").replace(
+                        title_msg.lower(),
+                        "<b>" +
+                        title_msg.lower() +
+                        "</b>"),
                     parse_mode="html",
                     reply_markup=main_keyboard(),
                 )
@@ -697,8 +706,9 @@ def process_url(message):
 @bot.message_handler(func=lambda message: check(message.text, "language"))
 def ln(message):
     ln_msg = bot.reply_to(
-        message, "Type the prefix of your <b>language</b>...", parse_mode="html"
-    )
+        message,
+        "Type the prefix of your <b>language</b>...",
+        parse_mode="html")
     bot.register_next_step_handler(ln_msg, process_ln)
 
 
@@ -715,8 +725,7 @@ def process_ln(message):
             text = (
                 "Please, check for the correct <a href="
                 '"https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-                ">prefix</a>."
-            )
+                ">prefix</a>.")
         bot.send_message(
             chat_id=message.chat.id,
             text=text,
@@ -752,8 +761,7 @@ def prefix(message):
     text = (
         "Language is set with the help of it's Prefix. \n<b>Example</b> - English:en<a "
         'href="https://github.com/themagicalmammal/wikibot/blob/master/Lang.md"'
-        ">.</a>"
-    )
+        ">.</a>")
     bot.send_message(
         chat_id=message.chat.id,
         text=text,
@@ -780,7 +788,10 @@ def randomize(message):
 
 @bot.message_handler(func=lambda message: check(message.text, "map"))
 def chart(message):
-    co_msg = bot.reply_to(message, "<b>Location</b> of the place...", parse_mode="html")
+    co_msg = bot.reply_to(
+        message,
+        "<b>Location</b> of the place...",
+        parse_mode="html")
     bot.register_next_step_handler(co_msg, process_co)
 
 
@@ -789,9 +800,8 @@ def process_co(message):
         co_msg = str(message.text)
         set_lang("en")
         lat, lon = WikipediaPage(co_msg).coordinates
-        bot.send_message(
-            chat_id=message.chat.id, text=str(round(lat, 5)) + ", " + str(round(lon, 5))
-        )
+        bot.send_message(chat_id=message.chat.id, text=str(
+            round(lat, 5)) + ", " + str(round(lon, 5)))
         bot.send_location(
             chat_id=message.chat.id,
             latitude=lat,
@@ -829,7 +839,11 @@ def process_geo(message):
             .split(" ")
         )
         set_lang("en")
-        locations = geosearch(latitude=lat, longitude=lan, results=10, radius=1000)
+        locations = geosearch(
+            latitude=lat,
+            longitude=lan,
+            results=10,
+            radius=1000)
         if locations:
             nearby = "<b>Nearby locations</b> are..."
             bot.send_message(
@@ -840,13 +854,15 @@ def process_geo(message):
             )
             for i in locations:
                 bot.send_message(
-                    chat_id=message.chat.id, text=i, reply_markup=main_keyboard()
-                )
+                    chat_id=message.chat.id,
+                    text=i,
+                    reply_markup=main_keyboard())
         else:
             sorry = "Sorry, can't find nearby locations"
             bot.send_message(
-                chat_id=message.chat.id, text=sorry, reply_markup=main_keyboard()
-            )
+                chat_id=message.chat.id,
+                text=sorry,
+                reply_markup=main_keyboard())
     except Exception:
         bot.send_message(
             chat_id=message.chat.id,
@@ -861,8 +877,9 @@ def fluky(message):
     change_lan(message)
     fluky_title = random(pages=1)
     bot.send_message(
-        chat_id=message.chat.id, text=fluky_title, reply_markup=extra_keyboard()
-    )
+        chat_id=message.chat.id,
+        text=fluky_title,
+        reply_markup=extra_keyboard())
 
 
 @bot.message_handler(func=lambda message: check(message.text, "back"))
