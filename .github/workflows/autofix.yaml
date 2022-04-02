@@ -1,0 +1,5 @@
+name: Autofix
+on: push
+jobs:
+  autofix:
+    uses: kdeldycke/workflows/.github/workflows/autofix.yaml@v1.1.0

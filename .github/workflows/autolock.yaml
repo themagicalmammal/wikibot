@@ -1,0 +1,5 @@
+name: Autolock
+on: push
+jobs:
+  autolock:
+    uses: kdeldycke/workflows/.github/workflows/autolock.yaml@v1.1.0

@@ -1,0 +1,48 @@
+name: autoblack
+
+on:
+  push:
+    paths:
+    - '**.py'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Create requirements.txt for cache
+        run: echo "black" > requirements.txt
+
+      - name: Cache pip
+        uses: actions/cache@v2
+        with:
+          # This path is specific to Ubuntu
+          path: ~/.cache/pip
+          # Look to see if there is a cache hit for the corresponding requirements file
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
+
+
+      - name: Install Black
+        run: pip install -r requirements.txt
+
+      - name: Run black and commit changes if needed
+        run: |
+          if ! black --check -q . ; then
+              black .
+              git config user.name autoblack
+              git config user.email 17837523+RhysDeimel@users.noreply.github.com
+              git add .
+              git commit -m "fmt: autoblack'd"
+              git push
+          fi
