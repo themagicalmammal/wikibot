@@ -1,9 +1,9 @@
 <p align="center">
  <a href="https://deepsource.io/gh/themagicalmammal/wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/wikibot.svg/?label=active+issues&show_trend=true"/></a>
 <a href="https://deepsource.io/gh/themagicalmammal/wikibot/?ref=repository-badge" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/themagicalmammal/wikibot.svg/?label=resolved+issues&show_trend=true"/></a> <br >
-<a href="https://github.com/themagicalmammal/wikibot"><img src="https://github.com/themagicalmammal/wikibot/blob/master/Resources/logo.gif" width='527'/></a> 
+<a href="https://github.com/themagicalmammal/wikibot"><img src="Resources/logo.gif" width='527'/></a> 
 <br />
-<a href="https://github.com/themagicalmammal/wikibot/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-darkviolet"/></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3+-darkviolet.svg"/></a>
 <a href="https://github.com/themagicalmammal/wikibot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/Support-active-darkviolet.svg"/></a>
@@ -17,7 +17,7 @@ This :robot: is made in python with the help of the Wiki library.
 
 ### Table of Contents
 
-- [Intro](#Intro)
+- [Intro](#intro)
 - [Bot Commands](#bot-commands)
   - [Def](#1-def)
   - [Title](#2-title)
@@ -35,7 +35,7 @@ This :robot: is made in python with the help of the Wiki library.
 While researching about bots, I found out that, there existed no bot that could do more than showing the definition of a word. But, Wiki can do a lot more than just showing a definition. Thus, this bot was made with the sole purpose of showing what Wiki can do.  <br />
 
 <p align="center">
-<a href="https://telegram.me/pro_wikibot"><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/info.png"/></a>
+<a href="https://telegram.me/pro_wikibot"><img src="References/info.png"/></a>
 </p>
 
 ## Bot Commands
@@ -49,7 +49,7 @@ Short form of definition. Fetches wiki definition for your word.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/def.gif"/></a>
+<a><img src="References/def.gif" width="500"/></a>
 </p>
 
 ### 2. Title
@@ -61,7 +61,7 @@ Shows a list of possible titles that you can search from a word.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/title.gif"/></a>
+<a><img src="References/title.gif" width="500"/></a>
 </p>
 
 ### 3. URL
@@ -73,7 +73,7 @@ Provides you with the URL of the wiki page for a word.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/url.gif"/></a>
+<a><img src="References/url.gif" width="500"/></a>
 </p>
 
 ### 4. Lang
@@ -86,7 +86,7 @@ Change to your local language which will be used for every wiki output.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/lang.gif"/></a>
+<a><img src="References/lang.gif" width="500"/></a>
 </p>
 
 ### 5. Map
@@ -98,7 +98,7 @@ Provides you with the location of your input place with Wiki-API.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/map.gif"/></a>
+<a><img src="References/map.gif" width="500"/></a>
 </p>
 
 ### 6. Nearby
@@ -110,7 +110,7 @@ With the help of coordinates provides you with nearby locations under 1km.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/nearby.gif"/></a>
+<a><img src="References/nearby.gif" width="500"/></a>
 </p>
 
 ### 7. Random
@@ -122,7 +122,7 @@ Sends you a random wiki link.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/random.gif"/></a>
+<a><img src="References/random.gif" width="500"/></a>
 </p>
 
 ### 8. Others
@@ -140,7 +140,7 @@ Some other set of commands that wikibot provides.
 ```
 
 <p align="center">
-<a><img src="https://github.com/themagicalmammal/wikibot/blob/master/References/other.gif"/></a>
+<a><img src="References/other.gif" width="500"/></a>
 </p>
 
 ## Test
