@@ -8,6 +8,9 @@
 <a href="https://github.com/themagicalmammal/wikibot/pulls"><img src="https://img.shields.io/badge/PRs-welcome-darkviolet.svg"/></a>
 <a href="https://telegram.me/themagicalmammal"><img src="https://img.shields.io/badge/Support-active-darkviolet.svg"/></a>
 <br />
+<a href="https://lgtm.com/projects/g/themagicalmammal/wikibot/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/themagicalmammal/wikibot.svg?logo=lgtm&logoWidth=18"/></a>
+<a href="https://lgtm.com/projects/g/themagicalmammal/wikibot/context:python"><img alt="Language grade: Python" src="https://img.shields.io/lgtm/grade/python/g/themagicalmammal/wikibot.svg?logo=lgtm&logoWidth=18"/></a>
+<br />
 This :robot: is made in python with the help of the Wiki library.
 <br /> <br />
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/></a>
