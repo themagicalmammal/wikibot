@@ -23,7 +23,7 @@ This :robot: is made in python with the help of the Wiki library.
 While exploring bots, I discovered that there were no bot(s) that could do more than display the definition of a term. However, Wikipedia can do much more than simply display a definition. As a result, this bot was created solely to demonstrate what Wiki can do.  <br />
 
 <p align="center">
-<a href="https://telegram.me/pro_wikibot"><img src="References/info.png"/></a>
+<a href="https://telegram.me/pro_wikibot"><img src="Resources/info.png"/></a>
 </p>
 
 ## Test
